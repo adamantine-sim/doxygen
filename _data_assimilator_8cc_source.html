@@ -512,7 +512,7 @@ $(function() {
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  <span class="comment">// members in parallel</span></div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  std::transform(</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      perturbed_innovation.begin(), perturbed_innovation.end(), <a class="code" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8">output</a>.begin(),</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      [&amp;](dealii::Vector&lt;double&gt; entry)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      [&amp;](dealii::Vector&lt;double&gt; <span class="keyword">const</span> &amp;entry)</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      {</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        dealii::SolverGMRES&lt;dealii::Vector&lt;double&gt;&gt; HPH_plus_R_inv_solver(</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            solver_control, additional_data);</div>
@@ -545,9 +545,9 @@ $(function() {
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;dealii::SparseMatrix&lt;double&gt;</div>
 <div class="line"><a name="l00475"></a><span class="lineno"><a class="line" href="classadamantine_1_1_data_assimilator.html#aeb0f621afcc24939d270c2850d9f628e">  475</a></span>&#160;DataAssimilator::calc_H(dealii::SparsityPattern &amp;pattern)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  <span class="keywordtype">int</span> num_expt_dof_map_entries = _expt_to_dof_mapping.first.size();</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> num_expt_dof_map_entries = _expt_to_dof_mapping.first.size();</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; num_expt_dof_map_entries; ++i)</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; num_expt_dof_map_entries; ++i)</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;  {</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keyword">auto</span> sim_index = _expt_to_dof_mapping.second[i];</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keyword">auto</span> expt_index = _expt_to_dof_mapping.first[i];</div>
@@ -558,7 +558,7 @@ $(function() {
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  dealii::SparseMatrix&lt;double&gt; H(pattern);</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160; </div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; num_expt_dof_map_entries; ++i)</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; num_expt_dof_map_entries; ++i)</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  {</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keyword">auto</span> sim_index = _expt_to_dof_mapping.second[i];</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keyword">auto</span> expt_index = _expt_to_dof_mapping.first[i];</div>

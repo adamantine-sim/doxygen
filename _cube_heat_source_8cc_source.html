@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">double</span> power_scaling = 1.;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordflow">if</span> (units_optional_database)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> database = units_optional_database.get();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> <span class="keyword">const</span> &amp;database = units_optional_database.get();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// PropertyTreeInput units.scan_path_distance</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string unit = database.get(<span class="stringliteral">&quot;heat_source.dimension&quot;</span>, <span class="stringliteral">&quot;meter&quot;</span>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    dimension_scaling = <a class="code" href="namespaceadamantine.html#a536887cb7149e54b2b3e9af2a03bd780">g_unit_scaling_factor</a>[unit];</div>
