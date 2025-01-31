@@ -93,6 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2664c07747b52e53da8df9fc8ae495f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eeaaa018a129cd9a4cd4d518d3544f7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a4eeaaa018a129cd9a4cd4d518d3544f7">value</a> (dealii::Point&lt; dim &gt; const &amp;point, double const height) const final</td></tr>
 <tr class="separator:a4eeaaa018a129cd9a4cd4d518d3544f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab389e694589fafa64d01342df0f16889"><td class="memItemLeft" align="right" valign="top">dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#ab389e694589fafa64d01342df0f16889">get_bounding_box</a> (double const scaling_factor) const final</td></tr>
+<tr class="separator:ab389e694589fafa64d01342df0f16889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classadamantine_1_1_heat_source"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadamantine_1_1_heat_source')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource&lt; dim &gt;</a></td></tr>
 <tr class="memitem:ae59ebc2fa466ea513ed17b25f2727d5d inherit pub_methods_classadamantine_1_1_heat_source"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#ae59ebc2fa466ea513ed17b25f2727d5d">HeatSource</a> ()=default</td></tr>
 <tr class="separator:ae59ebc2fa466ea513ed17b25f2727d5d inherit pub_methods_classadamantine_1_1_heat_source"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +185,39 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab389e694589fafa64d01342df0f16889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab389e694589fafa64d01342df0f16889">&#9670;&nbsp;</a></span>get_bounding_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::BoundingBox&lt; dim &gt; <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html">adamantine::ElectronBeamHeatSource</a>&lt; dim &gt;::get_bounding_box </td>
+          <td>(</td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>scaling_factor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return a scaled bounding box of the heat source. </p>
+
+<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#aebaa29b87b3edf5c04d5791d1e0e57d6">adamantine::HeatSource&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8cc_source.html#l00065">65</a> of file <a class="el" href="_electron_beam_heat_source_8cc_source.html">ElectronBeamHeatSource.cc</a>.</p>
+
+</div>
+</div>
 <a id="a2664c07747b52e53da8df9fc8ae495f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2664c07747b52e53da8df9fc8ae495f4">&#9670;&nbsp;</a></span>update_time()</h2>
 
@@ -282,7 +317,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00055">55</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00058">58</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -308,7 +343,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00054">54</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00057">57</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -334,7 +369,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00056">56</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_electron_beam_heat_source_8hh_source.html#l00059">59</a> of file <a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>.</p>
 
 </div>
 </div>

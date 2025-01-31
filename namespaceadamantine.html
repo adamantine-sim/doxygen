@@ -240,8 +240,13 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad32f5cbfc366660c31d3cd0321e1d0af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ad32f5cbfc366660c31d3cd0321e1d0af">get_normal_random_vector</a> (unsigned int length, unsigned int n_rejected_draws, double mean, double stddev)</td></tr>
-<tr class="separator:ad32f5cbfc366660c31d3cd0321e1d0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">HeatSource</a>&lt; dim &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a> (std::vector&lt; boost::property_tree::ptree &gt; const &amp;database_ensemble, MPI_Comm global_communicator)</td></tr>
+<tr class="separator:ab48ddda866e524a74246db9d71d2e5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85637b596f417cd71dd6808d9d735454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">traverse</a> (boost::property_tree::ptree const &amp;ensemble_ptree, std::vector&lt; boost::property_tree::ptree &gt; &amp;database_ensemble, std::vector&lt; std::string &gt; &amp;keys, unsigned int &amp;n_rejected_draws, unsigned int local_ensemble_size, unsigned int global_ensemble_size, std::string const &amp;path=&quot;&quot;)</td></tr>
+<tr class="separator:a85637b596f417cd71dd6808d9d735454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2c7c5e73c8746bd135d09e10a3b602"><td class="memItemLeft" align="right" valign="top">std::vector&lt; boost::property_tree::ptree &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#aab2c7c5e73c8746bd135d09e10a3b602">create_database_ensemble</a> (boost::property_tree::ptree const &amp;database, MPI_Comm local_communicator, unsigned int first_local_member, unsigned int local_ensemble_size, unsigned int global_ensemble_size)</td></tr>
+<tr class="separator:aab2c7c5e73c8746bd135d09e10a3b602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12d6157f2693e3b6b9d87f8f515c09b0"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
 <tr class="memitem:a12d6157f2693e3b6b9d87f8f515c09b0"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; dealii::types::global_dof_index &gt;, std::vector&lt; dealii::Point&lt; dim &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a12d6157f2693e3b6b9d87f8f515c09b0">get_dof_to_support_mapping</a> (dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler)</td></tr>
 <tr class="separator:a12d6157f2693e3b6b9d87f8f515c09b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -358,7 +363,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a87355199f63cae09e27b9519f062f1dfa773967896a57e3f06ef5396b32ea1202"></a>beam_0_max_power&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00039">39</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00038">38</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -411,7 +416,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ae6f0841ed43262ef1175e2b6075cd66fa334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00032">32</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00031">31</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -621,6 +626,55 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aab2c7c5e73c8746bd135d09e10a3b602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab2c7c5e73c8746bd135d09e10a3b602">&#9670;&nbsp;</a></span>create_database_ensemble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; boost::property_tree::ptree &gt; adamantine::create_database_ensemble </td>
+          <td>(</td>
+          <td class="paramtype">boost::property_tree::ptree const &amp;&#160;</td>
+          <td class="paramname"><em>database</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>local_communicator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>first_local_member</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>local_ensemble_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>global_ensemble_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Given an input property tree <code>database</code>, return <code>local_ensemble_size</code> databases each one modified to respect the standard deviation of each quantity (if provided). </p>
+
+<p class="definition">Definition at line <a class="el" href="ensemble__management_8cc_source.html#l00213">213</a> of file <a class="el" href="ensemble__management_8cc_source.html">ensemble_management.cc</a>.</p>
+
+</div>
+</div>
 <a id="a63d61fc232493ad07b578e00db11b7e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63d61fc232493ad07b578e00db11b7e8">&#9670;&nbsp;</a></span>create_material_deposition_boxes() <span class="overload">[1/3]</span></h2>
 
@@ -740,6 +794,39 @@ template&lt;int dim&gt; </div>
 <p>Return the bounding boxes, the deposition times, the cosine of the deposition angles, and the sine of deposition angles based on the scan path. </p>
 
 <p class="definition">Definition at line <a class="el" href="material__deposition_8cc_source.html#l00132">132</a> of file <a class="el" href="material__deposition_8cc_source.html">material_deposition.cc</a>.</p>
+
+</div>
+</div>
+<a id="ab48ddda866e524a74246db9d71d2e5a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab48ddda866e524a74246db9d71d2e5a9">&#9670;&nbsp;</a></span>get_bounding_heat_sources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">HeatSource</a>&lt; dim &gt; &gt; &gt; adamantine::get_bounding_heat_sources </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; boost::property_tree::ptree &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>property_trees</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>global_communicator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the sources encompassing all the sources of the different ensemble members. </p>
+
+<p class="definition">Definition at line <a class="el" href="ensemble__management_8cc_source.html#l00056">56</a> of file <a class="el" href="ensemble__management_8cc_source.html">ensemble_management.cc</a>.</p>
 
 </div>
 </div>
@@ -977,49 +1064,6 @@ template&lt;int dim&gt; </div>
 <p>Get the pair of vectors that map the experimental observation indices to the dof indices. </p>
 
 <p class="definition">Definition at line <a class="el" href="experimental__data__utils_8cc_source.html#l00069">69</a> of file <a class="el" href="experimental__data__utils_8cc_source.html">experimental_data_utils.cc</a>.</p>
-
-</div>
-</div>
-<a id="ad32f5cbfc366660c31d3cd0321e1d0af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad32f5cbfc366660c31d3cd0321e1d0af">&#9670;&nbsp;</a></span>get_normal_random_vector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt; adamantine::get_normal_random_vector </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>length</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n_rejected_draws</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mean</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>stddev</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return a vector of size <code>length</code>, with random values drawn following a normal distribution of average <code>mean</code> and standard deviation <code>stddev</code>. The first <code>n_rejected_draws</code> are rejected. <code>n_rejected_draws</code> is used to ensure that wether we use one MPI rank or ten, we use the same random numbers. If we don't reject the first few draws, all the processors will use the same "random" numbers since they have the same seed. </p>
-
-<p class="definition">Definition at line <a class="el" href="ensemble__management_8cc_source.html#l00010">10</a> of file <a class="el" href="ensemble__management_8cc_source.html">ensemble_management.cc</a>.</p>
 
 </div>
 </div>
@@ -1453,6 +1497,66 @@ template&lt;int dim&gt; </div>
 <p>Fill the <code>temperature</code> Vector given <code>points_values</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="experimental__data__utils_8cc_source.html#l00108">108</a> of file <a class="el" href="experimental__data__utils_8cc_source.html">experimental_data_utils.cc</a>.</p>
+
+</div>
+</div>
+<a id="a85637b596f417cd71dd6808d9d735454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85637b596f417cd71dd6808d9d735454">&#9670;&nbsp;</a></span>traverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adamantine::traverse </td>
+          <td>(</td>
+          <td class="paramtype">boost::property_tree::ptree const &amp;&#160;</td>
+          <td class="paramname"><em>ensemble_ptree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; boost::property_tree::ptree &gt; &amp;&#160;</td>
+          <td class="paramname"><em>database_ensemble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>keys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>n_rejected_draws</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>local_ensemble_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>global_ensemble_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>path</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ensemble__management_8cc_source.html#l00166">166</a> of file <a class="el" href="ensemble__management_8cc_source.html">ensemble_management.cc</a>.</p>
 
 </div>
 </div>

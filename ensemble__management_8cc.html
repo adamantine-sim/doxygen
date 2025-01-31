@@ -72,8 +72,13 @@ $(function() {
 <div class="title">ensemble_management.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="ensemble__management_8hh_source.html">ensemble_management.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_cube_heat_source_8hh_source.html">CubeHeatSource.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_electron_beam_heat_source_8hh_source.html">ElectronBeamHeatSource.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="ensemble__management_8hh_source.html">ensemble_management.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="utils_8hh_source.html">utils.hh</a>&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
 </div>
 <p><a href="ensemble__management_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -84,8 +89,13 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad32f5cbfc366660c31d3cd0321e1d0af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ad32f5cbfc366660c31d3cd0321e1d0af">adamantine::get_normal_random_vector</a> (unsigned int length, unsigned int n_rejected_draws, double mean, double stddev)</td></tr>
-<tr class="separator:ad32f5cbfc366660c31d3cd0321e1d0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; HeatSource&lt; dim &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">adamantine::get_bounding_heat_sources</a> (std::vector&lt; boost::property_tree::ptree &gt; const &amp;database_ensemble, MPI_Comm global_communicator)</td></tr>
+<tr class="separator:ab48ddda866e524a74246db9d71d2e5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85637b596f417cd71dd6808d9d735454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">adamantine::traverse</a> (boost::property_tree::ptree const &amp;ensemble_ptree, std::vector&lt; boost::property_tree::ptree &gt; &amp;database_ensemble, std::vector&lt; std::string &gt; &amp;keys, unsigned int &amp;n_rejected_draws, unsigned int local_ensemble_size, unsigned int global_ensemble_size, std::string const &amp;path=&quot;&quot;)</td></tr>
+<tr class="separator:a85637b596f417cd71dd6808d9d735454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2c7c5e73c8746bd135d09e10a3b602"><td class="memItemLeft" align="right" valign="top">std::vector&lt; boost::property_tree::ptree &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#aab2c7c5e73c8746bd135d09e10a3b602">adamantine::create_database_ensemble</a> (boost::property_tree::ptree const &amp;database, MPI_Comm local_communicator, unsigned int first_local_member, unsigned int local_ensemble_size, unsigned int global_ensemble_size)</td></tr>
+<tr class="separator:aab2c7c5e73c8746bd135d09e10a3b602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -69,41 +69,289 @@ $(function() {
 <div class="title">ensemble_management.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ensemble__management_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2021-2024, the adamantine authors.</span></div>
+<a href="ensemble__management_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2021-2025, the adamantine authors.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ensemble__management_8hh.html">ensemble_management.hh</a>&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="utils_8hh.html">utils.hh</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceadamantine.html#ad32f5cbfc366660c31d3cd0321e1d0af">   10</a></span>&#160;std::vector&lt;double&gt; <a class="code" href="namespaceadamantine.html#ad32f5cbfc366660c31d3cd0321e1d0af">get_normal_random_vector</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                                             <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_rejected_draws,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                             <span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="utils_8hh.html#aa06eedd6f738a415870e97a375337d51">ASSERT</a>(stddev &gt;= 0., <span class="stringliteral">&quot;Internal Error&quot;</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::mt19937 pseudorandom_number_generator;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::normal_distribution&lt;&gt; normal_dist_generator(mean, stddev);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_rejected_draws; ++i)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    normal_dist_generator(pseudorandom_number_generator);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::vector&lt;double&gt; output_vector(length);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; length; ++i)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    output_vector[i] = normal_dist_generator(pseudorandom_number_generator);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">return</span> output_vector;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_cube_heat_source_8hh.html">CubeHeatSource.hh</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_electron_beam_heat_source_8hh.html">ElectronBeamHeatSource.hh</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_goldak_heat_source_8hh.html">GoldakHeatSource.hh</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="ensemble__management_8hh.html">ensemble_management.hh</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="utils_8hh.html">utils.hh</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;std::vector&lt;double&gt; get_normal_random_vector(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                             <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_rejected_draws,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                             <span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                             <span class="keywordtype">bool</span> verbose)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="utils_8hh.html#aa06eedd6f738a415870e97a375337d51">ASSERT</a>(stddev &gt;= 0., <span class="stringliteral">&quot;Internal Error&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  std::mt19937 pseudorandom_number_generator;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::normal_distribution&lt;&gt; normal_dist_generator(mean, stddev);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_rejected_draws; ++i)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    normal_dist_generator(pseudorandom_number_generator);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  std::vector&lt;double&gt; output_vector(length);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; length; ++i)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// We reject negative values because physical quantities we care about are</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// all positive and we cannot guarantee that the normal distribution will</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// always be positive.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">do</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      output_vector[i] = normal_dist_generator(pseudorandom_number_generator);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordflow">if</span> (verbose &amp;&amp; output_vector[i] &lt; 0.)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Random value rejected because it was negative: &quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                  &lt;&lt; output_vector[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    } <span class="keywordflow">while</span> (output_vector[i] &lt; 0.);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">return</span> output_vector;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">   56</a></span>&#160;std::vector&lt;std::shared_ptr&lt;HeatSource&lt;dim&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;database_ensemble,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    MPI_Comm global_communicator)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// To bound the volumes of the Goldak and electron beam sources, we just need</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// to know their diameter and their depths. This is not enough for the cube</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// source but because the source is static and only use for testing, we just</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// assume that the source is identical for all ensemble members.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// Use a std::vector instead of std::pair so deal.II can serialize the object.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::vector&lt;std::vector&lt;std::vector&lt;double&gt;&gt;&gt; diameter_depth_ensemble;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;database : database_ensemble)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;std::vector&lt;double&gt;&gt; diameter_depth_beams;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    boost::property_tree::ptree <span class="keyword">const</span> &amp;source_database =</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        database.get_child(<span class="stringliteral">&quot;sources&quot;</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// PropertyTreeInput sources.n_beams</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_beams = source_database.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;n_beams&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_beams; ++i)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      boost::property_tree::ptree <span class="keyword">const</span> &amp;beam_database =</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          source_database.get_child(<span class="stringliteral">&quot;beam_&quot;</span> + std::to_string(i));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="comment">// PropertyTreeInput sources.beam_X.type</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      std::string type = beam_database.get&lt;std::string&gt;(<span class="stringliteral">&quot;type&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordflow">if</span> (type != <span class="stringliteral">&quot;cube&quot;</span>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">// PropertyTreeInput sources.beam_X.diameter</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">double</span> diameter = beam_database.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;diameter&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">// PropertyTreeInput sources.beam_X.depth</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">double</span> depth = beam_database.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;diameter&quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        diameter_depth_beams.push_back({diameter, depth});</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    diameter_depth_ensemble.push_back(diameter_depth_beams);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment">// Use all_gather to communicate the diameters and the depths</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">auto</span> all_diameter_depth = dealii::Utilities::MPI::all_gather(</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      global_communicator, diameter_depth_ensemble);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// Compute the maximum diameter and depth</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  std::vector&lt;double&gt; diameter_max(diameter_depth_ensemble[0].size(), -1.);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  std::vector&lt;double&gt; depth_max(diameter_depth_ensemble[0].size(), -1.);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;diameter_depth_rank : all_diameter_depth)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> member = 0; member &lt; diameter_depth_rank.size(); ++member)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> beam = 0; beam &lt; diameter_depth_rank[member].size();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;           ++beam)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">if</span> (diameter_depth_rank[member][beam][0] &gt; diameter_max[beam])</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;          diameter_max[beam] = diameter_depth_rank[member][beam][0];</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> (diameter_depth_rank[member][beam][1] &gt; depth_max[beam])</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;          depth_max[beam] = diameter_depth_rank[member][beam][1];</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// Get the units database</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  boost::optional&lt;boost::property_tree::ptree const &amp;&gt; units_optional_database =</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      database_ensemble[0].get_child_optional(<span class="stringliteral">&quot;units&quot;</span>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// Create the bounding sources</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  boost::property_tree::ptree <span class="keyword">const</span> &amp;source_database =</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      database_ensemble[0].get_child(<span class="stringliteral">&quot;sources&quot;</span>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">// PropertyTreeInput sources.n_beams</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_beams = source_database.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;n_beams&quot;</span>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  std::vector&lt;std::shared_ptr&lt;HeatSource&lt;dim&gt;&gt;&gt; bounding_heat_sources(n_beams);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bounding_source = 0;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_beams; ++i)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    boost::property_tree::ptree <span class="keyword">const</span> &amp;beam_database =</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        source_database.get_child(<span class="stringliteral">&quot;beam_&quot;</span> + std::to_string(i));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">// PropertyTreeInput sources.beam_X.type</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    std::string type = beam_database.get&lt;std::string&gt;(<span class="stringliteral">&quot;type&quot;</span>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;goldak&quot;</span>)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      boost::property_tree::ptree modified_beam_database = beam_database;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      modified_beam_database.put(<span class="stringliteral">&quot;diameter&quot;</span>, diameter_max[bounding_source]);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      modified_beam_database.put(<span class="stringliteral">&quot;depth&quot;</span>, depth_max[bounding_source]);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      ++bounding_source;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      bounding_heat_sources[i] = std::make_shared&lt;GoldakHeatSource&lt;dim&gt;&gt;(</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          modified_beam_database, units_optional_database);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;electron_beam&quot;</span>)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      boost::property_tree::ptree modified_beam_database = beam_database;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      modified_beam_database.put(<span class="stringliteral">&quot;diameter&quot;</span>, diameter_max[bounding_source]);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      modified_beam_database.put(<span class="stringliteral">&quot;depth&quot;</span>, depth_max[bounding_source]);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      ++bounding_source;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      bounding_heat_sources[i] = std::make_shared&lt;ElectronBeamHeatSource&lt;dim&gt;&gt;(</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          modified_beam_database, units_optional_database);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;cube&quot;</span>)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      bounding_heat_sources[i] = std::make_shared&lt;CubeHeatSource&lt;dim&gt;&gt;(</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          beam_database, units_optional_database);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keywordflow">return</span> bounding_heat_sources;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">  166</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">traverse</a>(boost::property_tree::ptree <span class="keyword">const</span> &amp;ensemble_ptree,</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;              std::vector&lt;boost::property_tree::ptree&gt; &amp;database_ensemble,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;              std::vector&lt;std::string&gt; &amp;keys, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;n_rejected_draws,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> local_ensemble_size,</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> global_ensemble_size, std::string <span class="keyword">const</span> &amp;path = <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;[key, child] : ensemble_ptree)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    std::string full_path = path.empty() ? key : path + <span class="stringliteral">&quot;.&quot;</span> + key;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// If the child is empty, we have a full path</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">if</span> (child.empty())</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      <span class="comment">// Skip ensemble_simulation and ensemble_size</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="keywordflow">if</span> ((full_path == <span class="stringliteral">&quot;ensemble_simulation&quot;</span>) ||</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;          (full_path == <span class="stringliteral">&quot;ensemble_size&quot;</span>))</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="keywordtype">double</span> stddev = database_ensemble[0].get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;ensemble.&quot;</span> + full_path);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="comment">// The key in database_ensemble is full_path without the _stddev.</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      full_path.erase(full_path.length() - 7);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keywordtype">double</span> mean = database_ensemble[0].get&lt;<span class="keywordtype">double</span>&gt;(full_path);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      std::vector&lt;double&gt; values = get_normal_random_vector(</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;          local_ensemble_size, n_rejected_draws, mean, stddev,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;          database_ensemble[0].get(<span class="stringliteral">&quot;verbose_output&quot;</span>, <span class="keyword">false</span>));</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      n_rejected_draws += global_ensemble_size;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="comment">// Store full_path for when we write the value in a file</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      keys.push_back(full_path);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <span class="comment">// Update the database_ensemble</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> member = 0; member &lt; local_ensemble_size; ++member)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        database_ensemble[member].put(full_path, values[member]);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <a class="code" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">traverse</a>(child, database_ensemble, keys, n_rejected_draws,</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;               local_ensemble_size, global_ensemble_size, full_path);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="namespaceadamantine.html#aab2c7c5e73c8746bd135d09e10a3b602">  213</a></span>&#160;std::vector&lt;boost::property_tree::ptree&gt; <a class="code" href="namespaceadamantine.html#aab2c7c5e73c8746bd135d09e10a3b602">create_database_ensemble</a>(</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    boost::property_tree::ptree <span class="keyword">const</span> &amp;database, MPI_Comm local_communicator,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> first_local_member, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> local_ensemble_size,</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> global_ensemble_size)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  std::vector&lt;boost::property_tree::ptree&gt; database_ensemble(</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      local_ensemble_size, database);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="comment">// The structure inside ensemble needs to match the rest of the database</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="comment">// Do a try catch to get a nice error message other it&#39;s going to be</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="comment">// strange once we erase the _stddev</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  std::vector&lt;std::string&gt; keys;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_rejected_draws = first_local_member;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">traverse</a>(database.get_child(<span class="stringliteral">&quot;ensemble&quot;</span>), database_ensemble, keys,</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;             n_rejected_draws, local_ensemble_size, global_ensemble_size);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keywordflow">catch</span> (boost::property_tree::ptree_bad_path &amp;exception)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    std::cerr &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Aborting in ensemble management.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; exception.what() &lt;&lt; std::endl &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;There is a problem with the input file.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Make sure that the keys in ensemble match&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;the keys in the rest of the input file.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Note the keys must have been set explicitly&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;even if they normally have a default value.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    std::cerr &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    std::abort();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="comment">// Write the ensemble variables in files to simplify data analysis.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">if</span> (dealii::Utilities::MPI::this_mpi_process(local_communicator) == 0)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> member = 0; member &lt; local_ensemble_size; ++member)</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      std::string member_data_filename =</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;          database.get&lt;std::string&gt;(<span class="stringliteral">&quot;post_processor.filename_prefix&quot;</span>) + <span class="stringliteral">&quot;_m&quot;</span> +</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          std::to_string(first_local_member + member) + <span class="stringliteral">&quot;_data.txt&quot;</span>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      std::ofstream file(member_data_filename);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;k : keys)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        file &lt;&lt; k &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; database_ensemble[member].get&lt;<span class="keywordtype">double</span>&gt;(k) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      }</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">return</span> database_ensemble;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">//-------------------- Explicit Instantiations --------------------//</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;2&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    MPI_Comm global_communicator);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;3&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    MPI_Comm global_communicator);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="ttc" id="a_cube_heat_source_8hh_html"><div class="ttname"><a href="_cube_heat_source_8hh.html">CubeHeatSource.hh</a></div></div>
+<div class="ttc" id="a_electron_beam_heat_source_8hh_html"><div class="ttname"><a href="_electron_beam_heat_source_8hh.html">ElectronBeamHeatSource.hh</a></div></div>
+<div class="ttc" id="a_goldak_heat_source_8hh_html"><div class="ttname"><a href="_goldak_heat_source_8hh.html">GoldakHeatSource.hh</a></div></div>
 <div class="ttc" id="aensemble__management_8hh_html"><div class="ttname"><a href="ensemble__management_8hh.html">ensemble_management.hh</a></div></div>
 <div class="ttc" id="anamespaceadamantine_html"><div class="ttname"><a href="namespaceadamantine.html">adamantine</a></div><div class="ttdef"><b>Definition:</b> <a href="_beam_heat_source_properties_8hh_source.html#l00014">BeamHeatSourceProperties.hh:15</a></div></div>
-<div class="ttc" id="anamespaceadamantine_html_ad32f5cbfc366660c31d3cd0321e1d0af"><div class="ttname"><a href="namespaceadamantine.html#ad32f5cbfc366660c31d3cd0321e1d0af">adamantine::get_normal_random_vector</a></div><div class="ttdeci">std::vector&lt; double &gt; get_normal_random_vector(unsigned int length, unsigned int n_rejected_draws, double mean, double stddev)</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__management_8cc_source.html#l00010">ensemble_management.cc:10</a></div></div>
+<div class="ttc" id="anamespaceadamantine_html_a85637b596f417cd71dd6808d9d735454"><div class="ttname"><a href="namespaceadamantine.html#a85637b596f417cd71dd6808d9d735454">adamantine::traverse</a></div><div class="ttdeci">void traverse(boost::property_tree::ptree const &amp;ensemble_ptree, std::vector&lt; boost::property_tree::ptree &gt; &amp;database_ensemble, std::vector&lt; std::string &gt; &amp;keys, unsigned int &amp;n_rejected_draws, unsigned int local_ensemble_size, unsigned int global_ensemble_size, std::string const &amp;path=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__management_8cc_source.html#l00166">ensemble_management.cc:166</a></div></div>
+<div class="ttc" id="anamespaceadamantine_html_aab2c7c5e73c8746bd135d09e10a3b602"><div class="ttname"><a href="namespaceadamantine.html#aab2c7c5e73c8746bd135d09e10a3b602">adamantine::create_database_ensemble</a></div><div class="ttdeci">std::vector&lt; boost::property_tree::ptree &gt; create_database_ensemble(boost::property_tree::ptree const &amp;database, MPI_Comm local_communicator, unsigned int first_local_member, unsigned int local_ensemble_size, unsigned int global_ensemble_size)</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__management_8cc_source.html#l00213">ensemble_management.cc:213</a></div></div>
+<div class="ttc" id="anamespaceadamantine_html_ab48ddda866e524a74246db9d71d2e5a9"><div class="ttname"><a href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">adamantine::get_bounding_heat_sources</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; HeatSource&lt; dim &gt; &gt; &gt; get_bounding_heat_sources(std::vector&lt; boost::property_tree::ptree &gt; const &amp;database_ensemble, MPI_Comm global_communicator)</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__management_8cc_source.html#l00056">ensemble_management.cc:56</a></div></div>
 <div class="ttc" id="autils_8hh_html"><div class="ttname"><a href="utils_8hh.html">utils.hh</a></div></div>
 <div class="ttc" id="autils_8hh_html_aa06eedd6f738a415870e97a375337d51"><div class="ttname"><a href="utils_8hh.html#aa06eedd6f738a415870e97a375337d51">ASSERT</a></div><div class="ttdeci">#define ASSERT(condition, message)</div><div class="ttdef"><b>Definition:</b> <a href="utils_8hh_source.html#l00068">utils.hh:68</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
