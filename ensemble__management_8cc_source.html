@@ -318,32 +318,34 @@ $(function() {
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> member = 0; member &lt; local_ensemble_size; ++member)</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      std::string member_data_filename =</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;          database.get&lt;std::string&gt;(<span class="stringliteral">&quot;post_processor.filename_prefix&quot;</span>) + <span class="stringliteral">&quot;_m&quot;</span> +</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          std::to_string(first_local_member + member) + <span class="stringliteral">&quot;_data.txt&quot;</span>;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      std::ofstream file(member_data_filename);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;k : keys)</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        file &lt;&lt; k &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; database_ensemble[member].get&lt;<span class="keywordtype">double</span>&gt;(k) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">return</span> database_ensemble;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;} <span class="comment">// namespace adamantine</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">//-------------------- Explicit Instantiations --------------------//</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;2&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    MPI_Comm global_communicator);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;3&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    MPI_Comm global_communicator);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      std::string output_dir =</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          database.get&lt;std::string&gt;(<span class="stringliteral">&quot;post_processor.output_dir&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      std::string member_data_filename =</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;          output_dir +</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          database.get&lt;std::string&gt;(<span class="stringliteral">&quot;post_processor.filename_prefix&quot;</span>) + <span class="stringliteral">&quot;_m&quot;</span> +</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;          std::to_string(first_local_member + member) + <span class="stringliteral">&quot;_data.txt&quot;</span>;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      std::ofstream file(member_data_filename);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;k : keys)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        file &lt;&lt; k &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; database_ensemble[member].get&lt;<span class="keywordtype">double</span>&gt;(k) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="keywordflow">return</span> database_ensemble;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">//-------------------- Explicit Instantiations --------------------//</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;2&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    MPI_Comm global_communicator);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">template</span> std::vector&lt;std::shared_ptr&lt;HeatSource&lt;3&gt;&gt;&gt; <a class="code" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a>(</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    std::vector&lt;boost::property_tree::ptree&gt; <span class="keyword">const</span> &amp;property_trees,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    MPI_Comm global_communicator);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;} <span class="comment">// namespace adamantine</span></div>
 <div class="ttc" id="a_cube_heat_source_8hh_html"><div class="ttname"><a href="_cube_heat_source_8hh.html">CubeHeatSource.hh</a></div></div>
 <div class="ttc" id="a_electron_beam_heat_source_8hh_html"><div class="ttname"><a href="_electron_beam_heat_source_8hh.html">ElectronBeamHeatSource.hh</a></div></div>
 <div class="ttc" id="a_goldak_heat_source_8hh_html"><div class="ttname"><a href="_goldak_heat_source_8hh.html">GoldakHeatSource.hh</a></div></div>

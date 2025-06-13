@@ -93,6 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acd970f0ff4c0e98936f6d6d37a952ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3421d281a76b93180d84e735410aff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#afd3421d281a76b93180d84e735410aff">value</a> (dealii::Point&lt; dim &gt; const &amp;point, double const height) const final</td></tr>
 <tr class="separator:afd3421d281a76b93180d84e735410aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272727d10b0da36f41b82c98aa5f5324"><td class="memItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a272727d10b0da36f41b82c98aa5f5324">value</a> (dealii::Point&lt; dim, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;points, dealii::VectorizedArray&lt; double &gt; const &amp;height) const final</td></tr>
+<tr class="separator:a272727d10b0da36f41b82c98aa5f5324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee869550d1633f3d518c339183d4158"><td class="memItemLeft" align="right" valign="top">dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a7ee869550d1633f3d518c339183d4158">get_bounding_box</a> (double const scaling_factor) const final</td></tr>
 <tr class="separator:a7ee869550d1633f3d518c339183d4158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classadamantine_1_1_heat_source"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadamantine_1_1_heat_source')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource&lt; dim &gt;</a></td></tr>
@@ -111,10 +113,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aeec804096bb39e2227358b4c0e9e0cbe"><td class="memItemLeft" align="right" valign="top">dealii::Point&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#aeec804096bb39e2227358b4c0e9e0cbe">_beam_center</a></td></tr>
-<tr class="separator:aeec804096bb39e2227358b4c0e9e0cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad99e30c25ac57928fbf9c94c7b6beed9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#ad99e30c25ac57928fbf9c94c7b6beed9">_alpha</a> = std::numeric_limits&lt;double&gt;::signaling_NaN()</td></tr>
-<tr class="separator:ad99e30c25ac57928fbf9c94c7b6beed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4980104e46865f9664f8f4d8575db984"><td class="memItemLeft" align="right" valign="top">dealii::Point&lt; 3, dealii::VectorizedArray&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a4980104e46865f9664f8f4d8575db984">_beam_center</a></td></tr>
+<tr class="separator:a4980104e46865f9664f8f4d8575db984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0634ffbf167a7974784925aacf83ceca"><td class="memItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a0634ffbf167a7974784925aacf83ceca">_alpha</a></td></tr>
+<tr class="separator:a0634ffbf167a7974784925aacf83ceca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91baecc5f123dec5e31f09b3a2071a7b"><td class="memItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a91baecc5f123dec5e31f09b3a2071a7b">_depth</a></td></tr>
+<tr class="separator:a91baecc5f123dec5e31f09b3a2071a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af68dee1ca2e2bec8310f3902880eaaa5"><td class="memItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#af68dee1ca2e2bec8310f3902880eaaa5">_radius_squared</a></td></tr>
+<tr class="separator:af68dee1ca2e2bec8310f3902880eaaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0015a4ce13e5cf0d1662a87ce4db1fc6"><td class="memItemLeft" align="right" valign="top">double const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a0015a4ce13e5cf0d1662a87ce4db1fc6">_pi_over_3_to_1p5</a> = std::pow(dealii::numbers::PI / 3.0, 1.5)</td></tr>
 <tr class="separator:a0015a4ce13e5cf0d1662a87ce4db1fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -214,7 +220,7 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#aebaa29b87b3edf5c04d5791d1e0e57d6">adamantine::HeatSource&lt; dim &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00068">68</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00127">127</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
 
 </div>
 </div>
@@ -252,7 +258,7 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <a id="afd3421d281a76b93180d84e735410aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd3421d281a76b93180d84e735410aff">&#9670;&nbsp;</a></span>value()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3421d281a76b93180d84e735410aff">&#9670;&nbsp;</a></span>value() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,15 +294,58 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Returns the value of a Goldak heat source at a specified point and time. </p>
 
-<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#a42e14ef7bffc71ff920fd4d797b230ac">adamantine::HeatSource&lt; dim &gt;</a>.</p>
+<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#ad556c4f99294ca70b748e8c65b309a2a">adamantine::HeatSource&lt; dim &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00032">32</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00039">39</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
+
+</div>
+</div>
+<a id="a272727d10b0da36f41b82c98aa5f5324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272727d10b0da36f41b82c98aa5f5324">&#9670;&nbsp;</a></span>value() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::VectorizedArray&lt; double &gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::value </td>
+          <td>(</td>
+          <td class="paramtype">dealii::Point&lt; dim, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dealii::VectorizedArray&lt; double &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same function as above but it uses vectorized data. </p>
+
+<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#ae08e34e893b48b2ba25fa01a53907010">adamantine::HeatSource&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00074">74</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad99e30c25ac57928fbf9c94c7b6beed9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad99e30c25ac57928fbf9c94c7b6beed9">&#9670;&nbsp;</a></span>_alpha</h2>
+<a id="a0634ffbf167a7974784925aacf83ceca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0634ffbf167a7974784925aacf83ceca">&#9670;&nbsp;</a></span>_alpha</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +356,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_alpha = std::numeric_limits&lt;double&gt;::signaling_NaN()</td>
+          <td class="memname">dealii::VectorizedArray&lt;double&gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_alpha</td>
         </tr>
       </table>
   </td>
@@ -316,13 +365,15 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00057">57</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      std::numeric_limits&lt;double&gt;::signaling_NaN()</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00064">64</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
 
 </div>
 </div>
-<a id="aeec804096bb39e2227358b4c0e9e0cbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeec804096bb39e2227358b4c0e9e0cbe">&#9670;&nbsp;</a></span>_beam_center</h2>
+<a id="a4980104e46865f9664f8f4d8575db984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4980104e46865f9664f8f4d8575db984">&#9670;&nbsp;</a></span>_beam_center</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,7 +384,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::Point&lt;3&gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_beam_center</td>
+          <td class="memname">dealii::Point&lt;3, dealii::VectorizedArray&lt;double&gt; &gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_beam_center</td>
         </tr>
       </table>
   </td>
@@ -343,7 +394,35 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00056">56</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00063">63</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
+
+</div>
+</div>
+<a id="a91baecc5f123dec5e31f09b3a2071a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91baecc5f123dec5e31f09b3a2071a7b">&#9670;&nbsp;</a></span>_depth</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::VectorizedArray&lt;double&gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_depth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      std::numeric_limits&lt;double&gt;::signaling_NaN()</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00066">66</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -369,7 +448,35 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00058">58</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00070">70</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
+
+</div>
+</div>
+<a id="af68dee1ca2e2bec8310f3902880eaaa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68dee1ca2e2bec8310f3902880eaaa5">&#9670;&nbsp;</a></span>_radius_squared</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::VectorizedArray&lt;double&gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::_radius_squared</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      std::numeric_limits&lt;double&gt;::signaling_NaN()</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8hh_source.html#l00068">68</a> of file <a class="el" href="_goldak_heat_source_8hh_source.html">GoldakHeatSource.hh</a>.</p>
 
 </div>
 </div>

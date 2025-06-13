@@ -97,8 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2355743530a701ebf66f421719495f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72eaf015fd8f460e97261c84297e989b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#a72eaf015fd8f460e97261c84297e989b">update_time</a> (double time)=0</td></tr>
 <tr class="separator:a72eaf015fd8f460e97261c84297e989b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42e14ef7bffc71ff920fd4d797b230ac"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#a42e14ef7bffc71ff920fd4d797b230ac">value</a> (dealii::Point&lt; dim &gt; const &amp;point, double const height) const =0</td></tr>
-<tr class="separator:a42e14ef7bffc71ff920fd4d797b230ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad556c4f99294ca70b748e8c65b309a2a"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#ad556c4f99294ca70b748e8c65b309a2a">value</a> (dealii::Point&lt; dim &gt; const &amp;points, double const height) const =0</td></tr>
+<tr class="separator:ad556c4f99294ca70b748e8c65b309a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08e34e893b48b2ba25fa01a53907010"><td class="memItemLeft" align="right" valign="top">virtual dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#ae08e34e893b48b2ba25fa01a53907010">value</a> (dealii::Point&lt; dim, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;points, dealii::VectorizedArray&lt; double &gt; const &amp;height) const =0</td></tr>
+<tr class="separator:ae08e34e893b48b2ba25fa01a53907010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8f6a68cd60f2883be6632eb0bc697e4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classadamantine_1_1_scan_path.html">ScanPath</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#aa8f6a68cd60f2883be6632eb0bc697e4">get_scan_path</a> ()</td></tr>
 <tr class="separator:aa8f6a68cd60f2883be6632eb0bc697e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add25bab03c314d4771304fa4e9e9892a"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#add25bab03c314d4771304fa4e9e9892a">get_current_height</a> (double const time) const</td></tr>
@@ -121,7 +123,7 @@ class adamantine::HeatSource&lt; dim &gt;</h3>
 
 <p>This is the base class for describing the functional form of a heat source. It has a pure virtual "value" method that needs to be implemented in a derived class. NOTE: The coordinate system in this class is different than for the finite element mesh. In this class, the first two components of a dealii::Point&lt;3&gt; describe the position along the surface of the part. The last component is the height through the thickness of the part from the base plate. This is in opposition to the finite element mesh where the first and last components of a dealii::Point&lt;3&gt; describe the position along the surface of the part, and the second component is the thickness. That is, the last two components are swapped between the two coordinate systems. </p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00031">31</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00032">32</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae59ebc2fa466ea513ed17b25f2727d5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae59ebc2fa466ea513ed17b25f2727d5d">&#9670;&nbsp;</a></span>HeatSource() <span class="overload">[1/2]</span></h2>
@@ -205,7 +207,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00053">53</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00054">54</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -298,7 +300,7 @@ template&lt;int dim&gt; </div>
 
 <p>Reimplemented in <a class="el" href="classadamantine_1_1_cube_heat_source.html#a2d92f6405ac09fedb3950baa37ff620f">adamantine::CubeHeatSource&lt; dim &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00123">123</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00131">131</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -325,7 +327,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Return the scan path for the heat source. </p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00117">117</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00125">125</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -356,7 +358,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>(Re)sets the <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html">BeamHeatSourceProperties</a> member variable, necessary if the beam parameters vary in time (e.g. due to data assimilation). </p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00129">129</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00137">137</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -391,8 +393,8 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<a id="a42e14ef7bffc71ff920fd4d797b230ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42e14ef7bffc71ff920fd4d797b230ac">&#9670;&nbsp;</a></span>value()</h2>
+<a id="ad556c4f99294ca70b748e8c65b309a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad556c4f99294ca70b748e8c65b309a2a">&#9670;&nbsp;</a></span>value() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -406,7 +408,7 @@ template&lt;int dim&gt; </div>
           <td class="memname">virtual double <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;::value </td>
           <td>(</td>
           <td class="paramtype">dealii::Point&lt; dim &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>point</em>, </td>
+          <td class="paramname"><em>points</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -429,6 +431,47 @@ template&lt;int dim&gt; </div>
 <p>Compute the heat source at a given point at a given time given the current height of the object being manufactured. </p>
 
 <p>Implemented in <a class="el" href="classadamantine_1_1_cube_heat_source.html#ad8ee3dbb4478e134730b1361b6d24af2">adamantine::CubeHeatSource&lt; dim &gt;</a>, <a class="el" href="classadamantine_1_1_goldak_heat_source.html#afd3421d281a76b93180d84e735410aff">adamantine::GoldakHeatSource&lt; dim &gt;</a>, and <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a4eeaaa018a129cd9a4cd4d518d3544f7">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ae08e34e893b48b2ba25fa01a53907010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08e34e893b48b2ba25fa01a53907010">&#9670;&nbsp;</a></span>value() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual dealii::VectorizedArray&lt;double&gt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;::value </td>
+          <td>(</td>
+          <td class="paramtype">dealii::Point&lt; dim, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dealii::VectorizedArray&lt; double &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Same function as above but it uses vectorized data. </p>
+
+<p>Implemented in <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a272727d10b0da36f41b82c98aa5f5324">adamantine::GoldakHeatSource&lt; dim &gt;</a>, <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a32092c6761341a798efa8af1069672e4">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>, and <a class="el" href="classadamantine_1_1_cube_heat_source.html#ae66ca818f3ac52d7bb168eb5c9b84049">adamantine::CubeHeatSource&lt; dim &gt;</a>.</p>
 
 </div>
 </div>
@@ -456,7 +499,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Structure of the physical properties of the beam heat source. </p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00108">108</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00116">116</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
@@ -483,7 +526,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The scan path for the heat source. </p>
 
-<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00113">113</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_heat_source_8hh_source.html#l00121">121</a> of file <a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>.</p>
 
 </div>
 </div>
