@@ -69,7 +69,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">types.hh File Reference</div>  </div>
@@ -152,31 +151,13 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006baa0639295ed2343c0c0e68d0719de9d49">adamantine::da_update_ensemble</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba2c37711842f963f18acd6b1c085df0df">adamantine::evol_time</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bab50fdbb87df67b659db2f92d653749e9">adamantine::evol_time_eval_th_ph</a>
-, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bae1dea668879668ff24a7e9906ddbfff3">adamantine::evol_time_J_inv</a>
+, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1caaf05c2b529df1aed9bcb367a59d9e">adamantine::evol_time_update_bound_mat_prop</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1caaf05c2b529df1aed9bcb367a59d9e">adamantine::evol_time_update_bound_mat_prop</a>
-, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8">adamantine::output</a>
+&#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8">adamantine::output</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bab12adbb479bee6817990546f5af10260">adamantine::n_timers</a>
 <br />
  }</td></tr>
 <tr class="separator:a7caf29199baef249d0ee5ff6fd81006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37ed373d7777e39961700632fcf07f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">adamantine::BoundaryType</a> { <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8ae59b573fe1abf4601e05f23e6d6ff224">adamantine::invalid</a> = 0
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a86d61d2ad0d1a85d731375e22db0fa92">adamantine::adiabatic</a> = 0x1
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b">adamantine::radiative</a> = 0x2
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e">adamantine::convective</a> = 0x4
- }</td></tr>
-<tr class="separator:ac37ed373d7777e39961700632fcf07f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af76a268c8bebb68daa7c2243834f9c6f"><td class="memItemLeft" align="right" valign="top">BoundaryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af76a268c8bebb68daa7c2243834f9c6f">adamantine::operator|</a> (const BoundaryType b1, const BoundaryType b2)</td></tr>
-<tr class="separator:af76a268c8bebb68daa7c2243834f9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46625d1e13c0306b5f36fc78dce71d41"><td class="memItemLeft" align="right" valign="top">BoundaryType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a46625d1e13c0306b5f36fc78dce71d41">adamantine::operator|=</a> (BoundaryType &amp;b1, const BoundaryType b2)</td></tr>
-<tr class="separator:a46625d1e13c0306b5f36fc78dce71d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27612dfcd823fb2c3b11c0371cb5745"><td class="memItemLeft" align="right" valign="top">BoundaryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af27612dfcd823fb2c3b11c0371cb5745">adamantine::operator&amp;</a> (const BoundaryType b1, const BoundaryType b2)</td></tr>
-<tr class="separator:af27612dfcd823fb2c3b11c0371cb5745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memItemLeft" align="right" valign="top">BoundaryType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a4b54c45b5c1b1c052dd21793381a26ca">adamantine::operator&amp;=</a> (BoundaryType &amp;b1, const BoundaryType b2)</td></tr>
-<tr class="separator:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

@@ -87,6 +87,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_gravity_force.html">GravityForce</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_boundary.html">Boundary</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_cube_heat_source.html">CubeHeatSource</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html">DataAssimilator</a></td></tr>
@@ -103,8 +105,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html">HeatSource</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_implicit_operator.html">ImplicitOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structadamantine_1_1_solid_liquid_powder.html">SolidLiquidPowder</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structadamantine_1_1_solid_liquid.html">SolidLiquid</a></td></tr>
@@ -116,10 +116,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_mechanical_physics.html">MechanicalPhysics</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_microstructure.html">Microstructure</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_newton_solver.html">NewtonSolver</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_operator.html">Operator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_point_cloud.html">PointCloud</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +158,17 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:ac37ed373d7777e39961700632fcf07f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> { <br />
+&#160;&#160;<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8ae59b573fe1abf4601e05f23e6d6ff224">invalid</a> = 0
+, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a86d61d2ad0d1a85d731375e22db0fa92">adiabatic</a> = 0x1
+, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b">radiative</a> = 0x2
+, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e">convective</a> = 0x4
+, <br />
+&#160;&#160;<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a06ab30e3b6e0c18cf7924f3abaf84144">clamped</a> = 0x8
+, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8ad310080ba0642337b8f426533c6edbd3">traction_free</a> = 0x10
+<br />
+ }</td></tr>
+<tr class="separator:ac37ed373d7777e39961700632fcf07f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6f0841ed43262ef1175e2b6075cd66f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66f">LocalizationCutoff</a> { <a class="el" href="namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66faba6e20e7e1559edeec0c30dab66781a5">gaspari_cohn</a>
 , <a class="el" href="namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66faa5ca29e51a327d3424eaca38fe8ebc8d">step_function</a>
 , <a class="el" href="namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66fa334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>
@@ -225,23 +232,24 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006baa0639295ed2343c0c0e68d0719de9d49">da_update_ensemble</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba2c37711842f963f18acd6b1c085df0df">evol_time</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bab50fdbb87df67b659db2f92d653749e9">evol_time_eval_th_ph</a>
-, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bae1dea668879668ff24a7e9906ddbfff3">evol_time_J_inv</a>
+, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1caaf05c2b529df1aed9bcb367a59d9e">evol_time_update_bound_mat_prop</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1caaf05c2b529df1aed9bcb367a59d9e">evol_time_update_bound_mat_prop</a>
-, <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8">output</a>
+&#160;&#160;<a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8">output</a>
 , <a class="el" href="namespaceadamantine.html#a7caf29199baef249d0ee5ff6fd81006bab12adbb479bee6817990546f5af10260">n_timers</a>
 <br />
  }</td></tr>
 <tr class="separator:a7caf29199baef249d0ee5ff6fd81006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37ed373d7777e39961700632fcf07f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> { <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8ae59b573fe1abf4601e05f23e6d6ff224">invalid</a> = 0
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a86d61d2ad0d1a85d731375e22db0fa92">adiabatic</a> = 0x1
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b">radiative</a> = 0x2
-, <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e">convective</a> = 0x4
- }</td></tr>
-<tr class="separator:ac37ed373d7777e39961700632fcf07f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af76a268c8bebb68daa7c2243834f9c6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af76a268c8bebb68daa7c2243834f9c6f">operator|</a> (const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
+<tr class="separator:af76a268c8bebb68daa7c2243834f9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46625d1e13c0306b5f36fc78dce71d41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a46625d1e13c0306b5f36fc78dce71d41">operator|=</a> (<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
+<tr class="separator:a46625d1e13c0306b5f36fc78dce71d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27612dfcd823fb2c3b11c0371cb5745"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af27612dfcd823fb2c3b11c0371cb5745">operator&amp;</a> (const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
+<tr class="separator:af27612dfcd823fb2c3b11c0371cb5745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a4b54c45b5c1b1c052dd21793381a26ca">operator&amp;=</a> (<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
+<tr class="separator:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
 <tr class="memitem:ab48ddda866e524a74246db9d71d2e5a9"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">HeatSource</a>&lt; dim &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ab48ddda866e524a74246db9d71d2e5a9">get_bounding_heat_sources</a> (std::vector&lt; boost::property_tree::ptree &gt; const &amp;database_ensemble, MPI_Comm global_communicator)</td></tr>
 <tr class="separator:ab48ddda866e524a74246db9d71d2e5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -302,14 +310,6 @@ Functions</h2></td></tr>
 <tr class="separator:a08587461bf2f3e441bf1e92abffb1b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a202971c9de81779601b783bd0b17288e"><td class="memItemLeft" align="right" valign="top">template std::tuple&lt; std::vector&lt; dealii::BoundingBox&lt; 3, double &gt; &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a202971c9de81779601b783bd0b17288e">merge_deposition_paths</a> (std::vector&lt; std::tuple&lt; std::vector&lt; dealii::BoundingBox&lt; 3, double &gt;&gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;&gt;&gt; const &amp;deposition_paths)</td></tr>
 <tr class="separator:a202971c9de81779601b783bd0b17288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af76a268c8bebb68daa7c2243834f9c6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af76a268c8bebb68daa7c2243834f9c6f">operator|</a> (const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
-<tr class="separator:af76a268c8bebb68daa7c2243834f9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46625d1e13c0306b5f36fc78dce71d41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a46625d1e13c0306b5f36fc78dce71d41">operator|=</a> (<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
-<tr class="separator:a46625d1e13c0306b5f36fc78dce71d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27612dfcd823fb2c3b11c0371cb5745"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#af27612dfcd823fb2c3b11c0371cb5745">operator&amp;</a> (const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
-<tr class="separator:af27612dfcd823fb2c3b11c0371cb5745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a4b54c45b5c1b1c052dd21793381a26ca">operator&amp;=</a> (<a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> &amp;b1, const <a class="el" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> b2)</td></tr>
-<tr class="separator:a4b54c45b5c1b1c052dd21793381a26ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a737967bbc854d35e1281ad917ba24814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a737967bbc854d35e1281ad917ba24814">wait_for_file</a> (std::string const &amp;filename, std::string const &amp;message)</td></tr>
 <tr class="separator:a737967bbc854d35e1281ad917ba24814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6009ba4a69a7fd4f0b1d89f29814f102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a6009ba4a69a7fd4f0b1d89f29814f102">wait_for_file_to_update</a> (std::string const &amp;filename, std::string const &amp;message, std::filesystem::file_time_type &amp;last_write_time)</td></tr>
@@ -386,9 +386,11 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ac37ed373d7777e39961700632fcf07f8a86d61d2ad0d1a85d731375e22db0fa92"></a>adiabatic&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b"></a>radiative&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e"></a>convective&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac37ed373d7777e39961700632fcf07f8a06ab30e3b6e0c18cf7924f3abaf84144"></a>clamped&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac37ed373d7777e39961700632fcf07f8ad310080ba0642337b8f426533c6edbd3"></a>traction_free&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="types_8hh_source.html#l00193">193</a> of file <a class="el" href="types_8hh_source.html">types.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_boundary_8hh_source.html#l00021">21</a> of file <a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>.</p>
 
 </div>
 </div>
@@ -552,7 +554,6 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006baa0639295ed2343c0c0e68d0719de9d49"></a>da_update_ensemble&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006ba2c37711842f963f18acd6b1c085df0df"></a>evol_time&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006bab50fdbb87df67b659db2f92d653749e9"></a>evol_time_eval_th_ph&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006bae1dea668879668ff24a7e9906ddbfff3"></a>evol_time_J_inv&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006ba1caaf05c2b529df1aed9bcb367a59d9e"></a>evol_time_update_bound_mat_prop&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006ba1691b6ec67855c130469a858d0ad41a8"></a>output&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7caf29199baef249d0ee5ff6fd81006bab12adbb479bee6817990546f5af10260"></a>n_timers&#160;</td><td class="fielddoc"></td></tr>
@@ -976,7 +977,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Return a vector of cells to activate for each time deposition. </p>
 
-<p class="definition">Definition at line <a class="el" href="material__deposition_8cc_source.html#l00306">306</a> of file <a class="el" href="material__deposition_8cc_source.html">material_deposition.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="material__deposition_8cc_source.html#l00314">314</a> of file <a class="el" href="material__deposition_8cc_source.html">material_deposition.cc</a>.</p>
 
 </div>
 </div>
@@ -1124,7 +1125,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Merge a vector of tuple of bounding boxes, deposition times, cosine of deposition angles, and sine of deposition angles into a single tuple of vectors, sorted by deposition time. </p>
 
-<p class="definition">Definition at line <a class="el" href="material__deposition_8cc_source.html#l00259">259</a> of file <a class="el" href="material__deposition_8cc_source.html">material_deposition.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="material__deposition_8cc_source.html#l00267">267</a> of file <a class="el" href="material__deposition_8cc_source.html">material_deposition.cc</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1164,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Global operator which returns an object in which all bits are set which are set in the first as well as the second argument. This operator exists since if it did not then the result of the bit-and operator &amp; would be an integer which would in turn trigger a compiler warning when we tried to assign it to an object of type BoundaryType. </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8hh_source.html#l00231">231</a> of file <a class="el" href="types_8hh_source.html">types.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_boundary_8hh_source.html#l00061">61</a> of file <a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>.</p>
 
 </div>
 </div>
@@ -1202,7 +1203,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Global operator which clears all the bits in the first argument if they are not also set in the second argument. </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8hh_source.html#l00241">241</a> of file <a class="el" href="types_8hh_source.html">types.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_boundary_8hh_source.html#l00071">71</a> of file <a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>.</p>
 
 </div>
 </div>
@@ -1241,7 +1242,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Global operator which returns an object in which all bits are set which are either set in the first or the second argument. This operator exists since if it did not then the result of the bit-or operator | would be an integer which would in turn trigger a compiler warning when we tried to assign it to an object of type BoundaryType. </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8hh_source.html#l00208">208</a> of file <a class="el" href="types_8hh_source.html">types.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_boundary_8hh_source.html#l00038">38</a> of file <a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>.</p>
 
 </div>
 </div>
@@ -1280,7 +1281,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Global operator which sets the bits from the second argument also in the first one. </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8hh_source.html#l00218">218</a> of file <a class="el" href="types_8hh_source.html">types.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_boundary_8hh_source.html#l00048">48</a> of file <a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1579,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="validate__input__database_8cc_source.html#l00015">15</a> of file <a class="el" href="validate__input__database_8cc_source.html">validate_input_database.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="validate__input__database_8cc_source.html#l00016">16</a> of file <a class="el" href="validate__input__database_8cc_source.html">validate_input_database.cc</a>.</p>
 
 </div>
 </div>

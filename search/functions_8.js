@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['id_5fminus_5ftau_5fj_5finverse_808',['id_minus_tau_J_inverse',['../classadamantine_1_1_thermal_physics.html#aacbf6069a9a791f2c58ad7e06ecc9270',1,'adamantine::ThermalPhysics']]],
-  ['implicitoperator_809',['ImplicitOperator',['../classadamantine_1_1_implicit_operator.html#a1f06ff3f35b0e0923efe49eeb14e4352',1,'adamantine::ImplicitOperator']]],
-  ['initialize_810',['initialize',['../adamantine_8hh.html#a3c097c4d1cd82119de7ffdc61eabcd27',1,'adamantine.hh']]],
-  ['initialize_5fdof_5fvector_811',['initialize_dof_vector',['../classadamantine_1_1_thermal_operator.html#abe62f8ecddc4298c99bfa3d4e800175d',1,'adamantine::ThermalOperator::initialize_dof_vector()'],['../classadamantine_1_1_thermal_operator_base.html#a73f1e4f99a5d56154c06e50f857012b1',1,'adamantine::ThermalOperatorBase::initialize_dof_vector()'],['../classadamantine_1_1_thermal_operator_device.html#a50b6d72f9573040d6a1334ab9259b5f3',1,'adamantine::ThermalOperatorDevice::initialize_dof_vector()'],['../classadamantine_1_1_thermal_physics.html#a1579f3ea229eb979cceb0a48093ab903',1,'adamantine::ThermalPhysics::initialize_dof_vector()'],['../classadamantine_1_1_thermal_physics_interface.html#af09b454160499c8645b36a802feaebf8',1,'adamantine::ThermalPhysicsInterface::initialize_dof_vector()']]],
-  ['initialize_5fquadrature_812',['initialize_quadrature',['../adamantine_8hh.html#aa2bae90bed549c77e5162286a6b9434d',1,'adamantine.hh']]],
-  ['initialize_5fthermal_5fphysics_813',['initialize_thermal_physics',['../adamantine_8hh.html#a1ff798d3685f4529ff15360a5b16fc16',1,'adamantine.hh']]],
-  ['initialize_5ftimers_814',['initialize_timers',['../adamantine_8hh.html#aef052fcec68b2e9d535a83fb4e8a4176',1,'adamantine.hh']]],
-  ['instantiate_5fdim_815',['INSTANTIATE_DIM',['../_point_cloud_8cc.html#ae2031223b2864e2d619d8e1fc2fd8ff6',1,'PointCloud.cc']]],
-  ['is_5ffinished_816',['is_finished',['../classadamantine_1_1_scan_path.html#a7e901587ed73691883775521d44877a6',1,'adamantine::ScanPath']]]
+  ['initialize_783',['initialize',['../adamantine_8hh.html#a93827ae1a850d685bfd080ae3fd24c18',1,'adamantine.hh']]],
+  ['initialize_5fdof_5fvector_784',['initialize_dof_vector',['../classadamantine_1_1_thermal_operator.html#a419b794869e631f3510ed9ba896e2893',1,'adamantine::ThermalOperator::initialize_dof_vector()'],['../classadamantine_1_1_thermal_operator_base.html#a73f1e4f99a5d56154c06e50f857012b1',1,'adamantine::ThermalOperatorBase::initialize_dof_vector()'],['../classadamantine_1_1_thermal_operator_device.html#abbc4a55396d0c0b07c699c5d0fe5d469',1,'adamantine::ThermalOperatorDevice::initialize_dof_vector()'],['../classadamantine_1_1_thermal_physics.html#af1f0f92c456b551e4eb4eb2ffb4197e8',1,'adamantine::ThermalPhysics::initialize_dof_vector()'],['../classadamantine_1_1_thermal_physics_interface.html#af09b454160499c8645b36a802feaebf8',1,'adamantine::ThermalPhysicsInterface::initialize_dof_vector()']]],
+  ['initialize_5fquadrature_785',['initialize_quadrature',['../adamantine_8hh.html#af5bd95dd0adb4d2177dfa17936e18798',1,'adamantine.hh']]],
+  ['initialize_5fthermal_5fphysics_786',['initialize_thermal_physics',['../adamantine_8hh.html#a6869428b695cd97b4e09b106d372f3b4',1,'adamantine.hh']]],
+  ['initialize_5ftimers_787',['initialize_timers',['../adamantine_8hh.html#aef052fcec68b2e9d535a83fb4e8a4176',1,'adamantine.hh']]],
+  ['instantiate_5fdim_788',['INSTANTIATE_DIM',['../_point_cloud_8cc.html#ae2031223b2864e2d619d8e1fc2fd8ff6',1,'PointCloud.cc']]],
+  ['is_5ffinished_789',['is_finished',['../classadamantine_1_1_scan_path.html#a7e901587ed73691883775521d44877a6',1,'adamantine::ScanPath']]]
 ];

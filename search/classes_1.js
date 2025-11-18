@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['beamheatsourceproperties_608',['BeamHeatSourceProperties',['../classadamantine_1_1_beam_heat_source_properties.html',1,'adamantine']]],
-  ['bodyforce_609',['BodyForce',['../structadamantine_1_1_body_force.html',1,'adamantine']]]
+  ['beamheatsourceproperties_578',['BeamHeatSourceProperties',['../classadamantine_1_1_beam_heat_source_properties.html',1,'adamantine']]],
+  ['bodyforce_579',['BodyForce',['../structadamantine_1_1_body_force.html',1,'adamantine']]],
+  ['boundary_580',['Boundary',['../classadamantine_1_1_boundary.html',1,'adamantine']]]
 ];

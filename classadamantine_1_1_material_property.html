@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>adamantine: adamantine::MaterialProperty&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; Class Template Reference</title>
+<title>adamantine: adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classadamantine_1_1_material_property-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">adamantine::MaterialProperty&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; Class Template Reference</div>  </div>
+<div class="title">adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -81,119 +81,119 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5a91e14babd9043ef287d8beee10fce0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a5a91e14babd9043ef287d8beee10fce0">MaterialProperty</a> (MPI_Comm const &amp;communicator, dealii::parallel::distributed::Triangulation&lt; dim &gt; const &amp;tria, boost::property_tree::ptree const &amp;database)</td></tr>
-<tr class="separator:a5a91e14babd9043ef287d8beee10fce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d5822c0997a828a471e965fd7ed463"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a28d5822c0997a828a471e965fd7ed463">properties_use_table</a> () const</td></tr>
-<tr class="separator:a28d5822c0997a828a471e965fd7ed463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeece70d9afb189a7d0a9411be43d8b6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#afeece70d9afb189a7d0a9411be43d8b6">get_cell_value</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> prop) const</td></tr>
-<tr class="separator:afeece70d9afb189a7d0a9411be43d8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01ddd4b46c4db8c3e4de34d132e09c1d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a01ddd4b46c4db8c3e4de34d132e09c1d">get_cell_value</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fc">Property</a> prop) const</td></tr>
-<tr class="separator:a01ddd4b46c4db8c3e4de34d132e09c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f0fa68253c72c89ab70a90f8b2da3a3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a6f0fa68253c72c89ab70a90f8b2da3a3">get</a> (dealii::types::material_id material_id, <a class="el" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fc">Property</a> prop) const</td></tr>
-<tr class="separator:a6f0fa68253c72c89ab70a90f8b2da3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89f1e7402578f5bea449a40da8d8e2f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a89f1e7402578f5bea449a40da8d8e2f9">get_mechanical_property</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> prop) const</td></tr>
-<tr class="separator:a89f1e7402578f5bea449a40da8d8e2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe90c0c202cd075f591008f249b4d1f6"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a>], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#abe90c0c202cd075f591008f249b4d1f6">get_properties</a> ()</td></tr>
-<tr class="separator:abe90c0c202cd075f591008f249b4d1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ddeea505cec084c6d97bb38cd0e50d"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a87ddeea505cec084c6d97bb38cd0e50d">get_state_property_tables</a> ()</td></tr>
-<tr class="separator:a87ddeea505cec084c6d97bb38cd0e50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ba135d7074e472639e8f10a5b8ede30"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][p_order+1], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a6ba135d7074e472639e8f10a5b8ede30">get_state_property_polynomials</a> ()</td></tr>
-<tr class="separator:a6ba135d7074e472639e8f10a5b8ede30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e743a8292b05b2d5fbd9475e35428c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#aa8e743a8292b05b2d5fbd9475e35428c">reinit_dofs</a> ()</td></tr>
-<tr class="separator:aa8e743a8292b05b2d5fbd9475e35428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e3c2173df0e1a13f10927dea4f216bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a7e3c2173df0e1a13f10927dea4f216bf">update</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature)</td></tr>
-<tr class="separator:a7e3c2173df0e1a13f10927dea4f216bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0036eabefa8d697acfb3aecb8d8a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a9d0036eabefa8d697acfb3aecb8d8a17">update_boundary_material_properties</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature)</td></tr>
-<tr class="separator:a9d0036eabefa8d697acfb3aecb8d8a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30924ce77f01951eb43d9648c2e4a878"><td class="memTemplParams" colspan="2">template&lt;bool use_table&gt; </td></tr>
-<tr class="memitem:a30924ce77f01951eb43d9648c2e4a878"><td class="memTemplItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a30924ce77f01951eb43d9648c2e4a878">compute_material_property</a> (<a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> state_property, dealii::types::material_id const *material_id, dealii::VectorizedArray&lt; double &gt; const *state_ratios, dealii::VectorizedArray&lt; double &gt; const &amp;temperature, dealii::AlignedVector&lt; dealii::VectorizedArray&lt; double &gt;&gt; const &amp;temperature_powers) const</td></tr>
-<tr class="separator:a30924ce77f01951eb43d9648c2e4a878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ad27feb2fb7061485feaa9d64b0720e"><td class="memTemplParams" colspan="2">template&lt;bool use_table&gt; </td></tr>
-<tr class="memitem:a5ad27feb2fb7061485feaa9d64b0720e"><td class="memTemplItemLeft" align="right" valign="top">KOKKOS_FUNCTION double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a5ad27feb2fb7061485feaa9d64b0720e">compute_material_property</a> (<a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> state_property, dealii::types::material_id const material_id, double const *state_ratios, double temperature) const</td></tr>
-<tr class="separator:a5ad27feb2fb7061485feaa9d64b0720e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49109654ba53dec25a00772fe7081985"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a49109654ba53dec25a00772fe7081985">get_state</a> () const</td></tr>
-<tr class="separator:a49109654ba53dec25a00772fe7081985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77fdec0ceca94e692f100d89f62ae65f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a77fdec0ceca94e692f100d89f62ae65f">get_state_ratio</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, typename MaterialStates::State material_state) const</td></tr>
-<tr class="separator:a77fdec0ceca94e692f100d89f62ae65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72533e9d259925a792e303cbaaf9f8ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a72533e9d259925a792e303cbaaf9f8ae">set_initial_state</a> ()</td></tr>
-<tr class="separator:a72533e9d259925a792e303cbaaf9f8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f2687111cc77e9f59db44b1db7b51a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a1f2687111cc77e9f59db44b1db7b51a7">set_state</a> (dealii::Table&lt; 2, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;liquid_ratio, dealii::Table&lt; 2, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;powder_ratio, std::map&lt; typename dealii::DoFHandler&lt; dim &gt;::cell_iterator, std::pair&lt; unsigned int, unsigned int &gt;&gt; &amp;cell_it_to_mf_cell_map, dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler)</td></tr>
-<tr class="separator:a1f2687111cc77e9f59db44b1db7b51a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ca02fc9d8b85d8225501cf6beb121d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a8ca02fc9d8b85d8225501cf6beb121d8">set_state_device</a> (Kokkos::View&lt; double *, typename MemorySpaceType::kokkos_space &gt; liquid_ratio, Kokkos::View&lt; double *, typename MemorySpaceType::kokkos_space &gt; powder_ratio, std::map&lt; typename dealii::DoFHandler&lt; dim &gt;::cell_iterator, std::vector&lt; unsigned int &gt;&gt; const &amp;_cell_it_to_mf_pos, dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler)</td></tr>
-<tr class="separator:a8ca02fc9d8b85d8225501cf6beb121d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db7d2d5907aea1d4efb03b4bf92df46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a1db7d2d5907aea1d4efb03b4bf92df46">set_cell_state</a> (std::vector&lt; std::array&lt; double, MaterialStates::n_material_states &gt;&gt; const &amp;cell_state)</td></tr>
-<tr class="separator:a1db7d2d5907aea1d4efb03b4bf92df46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae504be021106e54fdf84b6bc4bec477b"><td class="memItemLeft" align="right" valign="top">dealii::DoFHandler&lt; dim &gt; const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ae504be021106e54fdf84b6bc4bec477b">get_dof_handler</a> () const</td></tr>
-<tr class="separator:ae504be021106e54fdf84b6bc4bec477b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84b80f8412ac7aae9ce6738f22af4d52"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; dealii::types::global_dof_index, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a84b80f8412ac7aae9ce6738f22af4d52">get_dofs_map</a> () const</td></tr>
-<tr class="separator:a84b80f8412ac7aae9ce6738f22af4d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa207b30489a631f479a60408523788a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#aaa207b30489a631f479a60408523788a">MaterialProperty</a> (MPI_Comm const &amp;communicator, dealii::parallel::distributed::Triangulation&lt; dim &gt; const &amp;tria, boost::property_tree::ptree const &amp;database)</td></tr>
+<tr class="separator:aaa207b30489a631f479a60408523788a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e52b57a522992d381cd9521cfa21c0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a5e52b57a522992d381cd9521cfa21c0a">properties_use_table</a> () const</td></tr>
+<tr class="separator:a5e52b57a522992d381cd9521cfa21c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdcc5b9c50dcd0b0d3e70f8bfcbb935"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#accdcc5b9c50dcd0b0d3e70f8bfcbb935">get_cell_value</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> prop) const</td></tr>
+<tr class="separator:accdcc5b9c50dcd0b0d3e70f8bfcbb935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af42b52115dd47b428f804dc2f96757ae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af42b52115dd47b428f804dc2f96757ae">get_cell_value</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fc">Property</a> prop) const</td></tr>
+<tr class="separator:af42b52115dd47b428f804dc2f96757ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7770e035d83e2fd629c842bd45f7b3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a9d7770e035d83e2fd629c842bd45f7b3">get</a> (dealii::types::material_id material_id, <a class="el" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fc">Property</a> prop) const</td></tr>
+<tr class="separator:a9d7770e035d83e2fd629c842bd45f7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a28b7c05ae519fb611c31d118a6adc2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3a28b7c05ae519fb611c31d118a6adc2">get_mechanical_property</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, <a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> prop) const</td></tr>
+<tr class="separator:a3a28b7c05ae519fb611c31d118a6adc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563babd5d40442bcbad683db531ff7e5"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a> &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a563babd5d40442bcbad683db531ff7e5">get_properties</a> ()</td></tr>
+<tr class="separator:a563babd5d40442bcbad683db531ff7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac5a21f73eac51324a09b0982d2d83b"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a4ac5a21f73eac51324a09b0982d2d83b">get_state_property_tables</a> ()</td></tr>
+<tr class="separator:a4ac5a21f73eac51324a09b0982d2d83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ce95aabe6c01c0782a921434c3b967"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, p_order+1 &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ab6ce95aabe6c01c0782a921434c3b967">get_state_property_polynomials</a> ()</td></tr>
+<tr class="separator:ab6ce95aabe6c01c0782a921434c3b967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e970d0f6f87134bb0f8123b6f09f0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ad0e970d0f6f87134bb0f8123b6f09f0e">reinit_dofs</a> ()</td></tr>
+<tr class="separator:ad0e970d0f6f87134bb0f8123b6f09f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e4a71597c9689d4620ce19211872d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a06e4a71597c9689d4620ce19211872d2">update</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature)</td></tr>
+<tr class="separator:a06e4a71597c9689d4620ce19211872d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af750d51caaa3f4df7c7268702c92fd53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af750d51caaa3f4df7c7268702c92fd53">update_boundary_material_properties</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature)</td></tr>
+<tr class="separator:af750d51caaa3f4df7c7268702c92fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a11e7b7626a063a08da107cce2e9c8"><td class="memTemplParams" colspan="2">template&lt;bool use_table, StateProperty state_property&gt; </td></tr>
+<tr class="memitem:af4a11e7b7626a063a08da107cce2e9c8"><td class="memTemplItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af4a11e7b7626a063a08da107cce2e9c8">compute_material_property</a> (std::array&lt; dealii::types::material_id, dealii::VectorizedArray&lt; double &gt;::size()&gt; const &amp;material_id, std::array&lt; dealii::VectorizedArray&lt; double &gt;, MaterialStates::n_material_states &gt; const &amp;state_ratios, dealii::VectorizedArray&lt; double &gt; const &amp;temperature, dealii::AlignedVector&lt; dealii::VectorizedArray&lt; double &gt;&gt; const &amp;temperature_powers) const</td></tr>
+<tr class="separator:af4a11e7b7626a063a08da107cce2e9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c52802a48434bb9170360988fe0ca96"><td class="memTemplParams" colspan="2">template&lt;bool use_table&gt; </td></tr>
+<tr class="memitem:a8c52802a48434bb9170360988fe0ca96"><td class="memTemplItemLeft" align="right" valign="top">KOKKOS_FUNCTION double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a8c52802a48434bb9170360988fe0ca96">compute_material_property</a> (<a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a> state_property, dealii::types::material_id const material_id, double const *state_ratios, double temperature) const</td></tr>
+<tr class="separator:a8c52802a48434bb9170360988fe0ca96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8eed6732a03dcc779557af3cddb37ec"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af8eed6732a03dcc779557af3cddb37ec">get_state</a> () const</td></tr>
+<tr class="separator:af8eed6732a03dcc779557af3cddb37ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b56c7f0ea748bf0dd3665abe928a473"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3b56c7f0ea748bf0dd3665abe928a473">get_state_ratio</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell, typename MaterialStates::State material_state) const</td></tr>
+<tr class="separator:a3b56c7f0ea748bf0dd3665abe928a473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ee68f3d480c4c4fc6144c35abddb12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a56ee68f3d480c4c4fc6144c35abddb12">set_initial_state</a> ()</td></tr>
+<tr class="separator:a56ee68f3d480c4c4fc6144c35abddb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c25f95e055d81cb5e75b77248937aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a65c25f95e055d81cb5e75b77248937aa">set_state</a> (dealii::Table&lt; 2, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;liquid_ratio, dealii::Table&lt; 2, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;powder_ratio, std::map&lt; typename dealii::DoFHandler&lt; dim &gt;::cell_iterator, std::pair&lt; unsigned int, unsigned int &gt;&gt; &amp;cell_it_to_mf_cell_map, dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler)</td></tr>
+<tr class="separator:a65c25f95e055d81cb5e75b77248937aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040452a6bec227436922f53df34baec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a040452a6bec227436922f53df34baec5">set_state_device</a> (Kokkos::View&lt; double *, typename MemorySpaceType::kokkos_space &gt; liquid_ratio, Kokkos::View&lt; double *, typename MemorySpaceType::kokkos_space &gt; powder_ratio, std::map&lt; typename dealii::DoFHandler&lt; dim &gt;::cell_iterator, std::vector&lt; unsigned int &gt;&gt; const &amp;_cell_it_to_mf_pos, dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler)</td></tr>
+<tr class="separator:a040452a6bec227436922f53df34baec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a0ac2fde9587146ba01efbdf172a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a38a0ac2fde9587146ba01efbdf172a60">set_cell_state</a> (std::vector&lt; std::array&lt; double, MaterialStates::n_material_states &gt;&gt; const &amp;cell_state)</td></tr>
+<tr class="separator:a38a0ac2fde9587146ba01efbdf172a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f82f5e3486733576fbff7edd3b19875"><td class="memItemLeft" align="right" valign="top">dealii::DoFHandler&lt; dim &gt; const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a7f82f5e3486733576fbff7edd3b19875">get_dof_handler</a> () const</td></tr>
+<tr class="separator:a7f82f5e3486733576fbff7edd3b19875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3174cdaa437e400e3cd680f8bc51f68"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; dealii::types::global_dof_index, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ae3174cdaa437e400e3cd680f8bc51f68">get_dofs_map</a> () const</td></tr>
+<tr class="separator:ae3174cdaa437e400e3cd680f8bc51f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a69b17199ec00b7d68de1dc98fe8ff64d"><td class="memItemLeft" align="right" valign="top">static KOKKOS_FUNCTION double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a69b17199ec00b7d68de1dc98fe8ff64d">compute_property_from_table</a> (Kokkos::View&lt; double ****[2], typename MemorySpaceType::kokkos_space &gt; state_property_tables, unsigned int const material_id, unsigned int const material_state, unsigned int const property, double const temperature)</td></tr>
-<tr class="separator:a69b17199ec00b7d68de1dc98fe8ff64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239410a4f26f88c5f1e8bb96b46eb823"><td class="memItemLeft" align="right" valign="top">static KOKKOS_FUNCTION double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a239410a4f26f88c5f1e8bb96b46eb823">compute_property_from_table</a> (Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, typename MemorySpaceType::kokkos_space &gt; state_property_tables, unsigned int const material_id, unsigned int const material_state, unsigned int const property, double const temperature)</td></tr>
+<tr class="separator:a239410a4f26f88c5f1e8bb96b46eb823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4f2936e4d8f01eabf251aaa06b3b1311"><td class="memItemLeft" align="right" valign="top">static unsigned constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a> = 12</td></tr>
-<tr class="separator:a4f2936e4d8f01eabf251aaa06b3b1311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc2a83c87703ec0148622e5cc606ccd7"><td class="memItemLeft" align="right" valign="top">static unsigned constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a> = 12</td></tr>
+<tr class="separator:adc2a83c87703ec0148622e5cc606ccd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a234babba6f4ce4d6fd084bdb82379909"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a234babba6f4ce4d6fd084bdb82379909">fill_properties</a> (boost::property_tree::ptree const &amp;database)</td></tr>
-<tr class="separator:a234babba6f4ce4d6fd084bdb82379909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce4bcc726325ed6ef3252fb174785ce"><td class="memItemLeft" align="right" valign="top">dealii::types::global_dof_index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#abce4bcc726325ed6ef3252fb174785ce">get_dof_index</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell) const</td></tr>
-<tr class="separator:abce4bcc726325ed6ef3252fb174785ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7667bae832f9fa99802026e86f4fb4"><td class="memItemLeft" align="right" valign="top">dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a0c7667bae832f9fa99802026e86f4fb4">compute_average_temperature</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature) const</td></tr>
-<tr class="separator:a0c7667bae832f9fa99802026e86f4fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3306a3a93cc1a7285157025c06685e19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3306a3a93cc1a7285157025c06685e19">fill_properties</a> (boost::property_tree::ptree const &amp;database)</td></tr>
+<tr class="separator:a3306a3a93cc1a7285157025c06685e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c945288035fecb74ec4607e16cde63"><td class="memItemLeft" align="right" valign="top">dealii::types::global_dof_index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a60c945288035fecb74ec4607e16cde63">get_dof_index</a> (typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;cell) const</td></tr>
+<tr class="separator:a60c945288035fecb74ec4607e16cde63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f21012614ad10cb2f2c65d8a4515402"><td class="memItemLeft" align="right" valign="top">dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a1f21012614ad10cb2f2c65d8a4515402">compute_average_temperature</a> (dealii::DoFHandler&lt; dim &gt; const &amp;temperature_dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;temperature) const</td></tr>
+<tr class="separator:a1f21012614ad10cb2f2c65d8a4515402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a09e1833dc10ff05d0877c4fd3f52331d"><td class="memItemLeft" align="right" valign="top">MPI_Comm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a09e1833dc10ff05d0877c4fd3f52331d">_communicator</a></td></tr>
-<tr class="separator:a09e1833dc10ff05d0877c4fd3f52331d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb41a310496ba98d62e5d20f9f90083e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#acb41a310496ba98d62e5d20f9f90083e">_use_table</a></td></tr>
-<tr class="separator:acb41a310496ba98d62e5d20f9f90083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e6426a43356a08b755380579b8a65f0"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a7e6426a43356a08b755380579b8a65f0">_state_property_tables</a></td></tr>
-<tr class="separator:a7e6426a43356a08b755380579b8a65f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a134eec0a24b23ae331dc01ec14168708"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][p_order+1], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a134eec0a24b23ae331dc01ec14168708">_state_property_polynomials</a></td></tr>
-<tr class="separator:a134eec0a24b23ae331dc01ec14168708"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed7b3327df16192b5667b0914fff3e98"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a>], typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#aed7b3327df16192b5667b0914fff3e98">_properties</a></td></tr>
-<tr class="separator:aed7b3327df16192b5667b0914fff3e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a899aa31b9624e820b4ad7190ce6795e4"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a899aa31b9624e820b4ad7190ce6795e4">_state</a></td></tr>
-<tr class="separator:a899aa31b9624e820b4ad7190ce6795e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b1fadb74cf856da0abf63a86932d732"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3b1fadb74cf856da0abf63a86932d732">_property_values</a></td></tr>
-<tr class="separator:a3b1fadb74cf856da0abf63a86932d732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18363068c7bf6d2542a851146a4dc446"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a18363068c7bf6d2542a851146a4dc446">_mechanical_properties_tables_host</a></td></tr>
-<tr class="separator:a18363068c7bf6d2542a851146a4dc446"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c1ddaf3ba84752118ab2224802a0a87"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>][p_order+1], dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3c1ddaf3ba84752118ab2224802a0a87">_mechanical_properties_polynomials_host</a></td></tr>
-<tr class="separator:a3c1ddaf3ba84752118ab2224802a0a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3a4f7847c25c22f5ce618d341111dd4"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>], dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af3a4f7847c25c22f5ce618d341111dd4">_mechanical_properties_host</a></td></tr>
-<tr class="separator:af3a4f7847c25c22f5ce618d341111dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02ff653348d58fbeb9d55f0eee383bb3"><td class="memItemLeft" align="right" valign="top">dealii::FE_DGQ&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a02ff653348d58fbeb9d55f0eee383bb3">_fe</a></td></tr>
-<tr class="separator:a02ff653348d58fbeb9d55f0eee383bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99fca5e2e24f26ecef0945025bb20012"><td class="memItemLeft" align="right" valign="top">dealii::DoFHandler&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a99fca5e2e24f26ecef0945025bb20012">_mp_dof_handler</a></td></tr>
-<tr class="separator:a99fca5e2e24f26ecef0945025bb20012"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6faa192d0a39086bc5da84794a97fd3d"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; dealii::types::global_dof_index, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a6faa192d0a39086bc5da84794a97fd3d">_dofs_map</a></td></tr>
-<tr class="separator:a6faa192d0a39086bc5da84794a97fd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0046dec1405fc39d762824a71597979c"><td class="memItemLeft" align="right" valign="top">MPI_Comm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a0046dec1405fc39d762824a71597979c">_communicator</a></td></tr>
+<tr class="separator:a0046dec1405fc39d762824a71597979c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d0acee13b756f360857b2e454f74ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a09d0acee13b756f360857b2e454f74ee">_use_table</a></td></tr>
+<tr class="separator:a09d0acee13b756f360857b2e454f74ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7159c4c732be9ed228889e5ae026079e"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a7159c4c732be9ed228889e5ae026079e">_state_property_tables</a></td></tr>
+<tr class="separator:a7159c4c732be9ed228889e5ae026079e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a166901b9a99f1e0c405f0c81a46527"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, p_order+1 &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a4a166901b9a99f1e0c405f0c81a46527">_state_property_polynomials</a></td></tr>
+<tr class="separator:a4a166901b9a99f1e0c405f0c81a46527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc5dde91fdc4ed3a3b7036855780736"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a> &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3cc5dde91fdc4ed3a3b7036855780736">_properties</a></td></tr>
+<tr class="separator:a3cc5dde91fdc4ed3a3b7036855780736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8763bee59c6e5559bbd69a0488b528f5"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a8763bee59c6e5559bbd69a0488b528f5">_state</a></td></tr>
+<tr class="separator:a8763bee59c6e5559bbd69a0488b528f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab412e6bc0123e9f2e7bb0008b319d5f1"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ab412e6bc0123e9f2e7bb0008b319d5f1">_property_values</a></td></tr>
+<tr class="separator:ab412e6bc0123e9f2e7bb0008b319d5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4865ab60614734264f62fd5aa1829e"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a3d4865ab60614734264f62fd5aa1829e">_mechanical_properties_tables_host</a></td></tr>
+<tr class="separator:a3d4865ab60614734264f62fd5aa1829e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c1fe5f7aa5162eb224502aacebd330"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data3_d.html">internal::Data3D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>, p_order+1 &gt;::type, dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#a02c1fe5f7aa5162eb224502aacebd330">_mechanical_properties_polynomials_host</a></td></tr>
+<tr class="separator:a02c1fe5f7aa5162eb224502aacebd330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a439128c400494a7d5f055d61f0793"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a> &gt;::type, dealii::MemorySpace::Host::kokkos_space &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ae7a439128c400494a7d5f055d61f0793">_mechanical_properties_host</a></td></tr>
+<tr class="separator:ae7a439128c400494a7d5f055d61f0793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af36496f9d2b29f22af48bba501c935dd"><td class="memItemLeft" align="right" valign="top">dealii::FE_DGQ&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#af36496f9d2b29f22af48bba501c935dd">_fe</a></td></tr>
+<tr class="separator:af36496f9d2b29f22af48bba501c935dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca6fa9bf972c75b094291327eca6c3b"><td class="memItemLeft" align="right" valign="top">dealii::DoFHandler&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#acca6fa9bf972c75b094291327eca6c3b">_mp_dof_handler</a></td></tr>
+<tr class="separator:acca6fa9bf972c75b094291327eca6c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74eab4dc0bbb20a06806e48ea9f4ee1"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; dealii::types::global_dof_index, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_material_property.html#ac74eab4dc0bbb20a06806e48ea9f4ee1">_dofs_map</a></td></tr>
+<tr class="separator:ac74eab4dc0bbb20a06806e48ea9f4ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int dim, int p_order, typename MaterialStates, typename MemorySpaceType&gt;<br />
-class adamantine::MaterialProperty&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;</h3>
+<div class="textblock"><h3>template&lt;int dim, int n_materials, int p_order, typename MaterialStates, typename MemorySpaceType&gt;<br />
+class adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</h3>
 
 <p>This class stores the material properties for all the materials </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00038">38</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00126">126</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5a91e14babd9043ef287d8beee10fce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a91e14babd9043ef287d8beee10fce0">&#9670;&nbsp;</a></span>MaterialProperty()</h2>
+<a id="aaa207b30489a631f479a60408523788a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa207b30489a631f479a60408523788a">&#9670;&nbsp;</a></span>MaterialProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::<a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a> </td>
+          <td class="memname"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::<a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a> </td>
           <td>(</td>
           <td class="paramtype">MPI_Comm const &amp;&#160;</td>
           <td class="paramname"><em>communicator</em>, </td>
@@ -224,19 +224,19 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0c7667bae832f9fa99802026e86f4fb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c7667bae832f9fa99802026e86f4fb4">&#9670;&nbsp;</a></span>compute_average_temperature()</h2>
+<a id="a1f21012614ad10cb2f2c65d8a4515402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f21012614ad10cb2f2c65d8a4515402">&#9670;&nbsp;</a></span>compute_average_temperature()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::compute_average_temperature </td>
+          <td class="memname">dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::compute_average_temperature </td>
           <td>(</td>
           <td class="paramtype">dealii::DoFHandler&lt; dim &gt; const &amp;&#160;</td>
           <td class="paramname"><em>temperature_dof_handler</em>, </td>
@@ -261,81 +261,22 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Compute the average of the temperature on every cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l01044">1044</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l01113">1113</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a30924ce77f01951eb43d9648c2e4a878"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30924ce77f01951eb43d9648c2e4a878">&#9670;&nbsp;</a></span>compute_material_property() <span class="overload">[1/2]</span></h2>
+<a id="a8c52802a48434bb9170360988fe0ca96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c52802a48434bb9170360988fe0ca96">&#9670;&nbsp;</a></span>compute_material_property() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <div class="memtemplate">
 template&lt;bool use_table&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">dealii::VectorizedArray&lt; double &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::compute_material_property </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a>&#160;</td>
-          <td class="paramname"><em>state_property</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">dealii::types::material_id const *&#160;</td>
-          <td class="paramname"><em>material_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">dealii::VectorizedArray&lt; double &gt; const *&#160;</td>
-          <td class="paramname"><em>state_ratios</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">dealii::VectorizedArray&lt; double &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>temperature</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">dealii::AlignedVector&lt; dealii::VectorizedArray&lt; double &gt;&gt; const &amp;&#160;</td>
-          <td class="paramname"><em>temperature_powers</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Compute a material property at a quadrature point for a mix of states. </p><dl class="section note"><dt>Note</dt><dd>This function is templated on </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">because</td><td>it is in a hot loop. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00421">421</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
-
-</div>
-</div>
-<a id="a5ad27feb2fb7061485feaa9d64b0720e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ad27feb2fb7061485feaa9d64b0720e">&#9670;&nbsp;</a></span>compute_material_property() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
-<div class="memtemplate">
-template&lt;bool use_table&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">KOKKOS_FUNCTION double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::compute_material_property </td>
+          <td class="memname">KOKKOS_FUNCTION double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::compute_material_property </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecf">StateProperty</a>&#160;</td>
           <td class="paramname"><em>state_property</em>, </td>
@@ -365,33 +306,74 @@ template&lt;bool use_table&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compute a material property at a quadrature point for a mix of states. </p><dl class="section note"><dt>Note</dt><dd>This function is templated on </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">because</td><td>it is in a hot loop. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute a material property at a quadrature point for a mix of states. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00476">476</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00806">806</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a69b17199ec00b7d68de1dc98fe8ff64d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b17199ec00b7d68de1dc98fe8ff64d">&#9670;&nbsp;</a></span>compute_property_from_table()</h2>
+<a id="af4a11e7b7626a063a08da107cce2e9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a11e7b7626a063a08da107cce2e9c8">&#9670;&nbsp;</a></span>compute_material_property() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+<div class="memtemplate">
+template&lt;bool use_table, StateProperty state_property&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::VectorizedArray&lt; double &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::compute_material_property </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; dealii::types::material_id, dealii::VectorizedArray&lt; double &gt;::size()&gt; const &amp;&#160;</td>
+          <td class="paramname"><em>material_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; dealii::VectorizedArray&lt; double &gt;, MaterialStates::n_material_states &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>state_ratios</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dealii::VectorizedArray&lt; double &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>temperature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dealii::AlignedVector&lt; dealii::VectorizedArray&lt; double &gt;&gt; const &amp;&#160;</td>
+          <td class="paramname"><em>temperature_powers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute a material property at a quadrature point for a mix of states. </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00533">533</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+
+</div>
+</div>
+<a id="a239410a4f26f88c5f1e8bb96b46eb823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239410a4f26f88c5f1e8bb96b46eb823">&#9670;&nbsp;</a></span>compute_property_from_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">KOKKOS_FUNCTION double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::compute_property_from_table </td>
+          <td class="memname">KOKKOS_FUNCTION double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::compute_property_from_table </td>
           <td>(</td>
-          <td class="paramtype">Kokkos::View&lt; double ****[2], typename MemorySpaceType::kokkos_space &gt;&#160;</td>
+          <td class="paramtype">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, typename MemorySpaceType::kokkos_space &gt;&#160;</td>
           <td class="paramname"><em>state_property_tables</em>, </td>
         </tr>
         <tr>
@@ -432,23 +414,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Compute a property from a table given the temperature. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l01078">1078</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l01149">1149</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a234babba6f4ce4d6fd084bdb82379909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a234babba6f4ce4d6fd084bdb82379909">&#9670;&nbsp;</a></span>fill_properties()</h2>
+<a id="a3306a3a93cc1a7285157025c06685e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3306a3a93cc1a7285157025c06685e19">&#9670;&nbsp;</a></span>fill_properties()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::fill_properties </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::fill_properties </td>
           <td>(</td>
           <td class="paramtype">boost::property_tree::ptree const &amp;&#160;</td>
           <td class="paramname"><em>database</em></td><td>)</td>
@@ -463,23 +445,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Fill the _properties map. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00770">770</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00785">785</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a6f0fa68253c72c89ab70a90f8b2da3a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f0fa68253c72c89ab70a90f8b2da3a3">&#9670;&nbsp;</a></span>get()</h2>
+<a id="a9d7770e035d83e2fd629c842bd45f7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7770e035d83e2fd629c842bd45f7b3">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get </td>
+          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get </td>
           <td>(</td>
           <td class="paramtype">dealii::types::material_id&#160;</td>
           <td class="paramname"><em>material_id</em>, </td>
@@ -504,20 +486,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the value of a given Property for a given material id. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00338">338</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00440">440</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a01ddd4b46c4db8c3e4de34d132e09c1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01ddd4b46c4db8c3e4de34d132e09c1d">&#9670;&nbsp;</a></span>get_cell_value() <span class="overload">[1/2]</span></h2>
+<a id="af42b52115dd47b428f804dc2f96757ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af42b52115dd47b428f804dc2f96757ae">&#9670;&nbsp;</a></span>get_cell_value() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_cell_value </td>
+          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_cell_value </td>
           <td>(</td>
           <td class="paramtype">typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
@@ -537,20 +519,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the value of the given Property for a given cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00164">164</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00165">165</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="afeece70d9afb189a7d0a9411be43d8b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afeece70d9afb189a7d0a9411be43d8b6">&#9670;&nbsp;</a></span>get_cell_value() <span class="overload">[2/2]</span></h2>
+<a id="accdcc5b9c50dcd0b0d3e70f8bfcbb935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdcc5b9c50dcd0b0d3e70f8bfcbb935">&#9670;&nbsp;</a></span>get_cell_value() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_cell_value </td>
+          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_cell_value </td>
           <td>(</td>
           <td class="paramtype">typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
@@ -574,19 +556,19 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 
 </div>
 </div>
-<a id="ae504be021106e54fdf84b6bc4bec477b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae504be021106e54fdf84b6bc4bec477b">&#9670;&nbsp;</a></span>get_dof_handler()</h2>
+<a id="a7f82f5e3486733576fbff7edd3b19875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f82f5e3486733576fbff7edd3b19875">&#9670;&nbsp;</a></span>get_dof_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::DoFHandler&lt; dim &gt; const  &amp; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_dof_handler</td>
+          <td class="memname">dealii::DoFHandler&lt; dim &gt; const  &amp; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_dof_handler</td>
         </tr>
       </table>
   </td>
@@ -597,23 +579,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the underlying the DoFHandler. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00409">409</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00524">524</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="abce4bcc726325ed6ef3252fb174785ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abce4bcc726325ed6ef3252fb174785ce">&#9670;&nbsp;</a></span>get_dof_index()</h2>
+<a id="a60c945288035fecb74ec4607e16cde63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c945288035fecb74ec4607e16cde63">&#9670;&nbsp;</a></span>get_dof_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::types::global_dof_index <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_dof_index </td>
+          <td class="memname">dealii::types::global_dof_index <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_dof_index </td>
           <td>(</td>
           <td class="paramtype">typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;&#160;</td>
           <td class="paramname"><em>cell</em></td><td>)</td>
@@ -628,23 +610,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the index of the dof associated to the cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00392">392</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00505">505</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a84b80f8412ac7aae9ce6738f22af4d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84b80f8412ac7aae9ce6738f22af4d52">&#9670;&nbsp;</a></span>get_dofs_map()</h2>
+<a id="ae3174cdaa437e400e3cd680f8bc51f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3174cdaa437e400e3cd680f8bc51f68">&#9670;&nbsp;</a></span>get_dofs_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;dealii::types::global_dof_index, unsigned int&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_dofs_map </td>
+          <td class="memname">std::unordered_map&lt;dealii::types::global_dof_index, unsigned int&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_dofs_map </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -658,20 +640,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the mapping between the degrees of freedom and the local index of the cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00222">222</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00312">312</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a89f1e7402578f5bea449a40da8d8e2f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89f1e7402578f5bea449a40da8d8e2f9">&#9670;&nbsp;</a></span>get_mechanical_property()</h2>
+<a id="a3a28b7c05ae519fb611c31d118a6adc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a28b7c05ae519fb611c31d118a6adc2">&#9670;&nbsp;</a></span>get_mechanical_property()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_mechanical_property </td>
+          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_mechanical_property </td>
           <td>(</td>
           <td class="paramtype">typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
@@ -691,23 +673,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the values of the given mechanical StateProperty for a given cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00178">178</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00181">181</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="abe90c0c202cd075f591008f249b4d1f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe90c0c202cd075f591008f249b4d1f6">&#9670;&nbsp;</a></span>get_properties()</h2>
+<a id="a563babd5d40442bcbad683db531ff7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563babd5d40442bcbad683db531ff7e5">&#9670;&nbsp;</a></span>get_properties()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt; double *[<a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a>], typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_properties</td>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a> &gt;::type, typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_properties</td>
         </tr>
       </table>
   </td>
@@ -718,23 +700,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the properties of the material that are independent of the state of the material. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00349">349</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00452">452</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a49109654ba53dec25a00772fe7081985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49109654ba53dec25a00772fe7081985">&#9670;&nbsp;</a></span>get_state()</h2>
+<a id="af8eed6732a03dcc779557af3cddb37ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8eed6732a03dcc779557af3cddb37ec">&#9670;&nbsp;</a></span>get_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_state</td>
+          <td class="memname">Kokkos::View&lt; double **, typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_state</td>
         </tr>
       </table>
   </td>
@@ -745,23 +727,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Get the array of material state vectors. The order of the different state vectors is given by the MaterialState enum. Each entry in the vector correspond to a cell in the mesh and has a value between 0 and 1. The sum of the states for a given cell is equal to 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00384">384</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00497">497</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a6ba135d7074e472639e8f10a5b8ede30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ba135d7074e472639e8f10a5b8ede30">&#9670;&nbsp;</a></span>get_state_property_polynomials()</h2>
+<a id="ab6ce95aabe6c01c0782a921434c3b967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ce95aabe6c01c0782a921434c3b967">&#9670;&nbsp;</a></span>get_state_property_polynomials()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][p_order+1], typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_state_property_polynomials</td>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, p_order+1 &gt;::type, typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_state_property_polynomials</td>
         </tr>
       </table>
   </td>
@@ -772,23 +754,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the properties of the material that are dependent of the state of the material and which have beese set using polynomials. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00377">377</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00488">488</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a87ddeea505cec084c6d97bb38cd0e50d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87ddeea505cec084c6d97bb38cd0e50d">&#9670;&nbsp;</a></span>get_state_property_tables()</h2>
+<a id="a4ac5a21f73eac51324a09b0982d2d83b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac5a21f73eac51324a09b0982d2d83b">&#9670;&nbsp;</a></span>get_state_property_tables()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt; double *[MaterialStates::n_material_states][<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_state_property_tables</td>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::<a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2 &gt;::type, typename MemorySpaceType::kokkos_space &gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_state_property_tables</td>
         </tr>
       </table>
   </td>
@@ -799,20 +781,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return the properties of the material that are dependent of the state of the material and which have been set using tables. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00367">367</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00476">476</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a77fdec0ceca94e692f100d89f62ae65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77fdec0ceca94e692f100d89f62ae65f">&#9670;&nbsp;</a></span>get_state_ratio()</h2>
+<a id="a3b56c7f0ea748bf0dd3665abe928a473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b56c7f0ea748bf0dd3665abe928a473">&#9670;&nbsp;</a></span>get_state_ratio()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::get_state_ratio </td>
+          <td class="memname">double <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::get_state_ratio </td>
           <td>(</td>
           <td class="paramtype">typename dealii::Triangulation&lt; dim &gt;::active_cell_iterator const &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
@@ -832,23 +814,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Get the ratio of a given MaterialState for a given cell. The sum of the states for a given cell is equal to 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00192">192</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00196">196</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a28d5822c0997a828a471e965fd7ed463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28d5822c0997a828a471e965fd7ed463">&#9670;&nbsp;</a></span>properties_use_table()</h2>
+<a id="a5e52b57a522992d381cd9521cfa21c0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e52b57a522992d381cd9521cfa21c0a">&#9670;&nbsp;</a></span>properties_use_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::properties_use_table</td>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::properties_use_table</td>
         </tr>
       </table>
   </td>
@@ -859,39 +841,39 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Return true if the material properties are given in table format. Return false if they are given in polynomial format. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00354">354</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00460">460</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="aa8e743a8292b05b2d5fbd9475e35428c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8e743a8292b05b2d5fbd9475e35428c">&#9670;&nbsp;</a></span>reinit_dofs()</h2>
+<a id="ad0e970d0f6f87134bb0f8123b6f09f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e970d0f6f87134bb0f8123b6f09f0e">&#9670;&nbsp;</a></span>reinit_dofs()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::reinit_dofs</td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::reinit_dofs</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Reinitialize the DoFHandler associated with <a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a> and resize the state vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00208">208</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00212">212</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a1db7d2d5907aea1d4efb03b4bf92df46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1db7d2d5907aea1d4efb03b4bf92df46">&#9670;&nbsp;</a></span>set_cell_state()</h2>
+<a id="a38a0ac2fde9587146ba01efbdf172a60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a0ac2fde9587146ba01efbdf172a60">&#9670;&nbsp;</a></span>set_cell_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::set_cell_state </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::set_cell_state </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::array&lt; double, MaterialStates::n_material_states &gt;&gt; const &amp;&#160;</td>
           <td class="paramname"><em>cell_state</em></td><td>)</td>
@@ -901,39 +883,39 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Set the ratio of the material states at the cell level. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00710">710</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00724">724</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a72533e9d259925a792e303cbaaf9f8ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72533e9d259925a792e303cbaaf9f8ae">&#9670;&nbsp;</a></span>set_initial_state()</h2>
+<a id="a56ee68f3d480c4c4fc6144c35abddb12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ee68f3d480c4c4fc6144c35abddb12">&#9670;&nbsp;</a></span>set_initial_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::set_initial_state</td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::set_initial_state</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Set the values in _state from the values of the user index of the Triangulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00730">730</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00744">744</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a1f2687111cc77e9f59db44b1db7b51a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f2687111cc77e9f59db44b1db7b51a7">&#9670;&nbsp;</a></span>set_state()</h2>
+<a id="a65c25f95e055d81cb5e75b77248937aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c25f95e055d81cb5e75b77248937aa">&#9670;&nbsp;</a></span>set_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::set_state </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::set_state </td>
           <td>(</td>
           <td class="paramtype">dealii::Table&lt; 2, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;&#160;</td>
           <td class="paramname"><em>liquid_ratio</em>, </td>
@@ -965,20 +947,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Set the ratio of the material states from <a class="el" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00518">518</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00526">526</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a8ca02fc9d8b85d8225501cf6beb121d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca02fc9d8b85d8225501cf6beb121d8">&#9670;&nbsp;</a></span>set_state_device()</h2>
+<a id="a040452a6bec227436922f53df34baec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040452a6bec227436922f53df34baec5">&#9670;&nbsp;</a></span>set_state_device()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::set_state_device </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::set_state_device </td>
           <td>(</td>
           <td class="paramtype">Kokkos::View&lt; double *, typename MemorySpaceType::kokkos_space &gt;&#160;</td>
           <td class="paramname"><em>liquid_ratio</em>, </td>
@@ -1010,20 +992,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Set the ratio of the material states from <a class="el" href="classadamantine_1_1_thermal_operator_device.html">ThermalOperatorDevice</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00600">600</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00612">612</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a7e3c2173df0e1a13f10927dea4f216bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e3c2173df0e1a13f10927dea4f216bf">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a06e4a71597c9689d4620ce19211872d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e4a71597c9689d4620ce19211872d2">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::update </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::update </td>
           <td>(</td>
           <td class="paramtype">dealii::DoFHandler&lt; dim &gt; const &amp;&#160;</td>
           <td class="paramname"><em>temperature_dof_handler</em>, </td>
@@ -1043,20 +1025,20 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Update the material state, i.e, the ratio of liquid, powder, and solid and the material properties given the field of temperature. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00237">237</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00242">242</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a9d0036eabefa8d697acfb3aecb8d8a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d0036eabefa8d697acfb3aecb8d8a17">&#9670;&nbsp;</a></span>update_boundary_material_properties()</h2>
+<a id="af750d51caaa3f4df7c7268702c92fd53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af750d51caaa3f4df7c7268702c92fd53">&#9670;&nbsp;</a></span>update_boundary_material_properties()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::update_boundary_material_properties </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::update_boundary_material_properties </td>
           <td>(</td>
           <td class="paramtype">dealii::DoFHandler&lt; dim &gt; const &amp;&#160;</td>
           <td class="paramname"><em>temperature_dof_handler</em>, </td>
@@ -1076,24 +1058,24 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Update the material properties necessary to compute the radiative and convective boundary conditions given the field of temperature. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00428">428</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8templates_8hh_source.html#l00435">435</a> of file <a class="el" href="_material_property_8templates_8hh_source.html">MaterialProperty.templates.hh</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a09e1833dc10ff05d0877c4fd3f52331d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09e1833dc10ff05d0877c4fd3f52331d">&#9670;&nbsp;</a></span>_communicator</h2>
+<a id="a0046dec1405fc39d762824a71597979c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0046dec1405fc39d762824a71597979c">&#9670;&nbsp;</a></span>_communicator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MPI_Comm <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_communicator</td>
+          <td class="memname">MPI_Comm <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_communicator</td>
         </tr>
       </table>
   </td>
@@ -1104,23 +1086,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>MPI communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00261">261</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00354">354</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a6faa192d0a39086bc5da84794a97fd3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6faa192d0a39086bc5da84794a97fd3d">&#9670;&nbsp;</a></span>_dofs_map</h2>
+<a id="ac74eab4dc0bbb20a06806e48ea9f4ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74eab4dc0bbb20a06806e48ea9f4ee1">&#9670;&nbsp;</a></span>_dofs_map</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;dealii::types::global_dof_index, unsigned int&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_dofs_map</td>
+          <td class="memname">std::unordered_map&lt;dealii::types::global_dof_index, unsigned int&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_dofs_map</td>
         </tr>
       </table>
   </td>
@@ -1131,23 +1113,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Mapping between the degrees of freedom and the local index of the cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00332">332</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00433">433</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a02ff653348d58fbeb9d55f0eee383bb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02ff653348d58fbeb9d55f0eee383bb3">&#9670;&nbsp;</a></span>_fe</h2>
+<a id="af36496f9d2b29f22af48bba501c935dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af36496f9d2b29f22af48bba501c935dd">&#9670;&nbsp;</a></span>_fe</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::FE_DGQ&lt;dim&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_fe</td>
+          <td class="memname">dealii::FE_DGQ&lt;dim&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_fe</td>
         </tr>
       </table>
   </td>
@@ -1158,23 +1140,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Discontinuous piecewise constant finite element. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00324">324</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00425">425</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="af3a4f7847c25c22f5ce618d341111dd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3a4f7847c25c22f5ce618d341111dd4">&#9670;&nbsp;</a></span>_mechanical_properties_host</h2>
+<a id="ae7a439128c400494a7d5f055d61f0793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a439128c400494a7d5f055d61f0793">&#9670;&nbsp;</a></span>_mechanical_properties_host</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>], dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_host</td>
+          <td class="memname">Kokkos::View&lt;typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt;n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>&gt;::type, dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_host</td>
         </tr>
       </table>
   </td>
@@ -1185,23 +1167,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Temperature independent mechanical properties. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00320">320</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00421">421</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a3c1ddaf3ba84752118ab2224802a0a87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c1ddaf3ba84752118ab2224802a0a87">&#9670;&nbsp;</a></span>_mechanical_properties_polynomials_host</h2>
+<a id="a02c1fe5f7aa5162eb224502aacebd330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c1fe5f7aa5162eb224502aacebd330">&#9670;&nbsp;</a></span>_mechanical_properties_polynomials_host</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>][p_order + 1], dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_polynomials_host</td>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data3_d.html">internal::Data3D</a>&lt;n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>, p_order + 1&gt;::type, dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_polynomials_host</td>
         </tr>
       </table>
   </td>
@@ -1212,23 +1194,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Mechanical properties which have been set using polynomials. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00314">314</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00414">414</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a18363068c7bf6d2542a851146a4dc446"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18363068c7bf6d2542a851146a4dc446">&#9670;&nbsp;</a></span>_mechanical_properties_tables_host</h2>
+<a id="a3d4865ab60614734264f62fd5aa1829e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4865ab60614734264f62fd5aa1829e">&#9670;&nbsp;</a></span>_mechanical_properties_tables_host</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double *[<a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_tables_host</td>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt;n_materials, <a class="el" href="namespaceadamantine.html#a0086451f45914153193552f53f456791">g_n_mechanical_state_properties</a>, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2&gt;::type, dealii::MemorySpace::Host::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_mechanical_properties_tables_host</td>
         </tr>
       </table>
   </td>
@@ -1239,23 +1221,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Mechanical properties which have been set using tables. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00308">308</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00406">406</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a99fca5e2e24f26ecef0945025bb20012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99fca5e2e24f26ecef0945025bb20012">&#9670;&nbsp;</a></span>_mp_dof_handler</h2>
+<a id="acca6fa9bf972c75b094291327eca6c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acca6fa9bf972c75b094291327eca6c3b">&#9670;&nbsp;</a></span>_mp_dof_handler</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::DoFHandler&lt;dim&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_mp_dof_handler</td>
+          <td class="memname">dealii::DoFHandler&lt;dim&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_mp_dof_handler</td>
         </tr>
       </table>
   </td>
@@ -1266,23 +1248,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>DoFHandler associated to the _state array. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00328">328</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00429">429</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="aed7b3327df16192b5667b0914fff3e98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed7b3327df16192b5667b0914fff3e98">&#9670;&nbsp;</a></span>_properties</h2>
+<a id="a3cc5dde91fdc4ed3a3b7036855780736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cc5dde91fdc4ed3a3b7036855780736">&#9670;&nbsp;</a></span>_properties</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double *[<a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a>], typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_properties</td>
+          <td class="memname">Kokkos::View&lt;typename <a class="el" href="structadamantine_1_1internal_1_1_data2_d.html">internal::Data2D</a>&lt;n_materials, <a class="el" href="namespaceadamantine.html#a90d8fc140363e0b0336e03d2df6dc932">g_n_properties</a>&gt;::type, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_properties</td>
         </tr>
       </table>
   </td>
@@ -1293,23 +1275,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Properties of the material that are independent of the state of the material. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00287">287</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00383">383</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a3b1fadb74cf856da0abf63a86932d732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b1fadb74cf856da0abf63a86932d732">&#9670;&nbsp;</a></span>_property_values</h2>
+<a id="ab412e6bc0123e9f2e7bb0008b319d5f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab412e6bc0123e9f2e7bb0008b319d5f1">&#9670;&nbsp;</a></span>_property_values</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double **, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_property_values</td>
+          <td class="memname">Kokkos::View&lt;double **, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_property_values</td>
         </tr>
       </table>
   </td>
@@ -1320,23 +1302,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Thermal properties of the material that are dependent of the state of the material. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00299">299</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00395">395</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a899aa31b9624e820b4ad7190ce6795e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a899aa31b9624e820b4ad7190ce6795e4">&#9670;&nbsp;</a></span>_state</h2>
+<a id="a8763bee59c6e5559bbd69a0488b528f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8763bee59c6e5559bbd69a0488b528f5">&#9670;&nbsp;</a></span>_state</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double **, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_state</td>
+          <td class="memname">Kokkos::View&lt;double **, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_state</td>
         </tr>
       </table>
   </td>
@@ -1347,23 +1329,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Ratio of each in MaterarialState in each cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00293">293</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00389">389</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a134eec0a24b23ae331dc01ec14168708"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a134eec0a24b23ae331dc01ec14168708">&#9670;&nbsp;</a></span>_state_property_polynomials</h2>
+<a id="a4a166901b9a99f1e0c405f0c81a46527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a166901b9a99f1e0c405f0c81a46527">&#9670;&nbsp;</a></span>_state_property_polynomials</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double * [MaterialStates::n_material_states] [<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][p_order + 1], typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_state_property_polynomials</td>
+          <td class="memname">Kokkos::View&lt;typename <a class="el" href="structadamantine_1_1internal_1_1_data4_d.html">internal::Data4D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, p_order + 1&gt;::type, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_state_property_polynomials</td>
         </tr>
       </table>
   </td>
@@ -1374,23 +1356,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Thermal material properties which have been set using polynomials. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00281">281</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00376">376</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a7e6426a43356a08b755380579b8a65f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e6426a43356a08b755380579b8a65f0">&#9670;&nbsp;</a></span>_state_property_tables</h2>
+<a id="a7159c4c732be9ed228889e5ae026079e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7159c4c732be9ed228889e5ae026079e">&#9670;&nbsp;</a></span>_state_property_tables</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Kokkos::View&lt;double * [MaterialStates::n_material_states] [<a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>][<a class="el" href="classadamantine_1_1_material_property.html#a4f2936e4d8f01eabf251aaa06b3b1311">table_size</a>][2], typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_state_property_tables</td>
+          <td class="memname">Kokkos::View&lt;typename <a class="el" href="structadamantine_1_1internal_1_1_data5_d.html">internal::Data5D</a>&lt; n_materials, <a class="el" href="namespaceadamantine.html#adf47f8a115ff23e74e5d488ae8327f43">g_n_thermal_state_properties</a>, MaterialStates::n_material_states, <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">table_size</a>, 2&gt;::type, typename MemorySpaceType::kokkos_space&gt; <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_state_property_tables</td>
         </tr>
       </table>
   </td>
@@ -1401,23 +1383,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Thermal material properties which have been set using tables. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00273">273</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00367">367</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="acb41a310496ba98d62e5d20f9f90083e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb41a310496ba98d62e5d20f9f90083e">&#9670;&nbsp;</a></span>_use_table</h2>
+<a id="a09d0acee13b756f360857b2e454f74ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d0acee13b756f360857b2e454f74ee">&#9670;&nbsp;</a></span>_use_table</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::_use_table</td>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::_use_table</td>
         </tr>
       </table>
   </td>
@@ -1428,23 +1410,23 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>If the flag is true the material properties are saved under a table. Otherwise the material properties are saved as polynomials. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00266">266</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00359">359</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>
-<a id="a4f2936e4d8f01eabf251aaa06b3b1311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f2936e4d8f01eabf251aaa06b3b1311">&#9670;&nbsp;</a></span>table_size</h2>
+<a id="adc2a83c87703ec0148622e5cc606ccd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc2a83c87703ec0148622e5cc606ccd7">&#9670;&nbsp;</a></span>table_size</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned constexpr int <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;::table_size = 12</td>
+          <td class="memname">unsigned constexpr int <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;::table_size = 12</td>
         </tr>
       </table>
   </td>
@@ -1455,7 +1437,7 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </div><div class="memdoc">
 <p>Size of the table, i.e. number of temperature/property pairs, used to describe the material properties. </p>
 
-<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00045">45</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_material_property_8hh_source.html#l00133">133</a> of file <a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>.</p>
 
 </div>
 </div>

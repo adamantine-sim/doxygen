@@ -107,8 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:add25bab03c314d4771304fa4e9e9892a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4f1af64dde3c1e705e70d47ce40d09"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#a5f4f1af64dde3c1e705e70d47ce40d09">set_beam_properties</a> (boost::property_tree::ptree const &amp;database)</td></tr>
 <tr class="separator:a5f4f1af64dde3c1e705e70d47ce40d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebaa29b87b3edf5c04d5791d1e0e57d6"><td class="memItemLeft" align="right" valign="top">virtual dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#aebaa29b87b3edf5c04d5791d1e0e57d6">get_bounding_box</a> (double const scaling_factor) const =0</td></tr>
-<tr class="separator:aebaa29b87b3edf5c04d5791d1e0e57d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b1292f13bbcfcc014611ed28f5f3c7"><td class="memItemLeft" align="right" valign="top">virtual dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#a43b1292f13bbcfcc014611ed28f5f3c7">get_bounding_box</a> (double const time, double const scaling_factor) const =0</td></tr>
+<tr class="separator:a43b1292f13bbcfcc014611ed28f5f3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -240,8 +240,8 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aebaa29b87b3edf5c04d5791d1e0e57d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebaa29b87b3edf5c04d5791d1e0e57d6">&#9670;&nbsp;</a></span>get_bounding_box()</h2>
+<a id="a43b1292f13bbcfcc014611ed28f5f3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b1292f13bbcfcc014611ed28f5f3c7">&#9670;&nbsp;</a></span>get_bounding_box()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,8 +255,18 @@ template&lt;int dim&gt; </div>
           <td class="memname">virtual dealii::BoundingBox&lt;dim&gt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;::get_bounding_box </td>
           <td>(</td>
           <td class="paramtype">double const&#160;</td>
-          <td class="paramname"><em>scaling_factor</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>scaling_factor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -265,9 +275,9 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return a scaled bounding box of the heat source. </p>
+<p>Return a scaled bounding box of the heat source at the given time. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a7ee869550d1633f3d518c339183d4158">adamantine::GoldakHeatSource&lt; dim &gt;</a>, <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#ab389e694589fafa64d01342df0f16889">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>, and <a class="el" href="classadamantine_1_1_cube_heat_source.html#aa7a46b9209ce456df33432e8e0a0e069">adamantine::CubeHeatSource&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a7cbfbf38d98f5ecc71b03ce1e20e7cc3">adamantine::GoldakHeatSource&lt; dim &gt;</a>, <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#aac2f5d455fbca4c3676fd7904a23efd3">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>, and <a class="el" href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">adamantine::CubeHeatSource&lt; dim &gt;</a>.</p>
 
 </div>
 </div>

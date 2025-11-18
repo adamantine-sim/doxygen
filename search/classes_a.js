@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_627',['Operator',['../classadamantine_1_1_operator.html',1,'adamantine']]],
-  ['operator_3c_20dealii_3a_3amemoryspace_3a_3ahost_20_3e_628',['Operator&lt; dealii::MemorySpace::Host &gt;',['../classadamantine_1_1_operator.html',1,'adamantine']]]
+  ['ray_607',['Ray',['../structadamantine_1_1_ray.html',1,'adamantine']]],
+  ['raynearestpredicate_608',['RayNearestPredicate',['../classadamantine_1_1_ray_nearest_predicate.html',1,'adamantine']]],
+  ['raytracing_609',['RayTracing',['../classadamantine_1_1_ray_tracing.html',1,'adamantine']]]
 ];

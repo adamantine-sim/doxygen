@@ -65,7 +65,28 @@ $(function() {
 <div class="title">adamantine Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__home_bt2_Documents_adamantine_doc_doxygen_adamantine_master_doc_README"></a> This is the documentation for adamantine developers. The user documentation can be found at <a href="https://adamantine-sim.github.io/adamantine">https://adamantine-sim.github.io/adamantine</a> </p>
+<div class="textblock"><p><a class="anchor" id="md__home_bt2_Documents_adamantine_doc_doxygen_adamantine_master_doc_README"></a> This is the documentation for <code>adamantine</code> <b>developers</b>. The <b>user documentation</b> can be found at <a href="https://adamantine-sim.github.io/adamantine">https://adamantine-sim.github.io/adamantine</a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Speed up compilation during development</h1>
+<p>Due to the large number of template parameters, compiling <code>adamantine</code> can be time-consuming. You can significantly speed up compilation during development by temporarily restricting the instantiated parameters.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Steps to optimize compilation</h2>
+<ol type="1">
+<li><b>Modify <code><a class="el" href="instantiation_8hh.html">source/instantiation.hh</a></code></b>:<ul>
+<li>Comment out <code>ADAMANTINE_P_ORDER</code> for orders 1 and above.</li>
+<li>Comment out <code>ADAMANTINE_FE_DEGREE</code> for orders 2 and above.</li>
+<li>Comment out <code>(dealii::QGaussLobatto&lt;1&gt;)</code> within <code>ADAMANTINE_QUADRATURE_TYPE</code>.</li>
+</ul>
+</li>
+</ol>
+<blockquote class="doxtable">
+<p><b>Note:</b> These changes limit the number of specific templated instantiations the compiler needs to generate, reducing the overall compilation time. </p>
+</blockquote>
+<ol type="1">
+<li><b>Disable Tests</b>: Since the <code><a class="el" href="instantiation_8hh.html">source/instantiation.hh</a></code> file has been modified to restrict instantiations, you will be disable the tests as they rely on the full set of instantiations. Ensure tests are disabled in your build process when using this temporary configuration.</li>
+<li><b>Compile only the library</b>: <code>adamantine</code> is a driver built on top an internal library <code>Adamantine</code>. The reduced instantiations prevent you to compile <code>adamantine</code> but you can still compile the library using: <div class="fragment"><div class="line">make -jN Adamantine</div>
+</div><!-- fragment --> </li>
+</ol>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

@@ -66,40 +66,637 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">adamantine.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_material_states_8hh_source.html">MaterialStates.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="utils_8hh_source.html">utils.hh</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="_material_states_8hh_source.html">MaterialStates.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="instantiation_8hh_source.html">instantiation.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="utils_8hh_source.html">utils.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="validate__input__database_8hh_source.html">validate_input_database.hh</a>&gt;</code><br />
 <code>#include &lt;boost/program_options.hpp&gt;</code><br />
 <code>#include &lt;boost/property_tree/info_parser.hpp&gt;</code><br />
 <code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
 <code>#include &lt;Kokkos_Core.hpp&gt;</code><br />
 <code>#include &lt;filesystem&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
 </div>
 <p><a href="adamantine_8cc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aaf680b493eefd01f844551ed67b72ba3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#aaf680b493eefd01f844551ed67b72ba3">RUN_ENSEMBLE_SOLID_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:aaf680b493eefd01f844551ed67b72ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28cc1f16a05d3eea4b8d1bcec435e66b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a28cc1f16a05d3eea4b8d1bcec435e66b">RUN_ENSEMBLE_SOLID_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:a28cc1f16a05d3eea4b8d1bcec435e66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae10c3037117285f307c442732ebca42c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#ae10c3037117285f307c442732ebca42c">RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:ae10c3037117285f307c442732ebca42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe5b72aaaf540220138ba43ee90ad55d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#afe5b72aaaf540220138ba43ee90ad55d">RUN_ENSEMBLE_SOLID_LIQUID_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:afe5b72aaaf540220138ba43ee90ad55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e2e2102e333cf2fbc9ef21b69a4665"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a50e2e2102e333cf2fbc9ef21b69a4665">RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:a50e2e2102e333cf2fbc9ef21b69a4665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470c1db5b0181cf575367faca76f805f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a470c1db5b0181cf575367faca76f805f">RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:a470c1db5b0181cf575367faca76f805f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af45ba89aa50ef8c3b4dffdb3a8eab288"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#af45ba89aa50ef8c3b4dffdb3a8eab288">RUN_SOLID_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:af45ba89aa50ef8c3b4dffdb3a8eab288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24ef5a9cd32edd0958bddc8382237c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#aa24ef5a9cd32edd0958bddc8382237c2">RUN_SOLID_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:aa24ef5a9cd32edd0958bddc8382237c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea5a29772ce396867030a89730e4ed7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#adea5a29772ce396867030a89730e4ed7">RUN_SOLID_LIQUID_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:adea5a29772ce396867030a89730e4ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade158def43325d7e6b2b65f16d2b6f88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#ade158def43325d7e6b2b65f16d2b6f88">RUN_SOLID_LIQUID_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:ade158def43325d7e6b2b65f16d2b6f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba7cfe027ace13248e76ece19152ec4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#adba7cfe027ace13248e76ece19152ec4">RUN_SOLID_LIQUID_POWDER_HOST_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:adba7cfe027ace13248e76ece19152ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c25b9960e3184a0456e8f6d199edfae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a5c25b9960e3184a0456e8f6d199edfae">RUN_SOLID_LIQUID_POWDER_HOST</a>(TUPLE)</td></tr>
+<tr class="separator:a5c25b9960e3184a0456e8f6d199edfae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af16d93467bb3f0187f6eff708dc0ed3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#af16d93467bb3f0187f6eff708dc0ed3c">RUN_SOLID_DEV_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:af16d93467bb3f0187f6eff708dc0ed3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a878f6b6f5ada3238b0e0b0d83ca76ece"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a878f6b6f5ada3238b0e0b0d83ca76ece">RUN_SOLID_DEVICE</a>(TUPLE)</td></tr>
+<tr class="separator:a878f6b6f5ada3238b0e0b0d83ca76ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fa351a29c11c9f61e9f42f886c3d8ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a2fa351a29c11c9f61e9f42f886c3d8ed">RUN_SOLID_LIQUID_DEV_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:a2fa351a29c11c9f61e9f42f886c3d8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29acd67b448ebaae50af1ba81083399b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a29acd67b448ebaae50af1ba81083399b">RUN_SOLID_LIQUID_DEVICE</a>(TUPLE)</td></tr>
+<tr class="separator:a29acd67b448ebaae50af1ba81083399b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d90fea265762bcb017f4554c52823d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#ac2d90fea265762bcb017f4554c52823d">RUN_SOLID_LIQUID_POWDER_DEV_IF</a>(z,  SEQ)</td></tr>
+<tr class="separator:ac2d90fea265762bcb017f4554c52823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab253ff7b401c53893dbb68c5dea2560e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#ab253ff7b401c53893dbb68c5dea2560e">RUN_SOLID_LIQUID_POWDER_DEVICE</a>(TUPLE)</td></tr>
+<tr class="separator:ab253ff7b401c53893dbb68c5dea2560e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9e51d1ac00baa4b654d03b192eb4ee6e"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a9e51d1ac00baa4b654d03b192eb4ee6e">get_p_order_and_n_material_states</a> (boost::property_tree::ptree &amp;database)</td></tr>
-<tr class="separator:a9e51d1ac00baa4b654d03b192eb4ee6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eeefb3935156b33d1b1efb5f18d62cd"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a2eeefb3935156b33d1b1efb5f18d62cd">get_material_template_parameters</a> (boost::property_tree::ptree &amp;database)</td></tr>
+<tr class="separator:a2eeefb3935156b33d1b1efb5f18d62cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8cc.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a9e51d1ac00baa4b654d03b192eb4ee6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e51d1ac00baa4b654d03b192eb4ee6e">&#9670;&nbsp;</a></span>get_p_order_and_n_material_states()</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a28cc1f16a05d3eea4b8d1bcec435e66b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28cc1f16a05d3eea4b8d1bcec435e66b">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_HOST</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt;int, int&gt; get_p_order_and_n_material_states </td>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#aaf680b493eefd01f844551ed67b72ba3">RUN_ENSEMBLE_SOLID_HOST_IF</a>,                                              \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_aaf680b493eefd01f844551ed67b72ba3"><div class="ttname"><a href="adamantine_8cc.html#aaf680b493eefd01f844551ed67b72ba3">RUN_ENSEMBLE_SOLID_HOST_IF</a></div><div class="ttdeci">#define RUN_ENSEMBLE_SOLID_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00030">adamantine.cc:30</a></div></div>
+<div class="ttc" id="ainstantiation_8hh_html_a4c7d1fc89cb7f59150589d9fc0cc3f41"><div class="ttname"><a href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a></div><div class="ttdeci">#define ADAMANTINE_N_MATERIALS</div><div class="ttdef"><b>Definition:</b> <a href="instantiation_8hh_source.html#l00010">instantiation.hh:10</a></div></div>
+<div class="ttc" id="ainstantiation_8hh_html_aa60e381d258621e1217487bf903cf1a7"><div class="ttname"><a href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a></div><div class="ttdeci">#define ADAMANTINE_P_ORDER</div><div class="ttdef"><b>Definition:</b> <a href="instantiation_8hh_source.html#l00011">instantiation.hh:11</a></div></div>
+<div class="ttc" id="ainstantiation_8hh_html_ad04f9c9c181713b49d198dac0e034879"><div class="ttname"><a href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a></div><div class="ttdeci">#define ADAMANTINE_DIM</div><div class="ttdef"><b>Definition:</b> <a href="instantiation_8hh_source.html#l00008">instantiation.hh:8</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00039">39</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="aaf680b493eefd01f844551ed67b72ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf680b493eefd01f844551ed67b72ba3">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run_ensemble&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),         \</div>
+<div class="line">                 BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid.html">adamantine::Solid</a>,                 \</div>
+<div class="line">                 dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+<div class="ttc" id="astructadamantine_1_1_solid_html"><div class="ttname"><a href="structadamantine_1_1_solid.html">adamantine::Solid</a></div><div class="ttdef"><b>Definition:</b> <a href="_material_states_8hh_source.html#l00061">MaterialStates.hh:62</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00030">30</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="afe5b72aaaf540220138ba43ee90ad55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5b72aaaf540220138ba43ee90ad55d">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_LIQUID_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_LIQUID_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#ae10c3037117285f307c442732ebca42c">RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF</a>,                                       \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_ae10c3037117285f307c442732ebca42c"><div class="ttname"><a href="adamantine_8cc.html#ae10c3037117285f307c442732ebca42c">RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF</a></div><div class="ttdeci">#define RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00044">adamantine.cc:44</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00053">53</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="ae10c3037117285f307c442732ebca42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae10c3037117285f307c442732ebca42c">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_LIQUID_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run_ensemble&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),         \</div>
+<div class="line">                 BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid.html">adamantine::SolidLiquid</a>,           \</div>
+<div class="line">                 dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+<div class="ttc" id="astructadamantine_1_1_solid_liquid_html"><div class="ttname"><a href="structadamantine_1_1_solid_liquid.html">adamantine::SolidLiquid</a></div><div class="ttdef"><b>Definition:</b> <a href="_material_states_8hh_source.html#l00038">MaterialStates.hh:39</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00044">44</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a470c1db5b0181cf575367faca76f805f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470c1db5b0181cf575367faca76f805f">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#a50e2e2102e333cf2fbc9ef21b69a4665">RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF</a>,                                \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_a50e2e2102e333cf2fbc9ef21b69a4665"><div class="ttname"><a href="adamantine_8cc.html#a50e2e2102e333cf2fbc9ef21b69a4665">RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF</a></div><div class="ttdeci">#define RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00058">adamantine.cc:58</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00067">67</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a50e2e2102e333cf2fbc9ef21b69a4665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50e2e2102e333cf2fbc9ef21b69a4665">&#9670;&nbsp;</a></span>RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_ENSEMBLE_SOLID_LIQUID_POWDER_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run_ensemble&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),         \</div>
+<div class="line">                 BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid_powder.html">adamantine::SolidLiquidPowder</a>,     \</div>
+<div class="line">                 dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+<div class="ttc" id="astructadamantine_1_1_solid_liquid_powder_html"><div class="ttname"><a href="structadamantine_1_1_solid_liquid_powder.html">adamantine::SolidLiquidPowder</a></div><div class="ttdef"><b>Definition:</b> <a href="_material_states_8hh_source.html#l00014">MaterialStates.hh:15</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00058">58</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="af16d93467bb3f0187f6eff708dc0ed3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16d93467bb3f0187f6eff708dc0ed3c">&#9670;&nbsp;</a></span>RUN_SOLID_DEV_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_DEV_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid.html">adamantine::Solid</a>,                          \</div>
+<div class="line">        dealii::MemorySpace::Default&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00114">114</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a878f6b6f5ada3238b0e0b0d83ca76ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a878f6b6f5ada3238b0e0b0d83ca76ece">&#9670;&nbsp;</a></span>RUN_SOLID_DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_DEVICE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#af16d93467bb3f0187f6eff708dc0ed3c">RUN_SOLID_DEV_IF</a>,                                                        \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_af16d93467bb3f0187f6eff708dc0ed3c"><div class="ttname"><a href="adamantine_8cc.html#af16d93467bb3f0187f6eff708dc0ed3c">RUN_SOLID_DEV_IF</a></div><div class="ttdeci">#define RUN_SOLID_DEV_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00114">adamantine.cc:114</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00123">123</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="aa24ef5a9cd32edd0958bddc8382237c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24ef5a9cd32edd0958bddc8382237c2">&#9670;&nbsp;</a></span>RUN_SOLID_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#af45ba89aa50ef8c3b4dffdb3a8eab288">RUN_SOLID_HOST_IF</a>,                                                       \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_af45ba89aa50ef8c3b4dffdb3a8eab288"><div class="ttname"><a href="adamantine_8cc.html#af45ba89aa50ef8c3b4dffdb3a8eab288">RUN_SOLID_HOST_IF</a></div><div class="ttdeci">#define RUN_SOLID_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00072">adamantine.cc:72</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00081">81</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="af45ba89aa50ef8c3b4dffdb3a8eab288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af45ba89aa50ef8c3b4dffdb3a8eab288">&#9670;&nbsp;</a></span>RUN_SOLID_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid.html">adamantine::Solid</a>,                          \</div>
+<div class="line">        dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00072">72</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a2fa351a29c11c9f61e9f42f886c3d8ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa351a29c11c9f61e9f42f886c3d8ed">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_DEV_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_DEV_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid.html">adamantine::SolidLiquid</a>,                    \</div>
+<div class="line">        dealii::MemorySpace::Default&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00128">128</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a29acd67b448ebaae50af1ba81083399b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29acd67b448ebaae50af1ba81083399b">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_DEVICE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#a2fa351a29c11c9f61e9f42f886c3d8ed">RUN_SOLID_LIQUID_DEV_IF</a>,                                                 \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_a2fa351a29c11c9f61e9f42f886c3d8ed"><div class="ttname"><a href="adamantine_8cc.html#a2fa351a29c11c9f61e9f42f886c3d8ed">RUN_SOLID_LIQUID_DEV_IF</a></div><div class="ttdeci">#define RUN_SOLID_LIQUID_DEV_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00128">adamantine.cc:128</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00137">137</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="ade158def43325d7e6b2b65f16d2b6f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade158def43325d7e6b2b65f16d2b6f88">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#adea5a29772ce396867030a89730e4ed7">RUN_SOLID_LIQUID_HOST_IF</a>,                                                \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_adea5a29772ce396867030a89730e4ed7"><div class="ttname"><a href="adamantine_8cc.html#adea5a29772ce396867030a89730e4ed7">RUN_SOLID_LIQUID_HOST_IF</a></div><div class="ttdeci">#define RUN_SOLID_LIQUID_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00086">adamantine.cc:86</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00095">95</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="adea5a29772ce396867030a89730e4ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adea5a29772ce396867030a89730e4ed7">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid.html">adamantine::SolidLiquid</a>,                    \</div>
+<div class="line">        dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00086">86</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="ac2d90fea265762bcb017f4554c52823d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d90fea265762bcb017f4554c52823d">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_POWDER_DEV_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_POWDER_DEV_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid_powder.html">adamantine::SolidLiquidPowder</a>,              \</div>
+<div class="line">        dealii::MemorySpace::Default&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00142">142</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="ab253ff7b401c53893dbb68c5dea2560e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab253ff7b401c53893dbb68c5dea2560e">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_POWDER_DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_POWDER_DEVICE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#ac2d90fea265762bcb017f4554c52823d">RUN_SOLID_LIQUID_POWDER_DEV_IF</a>,                                          \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_ac2d90fea265762bcb017f4554c52823d"><div class="ttname"><a href="adamantine_8cc.html#ac2d90fea265762bcb017f4554c52823d">RUN_SOLID_LIQUID_POWDER_DEV_IF</a></div><div class="ttdeci">#define RUN_SOLID_LIQUID_POWDER_DEV_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00142">adamantine.cc:142</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00151">151</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="a5c25b9960e3184a0456e8f6d199edfae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c25b9960e3184a0456e8f6d199edfae">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_POWDER_HOST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_POWDER_HOST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TUPLE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  BOOST_PP_SEQ_FOR_EACH_PRODUCT(                                               \</div>
+<div class="line">      <a class="code" href="adamantine_8cc.html#adba7cfe027ace13248e76ece19152ec4">RUN_SOLID_LIQUID_POWDER_HOST_IF</a>,                                         \</div>
+<div class="line">      ((TUPLE))(<a class="code" href="instantiation_8hh.html#ad04f9c9c181713b49d198dac0e034879">ADAMANTINE_DIM</a>)(<a class="code" href="instantiation_8hh.html#a4c7d1fc89cb7f59150589d9fc0cc3f41">ADAMANTINE_N_MATERIALS</a>)(<a class="code" href="instantiation_8hh.html#aa60e381d258621e1217487bf903cf1a7">ADAMANTINE_P_ORDER</a>))</div>
+<div class="ttc" id="aadamantine_8cc_html_adba7cfe027ace13248e76ece19152ec4"><div class="ttname"><a href="adamantine_8cc.html#adba7cfe027ace13248e76ece19152ec4">RUN_SOLID_LIQUID_POWDER_HOST_IF</a></div><div class="ttdeci">#define RUN_SOLID_LIQUID_POWDER_HOST_IF(z, SEQ)</div><div class="ttdef"><b>Definition:</b> <a href="adamantine_8cc_source.html#l00100">adamantine.cc:100</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00109">109</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<a id="adba7cfe027ace13248e76ece19152ec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba7cfe027ace13248e76ece19152ec4">&#9670;&nbsp;</a></span>RUN_SOLID_LIQUID_POWDER_HOST_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUN_SOLID_LIQUID_POWDER_HOST_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">z, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SEQ&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (BOOST_PP_SEQ_ELEM(0, SEQ) ==                                             \</div>
+<div class="line">      std::tuple&lt;int, int, int&gt;(BOOST_PP_SEQ_ELEM(1, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(2, SEQ),                     \</div>
+<div class="line">                                BOOST_PP_SEQ_ELEM(3, SEQ)))                    \</div>
+<div class="line">    run&lt;BOOST_PP_SEQ_ELEM(1, SEQ), BOOST_PP_SEQ_ELEM(2, SEQ),                  \</div>
+<div class="line">        BOOST_PP_SEQ_ELEM(3, SEQ), <a class="code" href="structadamantine_1_1_solid_liquid_powder.html">adamantine::SolidLiquidPowder</a>,              \</div>
+<div class="line">        dealii::MemorySpace::Host&gt;(communicator, database, timers);</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00100">100</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a2eeefb3935156b33d1b1efb5f18d62cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eeefb3935156b33d1b1efb5f18d62cd">&#9670;&nbsp;</a></span>get_material_template_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt;int, int, int&gt; get_material_template_parameters </td>
           <td>(</td>
           <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
           <td class="paramname"><em>database</em></td><td>)</td>
@@ -108,7 +705,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00029">29</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00157">157</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
 
 </div>
 </div>
@@ -138,7 +735,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00115">115</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8cc_source.html#l00243">243</a> of file <a class="el" href="adamantine_8cc_source.html">adamantine.cc</a>.</p>
 
 </div>
 </div>

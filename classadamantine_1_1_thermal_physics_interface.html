@@ -80,7 +80,7 @@ Inheritance diagram for adamantine::ThermalPhysicsInterface&lt; dim, MemorySpace
  <div class="center">
   <img src="classadamantine_1_1_thermal_physics_interface.png" usemap="#adamantine::ThermalPhysicsInterface_3C_20dim_2C_20MemorySpaceType_20_3E_map" alt=""/>
   <map id="adamantine::ThermalPhysicsInterface_3C_20dim_2C_20MemorySpaceType_20_3E_map" name="adamantine::ThermalPhysicsInterface_3C_20dim_2C_20MemorySpaceType_20_3E_map">
-<area href="classadamantine_1_1_thermal_physics.html" alt="adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;" shape="rect" coords="0,56,645,80"/>
+<area href="classadamantine_1_1_thermal_physics.html" alt="adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;" shape="rect" coords="0,56,718,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim, typename MemorySpaceType&gt;<br />
 class adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</h3>
 
-<p>This class defines the interface for <a class="el" href="classadamantine_1_1_thermal_physics.html">ThermalPhysics</a> used in <a class="el" href="adamantine_8hh.html#ae3b7a1127304147008eea66973868c3b">run()</a>. The objective of this class is to simplify code in <a class="el" href="adamantine_8hh.html#ae3b7a1127304147008eea66973868c3b">run()</a> by reducing the number of template parameters from four to two. </p>
+<p>This class defines the interface for <a class="el" href="classadamantine_1_1_thermal_physics.html">ThermalPhysics</a> used in <a class="el" href="adamantine_8hh.html#af3a090f6ba8a61023a37eeb84753d10a">run()</a>. The objective of this class is to simplify code in <a class="el" href="adamantine_8hh.html#af3a090f6ba8a61023a37eeb84753d10a">run()</a> by reducing the number of template parameters from four to two. </p>
 
 <p class="definition">Definition at line <a class="el" href="_thermal_physics_interface_8hh_source.html#l00028">28</a> of file <a class="el" href="_thermal_physics_interface_8hh_source.html">ThermalPhysicsInterface.hh</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -237,7 +237,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Finalize adding material by completing the transfer of solutions after the discretization has been adapted to the activated cells. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a88e8d8b3e01bba88e647454786ffb2a5">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#aa2bf1c93abd2e01e950062d9a0658ce5">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -308,7 +308,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Activate more elements of the mesh and interpolate the solution to the new domain. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a3daf682d6ebb41b1ce5efd4a4f80e4b2">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a6896998bf23cf66ec079ddf38a54e72c">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -338,7 +338,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Compute the inverse of the mass matrix associated to the Physics. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a83ec4eac14eca1743ea773c39d6edc08">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a066c2338cba3ba674f7cfaa1bbfaf9d4">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -391,7 +391,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Evolve the physics from time t to time t+delta_t. solution first contains the field at time t and after execution of the function, the field at time t+delta_t. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a9f78c4057c637fa3bf28bf3ee347423b">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ad1b57c9e4dc472bab3ba746998ed55c3">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -421,7 +421,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the AffineConstraints&lt;double&gt;. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a7794829c13fc306bce2742e1cd939f54">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a4b3ac6efaf3f5a171856fb4bf1c5255d">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -452,7 +452,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the cosine of the material deposition angle for the activated cell <code>i</code>. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a10565c67dba408d69c3121d26daa5429">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ad8aecec44bd728bf2b0b6050094d09f6">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -483,7 +483,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the sine of the material deposition angle for the activated cell <code>i</code>. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ac4ce4b3c31a3afe3fba59b3832ebc93b">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a265f253e2eb70a6ac08790dd0b388c70">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -513,7 +513,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the DoFHandler. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#aebc33e57cb78ed12eb15f43bf46ac71f">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ae7f4e5abf1ce5eb31a866096786c7fed">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -543,7 +543,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the degree of the finite element. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#acaa027f856037ad1fdeb474aa3a986e0">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a41058ac91047ab69f04594536abf8bab">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -574,7 +574,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Returns one entry of _has_melted </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a313085c873da9d50b77d4d656a6305c5">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a4fd6646fc81fd585ee8221f1fa78fec9">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -604,7 +604,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Returns _has_melted </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a2d8d07a49683d36ab5a728ee8c97b532">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a745d81a8fab2d796b6e17d39ed6939d4">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -634,7 +634,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Return the heat sources. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a87c753bc62e61365d5efdd63b32ad2c5">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a925e0f37649268b7170e73c6139fe931">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -664,7 +664,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Populate the state of the materials in the Physics object from the <a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a> object. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ab0c7aab35084f8a7c22f5be70a27a226">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#aac5ec2bc520a9beda590e37353a5909d">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -705,7 +705,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Initialize the given vector with the given value. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a1579f3ea229eb979cceb0a48093ab903">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#af1f0f92c456b551e4eb4eb2ffb4197e8">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -746,7 +746,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Load the state of the simulation from files. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a99fdc3dda959aeee5c9b00ebacc7ac81">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#adc37566d8c273a4207e9e9fbfbd28ab4">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -787,7 +787,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Mark cells above the given temperature to denote that they have melted </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ad1082deed0148133c6cbde97ba801327">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ab700e9e9e2f23b84c4417b1e93c867bf">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -828,7 +828,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Write the current state of the simulation on the filesystem. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a56b083e1ebae4bac368c342797c3ccb9">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a03ca7270114fb40966680e385f4d6306">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -859,7 +859,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Sets _has_melted </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ab37ff726d3cdafb582a23f4a770f85f7">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a1ba08f475cace730460a29c2c649553c">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -900,7 +900,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Set the deposition cosine and sine and call update_material_deposition_orientation. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a97a9eb85df874498ee1d06144ecb1c5e">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a3f1147cbe1213d1f8368f644a2e84e77">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -930,7 +930,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Populate the state of the materials in the <a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a> object from the Physics object. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a9f558aa28dd2a08a2bda5c8a9515a6bd">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ac44271146ec52ddd26d3b05bf82ba01b">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -960,7 +960,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Set up and initialize the data structure. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#aab65aa7303f154f552e6423c91ae41d5">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a41bc80bb0ea0707fdbb6994c6f335b00">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -990,7 +990,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Associate the AffineConstraints&lt;double&gt; and the MatrixFree objects to the underlying Triangulation. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a06c3dc0a793be1db878dd325765edb73">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a3bc2635648db675778e33a6a8d5d8bb1">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>
@@ -1021,7 +1021,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </div><div class="memdoc">
 <p>Public interface for modifying the private state of the Physics object. One use of this is to modify nominally constant parameters in the middle of a simulation based on data assimilation with an augmented state. </p>
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#ad427cac50dce1f50f9866016f14e9af5">adamantine::ThermalPhysics&lt; dim, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_physics.html#a0f86ae18ec1c6d2ed2f4a38b8b934930">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>.</p>
 
 </div>
 </div>

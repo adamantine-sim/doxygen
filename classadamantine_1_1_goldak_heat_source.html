@@ -95,8 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afd3421d281a76b93180d84e735410aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a272727d10b0da36f41b82c98aa5f5324"><td class="memItemLeft" align="right" valign="top">dealii::VectorizedArray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a272727d10b0da36f41b82c98aa5f5324">value</a> (dealii::Point&lt; dim, dealii::VectorizedArray&lt; double &gt;&gt; const &amp;points, dealii::VectorizedArray&lt; double &gt; const &amp;height) const final</td></tr>
 <tr class="separator:a272727d10b0da36f41b82c98aa5f5324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee869550d1633f3d518c339183d4158"><td class="memItemLeft" align="right" valign="top">dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a7ee869550d1633f3d518c339183d4158">get_bounding_box</a> (double const scaling_factor) const final</td></tr>
-<tr class="separator:a7ee869550d1633f3d518c339183d4158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cbfbf38d98f5ecc71b03ce1e20e7cc3"><td class="memItemLeft" align="right" valign="top">dealii::BoundingBox&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_goldak_heat_source.html#a7cbfbf38d98f5ecc71b03ce1e20e7cc3">get_bounding_box</a> (double time, double const scaling_factor) const final</td></tr>
+<tr class="separator:a7cbfbf38d98f5ecc71b03ce1e20e7cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classadamantine_1_1_heat_source"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadamantine_1_1_heat_source')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource&lt; dim &gt;</a></td></tr>
 <tr class="memitem:ae59ebc2fa466ea513ed17b25f2727d5d inherit pub_methods_classadamantine_1_1_heat_source"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_heat_source.html#ae59ebc2fa466ea513ed17b25f2727d5d">HeatSource</a> ()=default</td></tr>
 <tr class="separator:ae59ebc2fa466ea513ed17b25f2727d5d inherit pub_methods_classadamantine_1_1_heat_source"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,8 +191,8 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7ee869550d1633f3d518c339183d4158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ee869550d1633f3d518c339183d4158">&#9670;&nbsp;</a></span>get_bounding_box()</h2>
+<a id="a7cbfbf38d98f5ecc71b03ce1e20e7cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cbfbf38d98f5ecc71b03ce1e20e7cc3">&#9670;&nbsp;</a></span>get_bounding_box()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,9 +205,19 @@ template&lt;int dim&gt; </div>
         <tr>
           <td class="memname">dealii::BoundingBox&lt; dim &gt; <a class="el" href="classadamantine_1_1_goldak_heat_source.html">adamantine::GoldakHeatSource</a>&lt; dim &gt;::get_bounding_box </td>
           <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double const&#160;</td>
-          <td class="paramname"><em>scaling_factor</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>scaling_factor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -216,9 +226,9 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return a scaled bounding box of the heat source. </p>
+<p>Return a scaled bounding box of the heat source at the given time. </p>
 
-<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#aebaa29b87b3edf5c04d5791d1e0e57d6">adamantine::HeatSource&lt; dim &gt;</a>.</p>
+<p>Implements <a class="el" href="classadamantine_1_1_heat_source.html#a43b1292f13bbcfcc014611ed28f5f3c7">adamantine::HeatSource&lt; dim &gt;</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_goldak_heat_source_8cc_source.html#l00127">127</a> of file <a class="el" href="_goldak_heat_source_8cc_source.html">GoldakHeatSource.cc</a>.</p>
 

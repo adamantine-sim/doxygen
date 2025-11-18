@@ -2,8 +2,5 @@
 \_form#1=31x14:$[0,\infty)$
 \_form#2=31x14:$[0, \infty)$
 \_form#3=29x15:$m/s^2$
-\_form#4=10x9:$F$
-\_form#5=69x18:$I-\tau M^{-1} \frac{F}{dy}$
-\_form#6=8x6:$\tau$
-\_form#7=88x11:$ dst = -\nabla k \nabla src $
-\_form#8=19x19:$ \frac{1}{\rho C_p} $
+\_form#4=88x11:$ dst = -\nabla k \nabla src $
+\_form#5=19x19:$ \frac{1}{\rho C_p} $

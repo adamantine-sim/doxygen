@@ -71,7 +71,8 @@ $(function() {
 <div class="title">adamantine.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_boundary_8hh_source.html">Boundary.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_experimental_data_8hh_source.html">ExperimentalData.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_material_property_8hh_source.html">MaterialProperty.hh</a>&gt;</code><br />
@@ -117,40 +118,40 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac06823af03e69d62fc43ee3e4f4568a2"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType , std::enable_if_t&lt; std::is_same&lt; MemorySpaceType, dealii::MemorySpace::Host &gt;::value, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:ac06823af03e69d62fc43ee3e4f4568a2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#ac06823af03e69d62fc43ee3e4f4568a2">output_pvtu</a> (<a class="el" href="classadamantine_1_1_post_processor.html">adamantine::PostProcessor</a>&lt; dim &gt; &amp;post_processor, unsigned int n_time_step, double time, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; const &amp;thermal_physics, dealii::LinearAlgebra::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;temperature, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; const &amp;mechanical_physics, dealii::LA::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt; &amp;displacement, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; const &amp;material_properties, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
-<tr class="separator:ac06823af03e69d62fc43ee3e4f4568a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cff98eb926f89d92b5d2e419825cd5b"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType , std::enable_if_t&lt; std::is_same&lt; MemorySpaceType, dealii::MemorySpace::Host &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:a9cff98eb926f89d92b5d2e419825cd5b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a9cff98eb926f89d92b5d2e419825cd5b">output_pvtu</a> (<a class="el" href="classadamantine_1_1_post_processor.html">adamantine::PostProcessor</a>&lt; dim &gt; &amp;post_processor, unsigned int n_time_step, double time, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; const &amp;thermal_physics, dealii::LinearAlgebra::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;temperature, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; const &amp;mechanical_physics, dealii::LA::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt; &amp;displacement, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; const &amp;material_properties, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
+<tr class="separator:a9cff98eb926f89d92b5d2e419825cd5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef052fcec68b2e9d535a83fb4e8a4176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#aef052fcec68b2e9d535a83fb4e8a4176">initialize_timers</a> (MPI_Comm const &amp;communicator, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
 <tr class="separator:aef052fcec68b2e9d535a83fb4e8a4176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c097c4d1cd82119de7ffdc61eabcd27"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </td></tr>
-<tr class="memitem:a3c097c4d1cd82119de7ffdc61eabcd27"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a3c097c4d1cd82119de7ffdc61eabcd27">initialize</a> (MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
-<tr class="separator:a3c097c4d1cd82119de7ffdc61eabcd27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2bae90bed549c77e5162286a6b9434d"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:aa2bae90bed549c77e5162286a6b9434d"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#aa2bae90bed549c77e5162286a6b9434d">initialize_quadrature</a> (std::string const &amp;quadrature_type, MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
-<tr class="separator:aa2bae90bed549c77e5162286a6b9434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ff798d3685f4529ff15360a5b16fc16"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:a1ff798d3685f4529ff15360a5b16fc16"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a1ff798d3685f4529ff15360a5b16fc16">initialize_thermal_physics</a> (unsigned int fe_degree, std::string const &amp;quadrature_type, MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
-<tr class="separator:a1ff798d3685f4529ff15360a5b16fc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab51edab5d1068f5f1909cb65c6b6f970"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:ab51edab5d1068f5f1909cb65c6b6f970"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#ab51edab5d1068f5f1909cb65c6b6f970">refine_and_transfer</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::DoFHandler&lt; dim &gt; &amp;dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution)</td></tr>
-<tr class="separator:ab51edab5d1068f5f1909cb65c6b6f970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93827ae1a850d685bfd080ae3fd24c18"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </td></tr>
+<tr class="memitem:a93827ae1a850d685bfd080ae3fd24c18"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a93827ae1a850d685bfd080ae3fd24c18">initialize</a> (MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;boundary, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
+<tr class="separator:a93827ae1a850d685bfd080ae3fd24c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bd95dd0adb4d2177dfa17936e18798"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:af5bd95dd0adb4d2177dfa17936e18798"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#af5bd95dd0adb4d2177dfa17936e18798">initialize_quadrature</a> (std::string const &amp;quadrature_type, MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;boundary, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
+<tr class="separator:af5bd95dd0adb4d2177dfa17936e18798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6869428b695cd97b4e09b106d372f3b4"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:a6869428b695cd97b4e09b106d372f3b4"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a6869428b695cd97b4e09b106d372f3b4">initialize_thermal_physics</a> (unsigned int fe_degree, std::string const &amp;quadrature_type, MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt; &amp;geometry, <a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;boundary, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties)</td></tr>
+<tr class="separator:a6869428b695cd97b4e09b106d372f3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfb3bed7c3d87970108fbae07edd8a4"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:a4dfb3bed7c3d87970108fbae07edd8a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a4dfb3bed7c3d87970108fbae07edd8a4">refine_and_transfer</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::DoFHandler&lt; dim &gt; &amp;dof_handler, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution)</td></tr>
+<tr class="separator:a4dfb3bed7c3d87970108fbae07edd8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dcbce53ebcd764eee3b809a18a46a40"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
 <tr class="memitem:a3dcbce53ebcd764eee3b809a18a46a40"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; typename dealii::parallel::distributed::Triangulation&lt; dim &gt;::active_cell_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a3dcbce53ebcd764eee3b809a18a46a40">compute_cells_to_refine</a> (dealii::parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, double const time, double const next_refinement_time, unsigned int const n_time_steps, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;&gt;&gt; const &amp;heat_sources)</td></tr>
 <tr class="separator:a3dcbce53ebcd764eee3b809a18a46a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bca842de9ff9e54bc4ab558f491e74"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:a30bca842de9ff9e54bc4ab558f491e74"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a30bca842de9ff9e54bc4ab558f491e74">refine_mesh</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;&gt;&gt; const &amp;heat_sources, double const time, double const next_refinement_time, unsigned int const time_steps_refinement, boost::property_tree::ptree const &amp;refinement_database)</td></tr>
-<tr class="separator:a30bca842de9ff9e54bc4ab558f491e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee43ece60d3cdaa2dfd217c38666e771"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:aee43ece60d3cdaa2dfd217c38666e771"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#aee43ece60d3cdaa2dfd217c38666e771">refine_mesh</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;&gt;&gt; const &amp;heat_sources, double const time, double const next_refinement_time, unsigned int const time_steps_refinement, boost::property_tree::ptree const &amp;refinement_database)</td></tr>
-<tr class="separator:aee43ece60d3cdaa2dfd217c38666e771"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3b7a1127304147008eea66973868c3b"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:ae3b7a1127304147008eea66973868c3b"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; dealii::LinearAlgebra::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt;, dealii::LinearAlgebra::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#ae3b7a1127304147008eea66973868c3b">run</a> (MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
-<tr class="separator:ae3b7a1127304147008eea66973868c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ed5ef89368b7b8200b67733f4f1cfc"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:ab0ed5ef89368b7b8200b67733f4f1cfc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#ab0ed5ef89368b7b8200b67733f4f1cfc">refine_mesh</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;&gt;&gt; const &amp;heat_sources, double const time, double const next_refinement_time, unsigned int const time_steps_refinement, boost::property_tree::ptree const &amp;refinement_database)</td></tr>
+<tr class="separator:ab0ed5ef89368b7b8200b67733f4f1cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35a7176c8211c7dcaaddcd4da15050c8"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:a35a7176c8211c7dcaaddcd4da15050c8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a35a7176c8211c7dcaaddcd4da15050c8">refine_mesh</a> (std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt; dim, MemorySpaceType &gt;&gt; &amp;thermal_physics, std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;mechanical_physics, <a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;material_properties, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;solution, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a>&lt; dim &gt;&gt;&gt; const &amp;heat_sources, double const time, double const next_refinement_time, unsigned int const time_steps_refinement, boost::property_tree::ptree const &amp;refinement_database)</td></tr>
+<tr class="separator:a35a7176c8211c7dcaaddcd4da15050c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a090f6ba8a61023a37eeb84753d10a"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:af3a090f6ba8a61023a37eeb84753d10a"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; dealii::LinearAlgebra::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt;, dealii::LinearAlgebra::distributed::Vector&lt; double, dealii::MemorySpace::Host &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#af3a090f6ba8a61023a37eeb84753d10a">run</a> (MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
+<tr class="separator:af3a090f6ba8a61023a37eeb84753d10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e0b8b2d8bf8b7641e403af62125d6b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a4e0b8b2d8bf8b7641e403af62125d6b9">split_global_communicator</a> (MPI_Comm global_communicator, unsigned int global_ensemble_size, MPI_Comm &amp;local_communicator, unsigned int &amp;local_ensemble_size, unsigned int &amp;first_local_member, int &amp;my_color)</td></tr>
 <tr class="separator:a4e0b8b2d8bf8b7641e403af62125d6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89851c050e8a9a0c77054d11593e54c3"><td class="memTemplParams" colspan="2">template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
-<tr class="memitem:a89851c050e8a9a0c77054d11593e54c3"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; dealii::LA::distributed::BlockVector&lt; double &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a89851c050e8a9a0c77054d11593e54c3">run_ensemble</a> (MPI_Comm const &amp;global_communicator, boost::property_tree::ptree const &amp;database, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
-<tr class="separator:a89851c050e8a9a0c77054d11593e54c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6f4aaec25d9ecb77279d5e39f1819f"><td class="memTemplParams" colspan="2">template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </td></tr>
+<tr class="memitem:a3c6f4aaec25d9ecb77279d5e39f1819f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; dealii::LA::distributed::BlockVector&lt; double &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="adamantine_8hh.html#a3c6f4aaec25d9ecb77279d5e39f1819f">run_ensemble</a> (MPI_Comm const &amp;global_communicator, boost::property_tree::ptree const &amp;database, std::vector&lt; <a class="el" href="classadamantine_1_1_timer.html">adamantine::Timer</a> &gt; &amp;timers)</td></tr>
+<tr class="separator:a3c6f4aaec25d9ecb77279d5e39f1819f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3dcbce53ebcd764eee3b809a18a46a40"></a>
@@ -199,17 +200,17 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00528">528</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00534">534</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="a3c097c4d1cd82119de7ffdc61eabcd27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c097c4d1cd82119de7ffdc61eabcd27">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="a93827ae1a850d685bfd080ae3fd24c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93827ae1a850d685bfd080ae3fd24c18">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::unique_ptr&lt;<a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt;dim, MemorySpaceType&gt; &gt; initialize </td>
@@ -232,7 +233,13 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;&#160;</td>
+          <td class="paramname"><em>boundary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>&#160;</td>
         </tr>
         <tr>
@@ -247,13 +254,13 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
 
 </div>
 </div>
-<a id="aa2bae90bed549c77e5162286a6b9434d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2bae90bed549c77e5162286a6b9434d">&#9670;&nbsp;</a></span>initialize_quadrature()</h2>
+<a id="af5bd95dd0adb4d2177dfa17936e18798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bd95dd0adb4d2177dfa17936e18798">&#9670;&nbsp;</a></span>initialize_quadrature()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::unique_ptr&lt;<a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt;dim, MemorySpaceType&gt; &gt; initialize_quadrature </td>
@@ -282,7 +289,13 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;&#160;</td>
+          <td class="paramname"><em>boundary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>&#160;</td>
         </tr>
         <tr>
@@ -297,13 +310,13 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
 
 </div>
 </div>
-<a id="a1ff798d3685f4529ff15360a5b16fc16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ff798d3685f4529ff15360a5b16fc16">&#9670;&nbsp;</a></span>initialize_thermal_physics()</h2>
+<a id="a6869428b695cd97b4e09b106d372f3b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6869428b695cd97b4e09b106d372f3b4">&#9670;&nbsp;</a></span>initialize_thermal_physics()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::unique_ptr&lt;<a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface</a>&lt;dim, MemorySpaceType&gt; &gt; initialize_thermal_physics </td>
@@ -338,7 +351,13 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_boundary.html">adamantine::Boundary</a> const &amp;&#160;</td>
+          <td class="paramname"><em>boundary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>&#160;</td>
         </tr>
         <tr>
@@ -387,17 +406,17 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00188">188</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00189">189</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="ac06823af03e69d62fc43ee3e4f4568a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac06823af03e69d62fc43ee3e4f4568a2">&#9670;&nbsp;</a></span>output_pvtu()</h2>
+<a id="a9cff98eb926f89d92b5d2e419825cd5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cff98eb926f89d92b5d2e419825cd5b">&#9670;&nbsp;</a></span>output_pvtu()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType , std::enable_if_t&lt; std::is_same&lt; MemorySpaceType, dealii::MemorySpace::Host &gt;::value, int &gt;  = 0&gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType , std::enable_if_t&lt; std::is_same&lt; MemorySpaceType, dealii::MemorySpace::Host &gt;::value, int &gt;  = 0&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void output_pvtu </td>
@@ -432,7 +451,7 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; const &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; const &amp;&#160;</td>
           <td class="paramname"><em>mechanical_physics</em>, </td>
         </tr>
         <tr>
@@ -444,7 +463,7 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; const &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>, </td>
         </tr>
         <tr>
@@ -461,17 +480,17 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00063">63</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00064">64</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="ab51edab5d1068f5f1909cb65c6b6f970"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab51edab5d1068f5f1909cb65c6b6f970">&#9670;&nbsp;</a></span>refine_and_transfer()</h2>
+<a id="a4dfb3bed7c3d87970108fbae07edd8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfb3bed7c3d87970108fbae07edd8a4">&#9670;&nbsp;</a></span>refine_and_transfer()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void refine_and_transfer </td>
@@ -482,13 +501,13 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>mechanical_physics</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>, </td>
         </tr>
         <tr>
@@ -511,17 +530,17 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00303">303</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00308">308</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="a30bca842de9ff9e54bc4ab558f491e74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30bca842de9ff9e54bc4ab558f491e74">&#9670;&nbsp;</a></span>refine_mesh() <span class="overload">[1/2]</span></h2>
+<a id="ab0ed5ef89368b7b8200b67733f4f1cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ed5ef89368b7b8200b67733f4f1cfc">&#9670;&nbsp;</a></span>refine_mesh() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void refine_mesh </td>
@@ -532,13 +551,13 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>mechanical_physics</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>, </td>
         </tr>
         <tr>
@@ -585,17 +604,17 @@ template&lt;int dim, int p_order, int fe_degree, typename MaterialStates , typen
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00594">594</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00599">599</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="aee43ece60d3cdaa2dfd217c38666e771"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee43ece60d3cdaa2dfd217c38666e771">&#9670;&nbsp;</a></span>refine_mesh() <span class="overload">[2/2]</span></h2>
+<a id="a35a7176c8211c7dcaaddcd4da15050c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35a7176c8211c7dcaaddcd4da15050c8">&#9670;&nbsp;</a></span>refine_mesh() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void refine_mesh </td>
@@ -606,13 +625,13 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classadamantine_1_1_mechanical_physics.html">adamantine::MechanicalPhysics</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>mechanical_physics</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em>, </td>
         </tr>
         <tr>
@@ -659,17 +678,17 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00665">665</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00671">671</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="ae3b7a1127304147008eea66973868c3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3b7a1127304147008eea66973868c3b">&#9670;&nbsp;</a></span>run()</h2>
+<a id="af3a090f6ba8a61023a37eeb84753d10a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a090f6ba8a61023a37eeb84753d10a">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::pair&lt;dealii::LinearAlgebra::distributed::Vector&lt;double, dealii::MemorySpace::Host&gt;, dealii::LinearAlgebra::distributed::Vector&lt;double, dealii::MemorySpace::Host&gt; &gt; run </td>
@@ -697,17 +716,17 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00737">737</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l00744">744</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
-<a id="a89851c050e8a9a0c77054d11593e54c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89851c050e8a9a0c77054d11593e54c3">&#9670;&nbsp;</a></span>run_ensemble()</h2>
+<a id="a3c6f4aaec25d9ecb77279d5e39f1819f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6f4aaec25d9ecb77279d5e39f1819f">&#9670;&nbsp;</a></span>run_ensemble()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
+template&lt;int dim, int n_materials, int p_order, typename MaterialStates , typename MemorySpaceType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;dealii::LA::distributed::BlockVector&lt;double&gt; &gt; run_ensemble </td>
@@ -735,7 +754,7 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l01395">1395</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l01423">1423</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
@@ -789,7 +808,7 @@ template&lt;int dim, int p_order, typename MaterialStates , typename MemorySpace
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l01339">1339</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="adamantine_8hh_source.html#l01367">1367</a> of file <a class="el" href="adamantine_8hh_source.html">adamantine.hh</a>.</p>
 
 </div>
 </div>
