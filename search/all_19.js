@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['_7eexperimentaldata_569',['~ExperimentalData',['../classadamantine_1_1_experimental_data.html#ab39f055804c94759cf67ef0cc5bd6a87',1,'adamantine::ExperimentalData']]],
-  ['_7eheatsource_570',['~HeatSource',['../classadamantine_1_1_heat_source.html#a2355743530a701ebf66f421719495f90',1,'adamantine::HeatSource']]],
-  ['_7emicrostructure_571',['~Microstructure',['../classadamantine_1_1_microstructure.html#a71bdc9559d143bec7f16e9ad93548fb9',1,'adamantine::Microstructure']]],
-  ['_7ethermaloperatorbase_572',['~ThermalOperatorBase',['../classadamantine_1_1_thermal_operator_base.html#a30eb49e100ba70dab7c83c4dbd0b9689',1,'adamantine::ThermalOperatorBase']]],
-  ['_7ethermalphysicsinterface_573',['~ThermalPhysicsInterface',['../classadamantine_1_1_thermal_physics_interface.html#a9973bb9fc7dacb07d9e28485c9ee26ca',1,'adamantine::ThermalPhysicsInterface']]]
+  ['z_610',['z',['../structadamantine_1_1axis_3_012_01_4.html#af28624b57fb96557be0d686a0de36629',1,'adamantine::axis&lt; 2 &gt;::z()'],['../structadamantine_1_1axis_3_013_01_4.html#a5776315d1730f2b866fbfa5d8f002226',1,'adamantine::axis&lt; 3 &gt;::z()']]]
 ];

@@ -136,11 +136,7 @@ $(function() {
 : <a class="el" href="classadamantine_1_1_data_assimilator.html#ad2ac44df9477b567b9c89e4d5f6b34b8">adamantine::DataAssimilator</a>
 </li>
 <li>_covariance_sparsity_pattern
-: <a class="el" href="classadamantine_1_1_data_assimilator.html#a4f8d1cb6edd6a104aedc96dfe8d69eb2">adamantine::DataAssimilator</a>
-</li>
-<li>_current_source_height
-: <a class="el" href="classadamantine_1_1_thermal_operator.html#ae79da83cdd8e08d8ed2e36667dd6006d">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
-, <a class="el" href="classadamantine_1_1_thermal_physics.html#a76053b00be67b7a3ef9c5f9e468c319f">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>
+: <a class="el" href="classadamantine_1_1_data_assimilator.html#a83341d59e1eab55ef6170d088594399a">adamantine::DataAssimilator</a>
 </li>
 <li>_data_filename
 : <a class="el" href="classadamantine_1_1_point_cloud.html#a287ec2d3252a45d9bc7fc776d67d15db">adamantine::PointCloud&lt; dim &gt;</a>
@@ -221,6 +217,11 @@ $(function() {
 : <a class="el" href="classadamantine_1_1_point_cloud.html#a9de97697658ebff7cf6c02767f2edec9">adamantine::PointCloud&lt; dim &gt;</a>
 , <a class="el" href="classadamantine_1_1_ray_tracing.html#a5e1ffea3480cec7e73cbe0a5c354d72d">adamantine::RayTracing</a>
 </li>
+<li>_five_axis
+: <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#adf44efbd7931748dc3baaf107688f74c">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>
+, <a class="el" href="classadamantine_1_1_goldak_heat_source.html#ae749bc2c9dfcfa6501ce3f4ca3443c8e">adamantine::GoldakHeatSource&lt; dim &gt;</a>
+, <a class="el" href="classadamantine_1_1_scan_path.html#aa5a7e0c8109673e39fa65afbd757fd6f">adamantine::ScanPath</a>
+</li>
 <li>_forward_euler
 : <a class="el" href="classadamantine_1_1_thermal_physics.html#a1a7de47bf56ce4292a2669e269331494">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>
 </li>
@@ -245,8 +246,21 @@ $(function() {
 : <a class="el" href="classadamantine_1_1_thermal_operator.html#aebcb7c289e638035679016af20b8c61f">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
 , <a class="el" href="classadamantine_1_1_thermal_physics.html#aa9be4f5bf1dda9a2cd23c3e733aa07d3">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>
 </li>
+<li>_heat_sources_on
+: <a class="el" href="classadamantine_1_1_thermal_operator.html#a7d15fc70341be2a80194e94868a77e35">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
+</li>
 <li>_include_gravity
 : <a class="el" href="classadamantine_1_1_mechanical_physics.html#aff2620ec3036e10746721fc43f9ae55c">adamantine::MechanicalPhysics&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
+</li>
+<li>_inv_depth
+: <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#ac659318dfed7a68a3cbc228acd7c24ee">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>
+</li>
+<li>_inv_depth_squared
+: <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a1261e4512ab4651b10374f64d0117836">adamantine::GoldakHeatSource&lt; dim &gt;</a>
+</li>
+<li>_inv_radius_squared
+: <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a8362dc4cd5c1c52615c68ea1b5b229cd">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>
+, <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a323a63177b1f30d010ed88a9bab02560">adamantine::GoldakHeatSource&lt; dim &gt;</a>
 </li>
 <li>_inv_rho_cp
 : <a class="el" href="classadamantine_1_1_thermal_operator_device.html#aea595729a98bf5dd2a9111b894d0e7bb">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
@@ -254,9 +268,15 @@ $(function() {
 <li>_inv_rho_cp_cells
 : <a class="el" href="classadamantine_1_1_thermal_operator_device.html#af63a3442985b2a17548b80e6c2957048">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
 </li>
+<li>_inv_rotation_matrix
+: <a class="el" href="classadamantine_1_1_quaternion.html#ae5872b65fe6f5b1d37ff3a502ba24461">adamantine::Quaternion</a>
+</li>
 <li>_inverse_mass_matrix
 : <a class="el" href="classadamantine_1_1_thermal_operator.html#ad15adee2458db30223d4a7008a1f06d5">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
 , <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a7e56b7f4633d7d9e5df496d28afbdf2b">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
+</li>
+<li>_is_valid
+: <a class="el" href="classadamantine_1_1_quaternion.html#a403bdc81a44cfb0353dd9794674f6769">adamantine::Quaternion</a>
 </li>
 <li>_last_camera_id
 : <a class="el" href="classadamantine_1_1_point_cloud.html#aa44bba6ce863f16e6cd78db4b1ff424b">adamantine::PointCloud&lt; dim &gt;</a>
@@ -298,11 +318,11 @@ $(function() {
 </li>
 <li>_matrix_free
 : <a class="el" href="classadamantine_1_1_thermal_operator.html#a4b06f387bab25c43f4632cc254e537ce">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
-, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a773909fdf7e5de987ba16469304c1467">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
+, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a96e55127282973ccbb92fca213a1046b">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
 </li>
 <li>_matrix_free_data
 : <a class="el" href="classadamantine_1_1_thermal_operator.html#ab033ace4e6b93c00598028a436ab255a">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
-, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a9aa3e79f399e22ba7715932383572075">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
+, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a769706297ff663b6cc77828262addd07">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>
 </li>
 <li>_max_point
 : <a class="el" href="classadamantine_1_1_cube_heat_source.html#a827a82708aa35e306db9b0838f6f33a7">adamantine::CubeHeatSource&lt; dim &gt;</a>
@@ -375,6 +395,12 @@ $(function() {
 <li>_power_scaling
 : <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#a2ff857d41b659f73a8fc8663db4ef711">adamantine::BeamHeatSourceProperties</a>
 </li>
+<li>_preconditioner
+: <a class="el" href="classadamantine_1_1_mechanical_operator.html#a43130050e6425e06a7dc54d0a4b70f53">adamantine::MechanicalOperator&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
+</li>
+<li>_print_heat_input
+: <a class="el" href="classadamantine_1_1_thermal_physics.html#aee90b29375db0c74380b9450402b2362">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>
+</li>
 <li>_prng
 : <a class="el" href="classadamantine_1_1_data_assimilator.html#a45530f547f2a1026d89ca4ee12fd6568">adamantine::DataAssimilator</a>
 </li>
@@ -389,6 +415,11 @@ $(function() {
 , <a class="el" href="classadamantine_1_1_mechanical_physics.html#aef7b19c712c748b7034dfa9442c580fd">adamantine::MechanicalPhysics&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
 , <a class="el" href="classadamantine_1_1_thermal_physics.html#a699fe0f0f6230564b83345449baa1ea0">adamantine::ThermalPhysics&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;</a>
 </li>
+<li>_quaternion
+: <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a0f700e88cb7ea4f6bf01c1579d846a26">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>
+, <a class="el" href="classadamantine_1_1_goldak_heat_source.html#a0bc90c9253511e735eff16f68513a86d">adamantine::GoldakHeatSource&lt; dim &gt;</a>
+, <a class="el" href="classadamantine_1_1_quaternion.html#aad15e0d37d86c37b9f12ba734067c09a">adamantine::Quaternion</a>
+</li>
 <li>_radius_squared
 : <a class="el" href="classadamantine_1_1_electron_beam_heat_source.html#a35064aed90e675876e667a295a364c09">adamantine::ElectronBeamHeatSource&lt; dim &gt;</a>
 , <a class="el" href="classadamantine_1_1_goldak_heat_source.html#af68dee1ca2e2bec8310f3902880eaaa5">adamantine::GoldakHeatSource&lt; dim &gt;</a>
@@ -401,6 +432,9 @@ $(function() {
 </li>
 <li>_reference_temperatures
 : <a class="el" href="classadamantine_1_1_mechanical_operator.html#af47e1c00e229201cc50f108e09170a27">adamantine::MechanicalOperator&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
+</li>
+<li>_rotation_matrix
+: <a class="el" href="classadamantine_1_1_quaternion.html#a3c1760aac3495ac52f7fd7560cbd3146">adamantine::Quaternion</a>
 </li>
 <li>_scan_path
 : <a class="el" href="classadamantine_1_1_heat_source.html#a180884c37bc902fbe1ef1c1178c7311a">adamantine::HeatSource&lt; dim &gt;</a>
@@ -427,7 +461,7 @@ $(function() {
 : <a class="el" href="classadamantine_1_1_data_assimilator.html#aa3a8ea4992368e7fa15b538ef05ab243">adamantine::DataAssimilator</a>
 </li>
 <li>_source_on
-: <a class="el" href="classadamantine_1_1_cube_heat_source.html#ae76f9b4b7e88ebe610d2db6309819828">adamantine::CubeHeatSource&lt; dim &gt;</a>
+: <a class="el" href="classadamantine_1_1_heat_source.html#ac929040085c23b1c5007c89fca8ef4ec">adamantine::HeatSource&lt; dim &gt;</a>
 </li>
 <li>_start_time
 : <a class="el" href="classadamantine_1_1_cube_heat_source.html#a765fef2fbede096599e52af843d1ecb3">adamantine::CubeHeatSource&lt; dim &gt;</a>
@@ -441,11 +475,14 @@ $(function() {
 <li>_state_property_tables
 : <a class="el" href="classadamantine_1_1_material_property.html#a7159c4c732be9ed228889e5ae026079e">adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
 </li>
+<li>_stl_triangles
+: <a class="el" href="classadamantine_1_1_geometry.html#a3f8119732debe208a484d0ba79fc3951">adamantine::Geometry&lt; dim &gt;</a>
+</li>
 <li>_stress
 : <a class="el" href="classadamantine_1_1_mechanical_physics.html#ac4654d2b1dcf59a931afed04f9a53c95">adamantine::MechanicalPhysics&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
 </li>
 <li>_system_matrix
-: <a class="el" href="classadamantine_1_1_mechanical_operator.html#a24b683b069b6856624b668f3d08371e0">adamantine::MechanicalOperator&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
+: <a class="el" href="classadamantine_1_1_mechanical_operator.html#a4e892bddd76a1567cb2c7084fd0a2ed6">adamantine::MechanicalOperator&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
 </li>
 <li>_system_rhs
 : <a class="el" href="classadamantine_1_1_mechanical_operator.html#a2a2b08715d90f769f09beabc0fb73eed">adamantine::MechanicalOperator&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
@@ -481,6 +518,9 @@ $(function() {
 <li>_types
 : <a class="el" href="classadamantine_1_1_boundary.html#a6b3ab42d8dfcc6badb5990f55959c0b6">adamantine::Boundary</a>
 </li>
+<li>_use_stl
+: <a class="el" href="classadamantine_1_1_geometry.html#a0683ca4dcbf6b5f2bb9b1db93d37d864">adamantine::Geometry&lt; dim &gt;</a>
+</li>
 <li>_use_table
 : <a class="el" href="classadamantine_1_1_material_property.html#a09d0acee13b756f360857b2e454f74ee">adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
 </li>
@@ -490,133 +530,14 @@ $(function() {
 <li>_values_current_frame
 : <a class="el" href="classadamantine_1_1_ray_tracing.html#a14cdd076d9145977877d8d595a4b70d4">adamantine::RayTracing</a>
 </li>
+<li>_vec_inv_rotation_matrix
+: <a class="el" href="classadamantine_1_1_quaternion.html#a5f8cb054f9905e239f5eecd274485fdf">adamantine::Quaternion</a>
+</li>
+<li>_vec_rotation_matrix
+: <a class="el" href="classadamantine_1_1_quaternion.html#a9796ce3791a9f97da6c4b3eaf4cb730b">adamantine::Quaternion</a>
+</li>
 <li>_velocity_scaling
 : <a class="el" href="classadamantine_1_1_scan_path.html#a09e5c866d25b068b104c06bd763e4064">adamantine::ScanPath</a>
-</li>
-</ul>
-
-
-<h3><a id="index_a"></a>- a -</h3><ul>
-<li>absorption_efficiency
-: <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#ab0aa1c7109e34e051aafe320540d769d">adamantine::BeamHeatSourceProperties</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>depth
-: <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#abca3990f34369a7920a0971b74c2a9ea">adamantine::BeamHeatSourceProperties</a>
-</li>
-<li>dim
-: <a class="el" href="classadamantine_1_1_ray_tracing.html#a11ad68edb125a2f2aca6538a1f4c33f4">adamantine::RayTracing</a>
-</li>
-<li>direction
-: <a class="el" href="structadamantine_1_1_ray.html#abfc73060d94450077e11837ea7f88f2a">adamantine::Ray&lt; dim &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
-<li>end_point
-: <a class="el" href="structadamantine_1_1_scan_path_segment.html#ab6ae14d6a9331c53d3688402cdecf165">adamantine::ScanPathSegment</a>
-</li>
-<li>end_time
-: <a class="el" href="structadamantine_1_1_scan_path_segment.html#ae8fa5179f02a9a6266c0ac9a9bf436b9">adamantine::ScanPathSegment</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>g
-: <a class="el" href="classadamantine_1_1_gravity_force.html#a4f9416f41312c26dfd45b450a78d2e4b">adamantine::GravityForce&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>max_power
-: <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#a36aa152a1a41362193ca5b7c967740da">adamantine::BeamHeatSourceProperties</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>n_material_states
-: <a class="el" href="structadamantine_1_1_solid.html#ae98174e3ee6a8bf6721136556fc81507">adamantine::Solid</a>
-, <a class="el" href="structadamantine_1_1_solid_liquid.html#ae1282c11e790238d10ee1215e750356d">adamantine::SolidLiquid</a>
-, <a class="el" href="structadamantine_1_1_solid_liquid_powder.html#a8e20d57e4722fe9d88c072c6afc75232">adamantine::SolidLiquidPowder</a>
-</li>
-</ul>
-
-
-<h3><a id="index_o"></a>- o -</h3><ul>
-<li>origin
-: <a class="el" href="structadamantine_1_1_ray.html#a247065a434320af85760092b6611dd94">adamantine::Ray&lt; dim &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>points
-: <a class="el" href="structadamantine_1_1_points_values.html#a9938ef730772cc6779992aa1e2caf9e2">adamantine::PointsValues&lt; dim &gt;</a>
-</li>
-<li>power_modifier
-: <a class="el" href="structadamantine_1_1_scan_path_segment.html#a90382c743088ad6944c979e9c5661363">adamantine::ScanPathSegment</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>radius
-: <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#a7cf0af7075ad33aa6a8b082cc9913df8">adamantine::BeamHeatSourceProperties</a>
-</li>
-<li>radius_squared
-: <a class="el" href="classadamantine_1_1_beam_heat_source_properties.html#ac077239188391a5b43ab0f2f3853e7d4">adamantine::BeamHeatSourceProperties</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>stefan_boltzmann
-: <a class="el" href="structadamantine_1_1_constant.html#a28b1c38b778dfb0f5ee63100756a9439">adamantine::Constant</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>table_size
-: <a class="el" href="classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7">adamantine::MaterialProperty&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_v"></a>- v -</h3><ul>
-<li>values
-: <a class="el" href="structadamantine_1_1_points_values.html#a9d7c8d9774a8a4e04d285ef624e42c9f">adamantine::PointsValues&lt; dim &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_x"></a>- x -</h3><ul>
-<li>x
-: <a class="el" href="structadamantine_1_1axis_3_012_01_4.html#a2c0a4268fde03bc300b5deef89730392">adamantine::axis&lt; 2 &gt;</a>
-, <a class="el" href="structadamantine_1_1axis_3_013_01_4.html#acd2d0d1b2ab63344a159ca6644cec512">adamantine::axis&lt; 3 &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_y"></a>- y -</h3><ul>
-<li>y
-: <a class="el" href="structadamantine_1_1axis_3_012_01_4.html#aa4a6f4eeae2ed06ff09d47f8be1398e7">adamantine::axis&lt; 2 &gt;</a>
-, <a class="el" href="structadamantine_1_1axis_3_013_01_4.html#a88a672eea04fd047558b57d5928095f9">adamantine::axis&lt; 3 &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_z"></a>- z -</h3><ul>
-<li>z
-: <a class="el" href="structadamantine_1_1axis_3_012_01_4.html#af28624b57fb96557be0d686a0de36629">adamantine::axis&lt; 2 &gt;</a>
-, <a class="el" href="structadamantine_1_1axis_3_013_01_4.html#a5776315d1730f2b866fbfa5d8f002226">adamantine::axis&lt; 3 &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

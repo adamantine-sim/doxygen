@@ -88,12 +88,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a742ba66defacb7526131be3ded42a285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e3558791dc95ae12c9f205f6bf2ebb0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a8e3558791dc95ae12c9f205f6bf2ebb0">get_power_modifier</a> (double const time) const</td></tr>
 <tr class="separator:a8e3558791dc95ae12c9f205f6bf2ebb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5602b60c18ec202fe23ccbe2e1d3c85"><td class="memItemLeft" align="right" valign="top">dealii::Point&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#ab5602b60c18ec202fe23ccbe2e1d3c85">rotate</a> (double const time, dealii::Point&lt; 3 &gt; const &amp;point) const</td></tr>
+<tr class="separator:ab5602b60c18ec202fe23ccbe2e1d3c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44da9d44dc3ef725ebd60af35f34bfa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a44da9d44dc3ef725ebd60af35f34bfa9">get_current_quaternion</a> () const</td></tr>
+<tr class="separator:a44da9d44dc3ef725ebd60af35f34bfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a468c852207fe4b92719a26799357fb5d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structadamantine_1_1_scan_path_segment.html">ScanPathSegment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a468c852207fe4b92719a26799357fb5d">get_segment_list</a> () const</td></tr>
 <tr class="separator:a468c852207fe4b92719a26799357fb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e6c0b5264c62243366560b3f57bb7d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a3e6c0b5264c62243366560b3f57bb7d1">read_file</a> ()</td></tr>
 <tr class="separator:a3e6c0b5264c62243366560b3f57bb7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e901587ed73691883775521d44877a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a7e901587ed73691883775521d44877a6">is_finished</a> () const</td></tr>
 <tr class="separator:a7e901587ed73691883775521d44877a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a48ba3a70609162548520f1832bb43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#ae7a48ba3a70609162548520f1832bb43">is_five_axis</a> () const</td></tr>
+<tr class="separator:ae7a48ba3a70609162548520f1832bb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,6 +114,8 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6f175525097908616aa566756ae87901"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a6f175525097908616aa566756ae87901">_scan_path_end</a> = false</td></tr>
 <tr class="separator:a6f175525097908616aa566756ae87901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a7e0c8109673e39fa65afbd757fd6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#aa5a7e0c8109673e39fa65afbd757fd6f">_five_axis</a> = false</td></tr>
+<tr class="separator:aa5a7e0c8109673e39fa65afbd757fd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af07460bbbd04e3d5f9e2e7864cd44363"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#af07460bbbd04e3d5f9e2e7864cd44363">_distance_scaling</a> = 1.</td></tr>
 <tr class="separator:af07460bbbd04e3d5f9e2e7864cd44363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09e5c866d25b068b104c06bd763e4064"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_scan_path.html#a09e5c866d25b068b104c06bd763e4064">_velocity_scaling</a> = 1.</td></tr>
@@ -131,7 +139,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class calculates the position of the center of a heat source. It also gives the power modifier for the current segment. It reads in the scan path from a text file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00057">57</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00060">60</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad33792fc4d5757020b3e391b648533d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad33792fc4d5757020b3e391b648533d2">&#9670;&nbsp;</a></span>ScanPath() <span class="overload">[1/2]</span></h2>
@@ -204,6 +212,26 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a44da9d44dc3ef725ebd60af35f34bfa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44da9d44dc3ef725ebd60af35f34bfa9">&#9670;&nbsp;</a></span>get_current_quaternion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classadamantine_1_1_quaternion.html">Quaternion</a> adamantine::ScanPath::get_current_quaternion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the quaternion associated with the current segment. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00291">291</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+
+</div>
+</div>
 <a id="a8e3558791dc95ae12c9f205f6bf2ebb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e3558791dc95ae12c9f205f6bf2ebb0">&#9670;&nbsp;</a></span>get_power_modifier()</h2>
 
@@ -221,7 +249,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the power coefficient for the current segment </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00244">244</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00254">254</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
 
 </div>
 </div>
@@ -241,7 +269,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the scan path's list of segments </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00261">261</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00296">296</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
 
 </div>
 </div>
@@ -261,7 +289,27 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Return true if we reach the end of the scan path. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00266">266</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00301">301</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+
+</div>
+</div>
+<a id="ae7a48ba3a70609162548520f1832bb43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a48ba3a70609162548520f1832bb43">&#9670;&nbsp;</a></span>is_five_axis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool adamantine::ScanPath::is_five_axis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return true if the scan path includes valid rotations/quaternions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00303">303</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
 
 </div>
 </div>
@@ -341,6 +389,37 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="ab5602b60c18ec202fe23ccbe2e1d3c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5602b60c18ec202fe23ccbe2e1d3c85">&#9670;&nbsp;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::Point&lt; 3 &gt; adamantine::ScanPath::rotate </td>
+          <td>(</td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dealii::Point&lt; 3 &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the rotation of the given <code>point</code> according to quaternion active at the given time. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00271">271</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+
+</div>
+</div>
 <a id="ac34c67dfe24e3b43523f962553f76763"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac34c67dfe24e3b43523f962553f76763">&#9670;&nbsp;</a></span>update_current_segment_info()</h2>
 
@@ -394,7 +473,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Method to determine the current segment, its start point, and start time. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00187">187</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00197">197</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
 
 </div>
 </div>
@@ -423,9 +502,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calculate the location of the scan path at a given time for a single coordinate. TODO </p>
+<p>Calculate the location of the scan path at a given time for a single coordinate. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00215">215</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8cc_source.html#l00225">225</a> of file <a class="el" href="_scan_path_8cc_source.html">ScanPath.cc</a>.</p>
 
 </div>
 </div>
@@ -450,7 +529,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00059">59</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00062">62</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -476,7 +555,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Scaling factor for the distance. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00131">131</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00154">154</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -501,7 +580,32 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Format of the scan path file, either segment of event_series. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00143">143</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00166">166</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+
+</div>
+</div>
+<a id="aa5a7e0c8109673e39fa65afbd757fd6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a7e0c8109673e39fa65afbd757fd6f">&#9670;&nbsp;</a></span>_five_axis</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool adamantine::ScanPath::_five_axis = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Flag is true if quaternions were provided in _scan_path_file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00150">150</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -526,7 +630,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Time the last time _scan_path_file was updated. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00147">147</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00170">170</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -551,7 +655,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>The index of the old segment in the scan path. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00155">155</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00178">178</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -576,7 +680,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Flag is true if we have reached the end of _scan_path_file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00127">127</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00146">146</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -601,7 +705,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>File name of the scan path </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00139">139</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00162">162</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -626,7 +730,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>The list of information about each segment in the scan path. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00151">151</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00174">174</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -651,7 +755,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Scaling factor for the velocity. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00135">135</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00158">158</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>

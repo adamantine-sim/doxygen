@@ -69,7 +69,7 @@ $(function() {
 <div class="title">ThermalOperator.templates.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_thermal_operator_8templates_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2016 - 2025, the adamantine authors.</span></div>
+<a href="_thermal_operator_8templates_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2016 - 2026, the adamantine authors.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
@@ -560,453 +560,458 @@ $(function() {
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  std::pair&lt;unsigned int, unsigned int&gt; cell_subrange =</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      data.create_cell_subrange_hp_by_index(cell_range, 0);</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(data);</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  std::array&lt;dealii::VectorizedArray&lt;double&gt;, MaterialStates::n_material_states&gt;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;      state_ratios;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  <span class="comment">// We need powers of temperature to compute the material properties. We</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  <span class="comment">// could compute it in MaterialProperty but because it&#39;s in a hot loop.</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  <span class="comment">// It&#39;s really worth to compute it once and pass it when we compute a</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="comment">// material property.</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  dealii::AlignedVector&lt;dealii::VectorizedArray&lt;double&gt;&gt; temperature_powers(</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;      p_order + 1);</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; </div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="comment">// Loop over the &quot;cells&quot;. Note that we don&#39;t really work on a cell but on a</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  <span class="comment">// set of quadrature point.</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = cell_subrange.first; cell &lt; cell_subrange.second;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;       ++cell)</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;  {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="comment">// Reinit fe_eval on the current cell</span></div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    fe_eval.reinit(cell);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="comment">// Store in a local vector the local values of src</span></div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    fe_eval.read_dof_values(src);</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="comment">// Evaluate the function and its gradient on the reference cell</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    fe_eval.evaluate(dealii::EvaluationFlags::values |</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                     dealii::EvaluationFlags::gradients);</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="comment">// Apply the Jacobian of the transformation, multiply by the variable</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">// coefficients and the quadrature points</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    {</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      <span class="keyword">auto</span> temperature = fe_eval.get_value(q);</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      <span class="comment">// Precompute the powers of temperature.</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt;= p_order; ++i)</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      {</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="comment">// FIXME Need to cast i to double due to a limitation in deal.II 9.5</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        temperature_powers[i] = std::pow(temperature, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(i));</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      }</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160; </div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      <span class="comment">// Calculate the local material properties</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      update_state_ratios(cell, q, temperature, state_ratios);</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      <span class="keyword">auto</span> material_id = _material_id(cell, q);</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      <span class="keyword">auto</span> inv_rho_cp = get_inv_rho_cp(material_id, state_ratios, temperature,</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                                       temperature_powers);</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      <span class="keyword">auto</span> th_conductivity_grad = fe_eval.get_gradient(q);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="comment">// In 2D we only use x and z, and there are no deposition angle</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 2)</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      {</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>] *=</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">StateProperty::thermal_conductivity_x</a>&gt;(</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::z</a>] *=</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  <span class="keyword">auto</span> <span class="keyword">const</span> integration_flags =</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;      _heat_sources_on</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;          ? dealii::EvaluationFlags::values | dealii::EvaluationFlags::gradients</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;          : dealii::EvaluationFlags::gradients;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(data);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  std::array&lt;dealii::VectorizedArray&lt;double&gt;, MaterialStates::n_material_states&gt;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;      state_ratios;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="comment">// We need powers of temperature to compute the material properties. We</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  <span class="comment">// could compute it in MaterialProperty but because it&#39;s in a hot loop.</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="comment">// It&#39;s really worth to compute it once and pass it when we compute a</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="comment">// material property.</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  dealii::AlignedVector&lt;dealii::VectorizedArray&lt;double&gt;&gt; temperature_powers(</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      p_order + 1);</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;  <span class="comment">// Loop over the &quot;cells&quot;. Note that we don&#39;t really work on a cell but on a</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;  <span class="comment">// set of quadrature point.</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = cell_subrange.first; cell &lt; cell_subrange.second;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;       ++cell)</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;  {</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="comment">// Reinit fe_eval on the current cell</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    fe_eval.reinit(cell);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="comment">// Store in a local vector the local values of src</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    fe_eval.read_dof_values(src);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">// Evaluate the function and its gradient on the reference cell</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    fe_eval.evaluate(dealii::EvaluationFlags::values |</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                     dealii::EvaluationFlags::gradients);</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="comment">// Apply the Jacobian of the transformation, multiply by the variable</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="comment">// coefficients and the quadrature points</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    {</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      <span class="keyword">auto</span> temperature = fe_eval.get_value(q);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      <span class="comment">// Precompute the powers of temperature.</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      temperature_powers[0] = 1.0;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt;= p_order; ++i)</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      {</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        temperature_powers[i] = temperature_powers[i - 1] * temperature;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      }</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160; </div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;      <span class="comment">// Calculate the local material properties</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      update_state_ratios(cell, q, temperature, state_ratios);</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;      <span class="keyword">auto</span> material_id = _material_id(cell, q);</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="keyword">auto</span> inv_rho_cp = get_inv_rho_cp(material_id, state_ratios, temperature,</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                                       temperature_powers);</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      <span class="keyword">auto</span> th_conductivity_grad = fe_eval.get_gradient(q);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;      <span class="comment">// In 2D we only use x and z, and there are no deposition angle</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 2)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      {</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>] *=</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaef1788bcdeb3f67dd98a0f14222d32f5">StateProperty::thermal_conductivity_z</a>&gt;(</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">StateProperty::thermal_conductivity_x</a>&gt;(</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      }</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 3)</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;      {</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> th_conductivity_grad_x = th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>];</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> th_conductivity_grad_y = th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::y</a>];</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> =</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">StateProperty::thermal_conductivity_x</a>&gt;(</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> =</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::z</a>] *=</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            _material_properties.template compute_material_property&lt;</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaef1788bcdeb3f67dd98a0f14222d32f5">StateProperty::thermal_conductivity_z</a>&gt;(</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;      }</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 3)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      {</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> th_conductivity_grad_x = th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>];</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> th_conductivity_grad_y = th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::y</a>];</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> =</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">StateProperty::thermal_conductivity_y</a>&gt;(</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">StateProperty::thermal_conductivity_x</a>&gt;(</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        <span class="keyword">auto</span> cos = _deposition_cos(cell, q);</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keyword">auto</span> sin = _deposition_sin(cell, q);</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        <span class="comment">// The rotation is performed using the following formula</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="comment">//</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        <span class="comment">// (cos  -sin) (x  0) ( cos  sin)</span></div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="comment">// (sin   cos) (0  y) (-sin  cos)</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="comment">// =</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="comment">// ((x*cos^2 + y*sin^2)  ((x-y) * (sin*cos)))</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="comment">// (((x-y) * (sin*cos))  (x*sin^2 + y*cos^2))</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>] =</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            (<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> * cos * cos +</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;             <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> * sin * sin) *</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                th_conductivity_grad_x +</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;            ((<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> - <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a>) * sin * cos) *</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                th_conductivity_grad_y;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::y</a>] =</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;            ((<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> - <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a>) * sin * cos) *</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                th_conductivity_grad_x +</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;            (<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> * sin * sin +</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;             <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> * cos * cos) *</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                th_conductivity_grad_y;</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="comment">// There is no deposition angle for the z axis</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::z</a>] *=</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaef1788bcdeb3f67dd98a0f14222d32f5">StateProperty::thermal_conductivity_z</a>&gt;(</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;      }</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;      fe_eval.submit_gradient(-inv_rho_cp * th_conductivity_grad, q);</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      <span class="comment">// Compute source term</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;      dealii::Point&lt;dim, dealii::VectorizedArray&lt;double&gt;&gt; <span class="keyword">const</span> &amp;q_point =</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;          fe_eval.quadrature_point(q);</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> =</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            _material_properties.template compute_material_property&lt;</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">StateProperty::thermal_conductivity_y</a>&gt;(</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="keyword">auto</span> cos = _deposition_cos(cell, q);</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        <span class="keyword">auto</span> sin = _deposition_sin(cell, q);</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="comment">// The rotation is performed using the following formula</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="comment">//</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="comment">// (cos  -sin) (x  0) ( cos  sin)</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="comment">// (sin   cos) (0  y) (-sin  cos)</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="comment">// =</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="comment">// ((x*cos^2 + y*sin^2)  ((x-y) * (sin*cos)))</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="comment">// (((x-y) * (sin*cos))  (x*sin^2 + y*cos^2))</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::x</a>] =</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;            (<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> * cos * cos +</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;             <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> * sin * sin) *</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                th_conductivity_grad_x +</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;            ((<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> - <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a>) * sin * cos) *</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                th_conductivity_grad_y;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::y</a>] =</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            ((<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> - <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a>) * sin * cos) *</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                th_conductivity_grad_x +</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            (<a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaf7548f977588096e54f324761544eb98">thermal_conductivity_x</a> * sin * sin +</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;             <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa8fb8851a3a2b41d970b68d7d241d77d5">thermal_conductivity_y</a> * cos * cos) *</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                th_conductivity_grad_y;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        <span class="comment">// There is no deposition angle for the z axis</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        th_conductivity_grad[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::z</a>] *=</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            _material_properties.template compute_material_property&lt;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfaef1788bcdeb3f67dd98a0f14222d32f5">StateProperty::thermal_conductivity_z</a>&gt;(</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                material_id, state_ratios, temperature, temperature_powers);</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      }</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;      fe_eval.submit_gradient(-inv_rho_cp * th_conductivity_grad, q);</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      dealii::VectorizedArray&lt;double&gt; quad_pt_source = 0.0;</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      dealii::VectorizedArray&lt;double&gt; height = _current_source_height;</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;beam : _heat_sources)</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        quad_pt_source += beam-&gt;value(q_point, height);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;      quad_pt_source *= inv_rho_cp;</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;      fe_eval.submit_value(quad_pt_source, q);</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    }</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="comment">// Sum over the quadrature points.</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    fe_eval.integrate(dealii::EvaluationFlags::values |</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                      dealii::EvaluationFlags::gradients);</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    fe_eval.distribute_local_to_global(dst);</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;  }</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;}</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
-<div class="line"><a name="l00616"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a1be7e12397ee9a1430744ba4f1361203">  616</a></span>&#160;                     MaterialStates, MemorySpaceType&gt;::</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    face_local_apply(</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        dealii::MatrixFree&lt;dim, double&gt; <span class="keyword">const</span> &amp;data,</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        dealii::LA::distributed::Vector&lt;double, MemorySpaceType&gt; &amp;dst,</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        dealii::LA::distributed::Vector&lt;double, MemorySpaceType&gt; <span class="keyword">const</span> &amp;src,</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        std::pair&lt;unsigned int, unsigned int&gt; <span class="keyword">const</span> &amp;face_range)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <span class="comment">// Get the fe_indices of the cells that share faces in face_range;</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <span class="keyword">auto</span> <span class="keyword">const</span> adjacent_cells_fe_index = data.get_face_range_category(face_range);</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <span class="comment">// We now have four cases:</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <span class="comment">//  - cell_1 = cell_2 = FE_Q: internal face of the activated domain</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="comment">//  - cell_1/2 = FE_Q and cell_2/1 = FE_Nothing/does not exit: boundary of</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  <span class="comment">//  the</span></div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="comment">//      activated domain</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="comment">//  - cell_1/2 = FE_Nothing and cell_2/1 = does not exit: external boundary</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="comment">//  of</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <span class="comment">//      the deactivated domain</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  <span class="comment">//  - cell_1 = cell_2 = FE_Nothing: internal face of the non-activated</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  <span class="comment">//  domain</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="comment">// Since we only care on the faces that are at the boundary of the activated</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="comment">// domain, we need to check that cell_1 is different than cell_2 and that at</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  <span class="comment">// one of the two cells is using FE_Q</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="keywordflow">if</span> (adjacent_cells_fe_index.first == adjacent_cells_fe_index.second)</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  {</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  }</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="keywordflow">if</span> ((adjacent_cells_fe_index.first != 0 &amp;&amp;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;       adjacent_cells_fe_index.second != 0))</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      <span class="comment">// Compute source term</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (_heat_sources_on)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      {</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        dealii::Point&lt;dim, dealii::VectorizedArray&lt;double&gt;&gt; <span class="keyword">const</span> &amp;q_point =</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            fe_eval.quadrature_point(q);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        dealii::VectorizedArray&lt;double&gt; quad_pt_source = 0.0;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;beam : _heat_sources)</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;          quad_pt_source += beam-&gt;value(q_point);</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160; </div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        quad_pt_source *= inv_rho_cp;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        fe_eval.submit_value(quad_pt_source, q);</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      }</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="comment">// Sum over the quadrature points.</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    fe_eval.integrate(integration_flags);</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    fe_eval.distribute_local_to_global(dst);</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  }</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;}</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
+<div class="line"><a name="l00621"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a1be7e12397ee9a1430744ba4f1361203">  621</a></span>&#160;                     MaterialStates, MemorySpaceType&gt;::</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    face_local_apply(</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        dealii::MatrixFree&lt;dim, double&gt; <span class="keyword">const</span> &amp;data,</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        dealii::LA::distributed::Vector&lt;double, MemorySpaceType&gt; &amp;dst,</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        dealii::LA::distributed::Vector&lt;double, MemorySpaceType&gt; <span class="keyword">const</span> &amp;src,</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        std::pair&lt;unsigned int, unsigned int&gt; <span class="keyword">const</span> &amp;face_range)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  <span class="comment">// Get the fe_indices of the cells that share faces in face_range;</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="keyword">auto</span> <span class="keyword">const</span> adjacent_cells_fe_index = data.get_face_range_category(face_range);</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="comment">// We now have four cases:</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="comment">//  - cell_1 = cell_2 = FE_Q: internal face of the activated domain</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <span class="comment">//  - cell_1/2 = FE_Q and cell_2/1 = FE_Nothing/does not exit: boundary of</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  <span class="comment">//  the</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  <span class="comment">//      activated domain</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="comment">//  - cell_1/2 = FE_Nothing and cell_2/1 = does not exit: external boundary</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="comment">//  of</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  <span class="comment">//      the deactivated domain</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="comment">//  - cell_1 = cell_2 = FE_Nothing: internal face of the non-activated</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  <span class="comment">//  domain</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="comment">// Since we only care on the faces that are at the boundary of the activated</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="comment">// domain, we need to check that cell_1 is different than cell_2 and that at</span></div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="comment">// one of the two cells is using FE_Q</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  <span class="keywordflow">if</span> (adjacent_cells_fe_index.first == adjacent_cells_fe_index.second)</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  {</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;  }</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;  <span class="comment">// Create the FEFaceEvaluation object. The boolean in the constructor is</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  <span class="comment">// used to decided which cell the face should be exterior to.</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  dealii::FEFaceEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      fe_face_eval(data, adjacent_cells_fe_index.first == 0);</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  std::array&lt;dealii::VectorizedArray&lt;double&gt;, MaterialStates::n_material_states&gt;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;      face_state_ratios;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;  <span class="comment">// Create variables used to compute boundary conditions.</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;  <span class="keyword">auto</span> conv_temperature_infty = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <span class="keyword">auto</span> conv_heat_transfer_coef = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  <span class="keyword">auto</span> rad_temperature_infty = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keyword">auto</span> rad_heat_transfer_coef = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <span class="comment">// We need powers of temperature to compute the material properties. We</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  <span class="comment">// could compute it in MaterialProperty but because it&#39;s in a hot loop,</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  <span class="comment">// it&#39;s really worth to compute it once and pass it when we compute a</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="comment">// material property.</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;  dealii::AlignedVector&lt;dealii::VectorizedArray&lt;double&gt;&gt; temperature_powers(</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      p_order + 1);</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160; </div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  <span class="comment">// Loop over the faces</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = face_range.first; face &lt; face_range.second; ++face)</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  {</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    conv_heat_transfer_coef = 0.;</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    rad_heat_transfer_coef = 0.;</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="comment">// Reinit fe_face_eval on the current face</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    fe_face_eval.reinit(face);</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="comment">// Get the boundary type</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> <span class="keyword">const</span> boundary_type =</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        _boundary.get_boundary_type(fe_face_eval.boundary_id());</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="comment">// Store in a local vector the local values of src</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    fe_face_eval.read_dof_values(src);</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="comment">// Evalue the function on the reference cell</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    fe_face_eval.evaluate(dealii::EvaluationFlags::values);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    <span class="comment">// Apply the Jacobian of the transformation, mutliply by the variable</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <span class="comment">// coefficients and the quadrature points</span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    {</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      <span class="keyword">auto</span> temperature = fe_face_eval.get_value(q);</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      <span class="comment">// Precompute the powers of temperature.</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt;= p_order; ++i)</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;      {</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="comment">// FIXME Need to cast i to double due to a limitation in deal.II 9.5</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        temperature_powers[i] = std::pow(temperature, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(i));</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;      }</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;      <span class="comment">// Compute the local_properties</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      <span class="keyword">auto</span> material_id = _face_material_id(face, q);</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      update_face_state_ratios(face, q, temperature, face_state_ratios);</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> inv_rho_cp = get_inv_rho_cp(material_id, face_state_ratios,</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                                             temperature, temperature_powers);</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="keywordflow">if</span> (boundary_type &amp; <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e">BoundaryType::convective</a>)</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      {</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 0; n &lt; conv_temperature_infty.size(); ++n)</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        {</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;          conv_temperature_infty[n] = _material_properties.get(</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;              material_id[n], <a class="code" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fca63881446c5db81a5d62443d522a2a8b9">Property::convection_temperature_infty</a>);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        }</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        conv_heat_transfer_coef =</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa33801199c8d98f2afa585c0cd6b7bea0">StateProperty::convection_heat_transfer_coef</a>&gt;(</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                material_id, face_state_ratios, temperature,</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                temperature_powers);</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;      }</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;      <span class="keywordflow">if</span> (boundary_type &amp; <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b">BoundaryType::radiative</a>)</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;      {</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 0; n &lt; rad_temperature_infty.size(); ++n)</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        {</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;          rad_temperature_infty[n] = _material_properties.get(</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;              material_id[n], <a class="code" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fca77f8a12f5708e56f44f5ebe5a10277f0">Property::radiation_temperature_infty</a>);</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160; </div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        <span class="comment">// We need the radiation heat transfer coefficient but it is not a</span></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="comment">// real material property but it is derived from other material</span></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        <span class="comment">// properties: h_rad = emissitivity * stefan-boltzmann constant * (T</span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        <span class="comment">// + T_infty) (T^2 + T^2_infty).</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        rad_heat_transfer_coef =</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;            _material_properties.template compute_material_property&lt;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa5ce7507f62ef779040430be679ce322f">StateProperty::emissivity</a>&gt;(</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;                material_id, face_state_ratios, temperature,</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;                temperature_powers) *</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            <a class="code" href="structadamantine_1_1_constant.html#a28b1c38b778dfb0f5ee63100756a9439">Constant::stefan_boltzmann</a> * (temperature + rad_temperature_infty) *</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            (temperature * temperature +</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;             rad_temperature_infty * rad_temperature_infty);</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      }</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160; </div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> boundary_val =</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;          -inv_rho_cp *</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;          (conv_heat_transfer_coef * (temperature - conv_temperature_infty) +</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;           rad_heat_transfer_coef * (temperature - rad_temperature_infty));</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      fe_face_eval.submit_value(boundary_val, q);</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="comment">// Sum over the quadrature points</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    fe_face_eval.integrate(dealii::EvaluationFlags::values);</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    fe_face_eval.distribute_local_to_global(dst);</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  }</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;}</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160; </div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                     MaterialStates,</div>
-<div class="line"><a name="l00751"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#ab7b44e794b3da01865c4e407fc2574dd">  751</a></span>&#160;                     MemorySpaceType&gt;::get_state_from_material_properties()</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;{</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_cells = _matrix_free.n_cell_batches();</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;      _matrix_free);</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;  <span class="keywordflow">if</span> constexpr (!std::is_same_v&lt;MaterialStates, Solid&gt;)</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;  {</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    _liquid_ratio.reinit(n_cells, fe_eval.n_q_points);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  }</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <span class="keywordflow">if</span> ((adjacent_cells_fe_index.first != 0 &amp;&amp;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;       adjacent_cells_fe_index.second != 0))</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  {</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  }</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160; </div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;  <span class="comment">// Create the FEFaceEvaluation object. The boolean in the constructor is</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  <span class="comment">// used to decided which cell the face should be exterior to.</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;  dealii::FEFaceEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;      fe_face_eval(data, adjacent_cells_fe_index.first == 0);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  std::array&lt;dealii::VectorizedArray&lt;double&gt;, MaterialStates::n_material_states&gt;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;      face_state_ratios;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <span class="comment">// Create variables used to compute boundary conditions.</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <span class="keyword">auto</span> conv_temperature_infty = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  <span class="keyword">auto</span> conv_heat_transfer_coef = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  <span class="keyword">auto</span> rad_temperature_infty = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="keyword">auto</span> rad_heat_transfer_coef = dealii::make_vectorized_array&lt;double&gt;(0.);</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  <span class="comment">// We need powers of temperature to compute the material properties. We</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="comment">// could compute it in MaterialProperty but because it&#39;s in a hot loop,</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  <span class="comment">// it&#39;s really worth to compute it once and pass it when we compute a</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <span class="comment">// material property.</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  dealii::AlignedVector&lt;dealii::VectorizedArray&lt;double&gt;&gt; temperature_powers(</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      p_order + 1);</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160; </div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;  <span class="comment">// Loop over the faces</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = face_range.first; face &lt; face_range.second; ++face)</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  {</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    conv_heat_transfer_coef = 0.;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    rad_heat_transfer_coef = 0.;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="comment">// Reinit fe_face_eval on the current face</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    fe_face_eval.reinit(face);</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="comment">// Get the boundary type</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8">BoundaryType</a> <span class="keyword">const</span> boundary_type =</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        _boundary.get_boundary_type(fe_face_eval.boundary_id());</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <span class="comment">// Store in a local vector the local values of src</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    fe_face_eval.read_dof_values(src);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="comment">// Evalue the function on the reference cell</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    fe_face_eval.evaluate(dealii::EvaluationFlags::values);</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="comment">// Apply the Jacobian of the transformation, mutliply by the variable</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="comment">// coefficients and the quadrature points</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    {</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;      <span class="keyword">auto</span> temperature = fe_face_eval.get_value(q);</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;      <span class="comment">// Precompute the powers of temperature.</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      temperature_powers[0] = 1.0;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt;= p_order; ++i)</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      {</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        temperature_powers[i] = temperature_powers[i - 1] * temperature;</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      }</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160; </div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="comment">// Compute the local_properties</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      <span class="keyword">auto</span> material_id = _face_material_id(face, q);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      update_face_state_ratios(face, q, temperature, face_state_ratios);</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> inv_rho_cp = get_inv_rho_cp(material_id, face_state_ratios,</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                                             temperature, temperature_powers);</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      <span class="keywordflow">if</span> (boundary_type &amp; <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8acfcbfcfd91b4645fc8e8ec76082ecd8e">BoundaryType::convective</a>)</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;      {</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 0; n &lt; conv_temperature_infty.size(); ++n)</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        {</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;          conv_temperature_infty[n] = _material_properties.get(</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;              material_id[n], <a class="code" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fca63881446c5db81a5d62443d522a2a8b9">Property::convection_temperature_infty</a>);</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        }</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        conv_heat_transfer_coef =</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;            _material_properties.template compute_material_property&lt;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa33801199c8d98f2afa585c0cd6b7bea0">StateProperty::convection_heat_transfer_coef</a>&gt;(</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                material_id, face_state_ratios, temperature,</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                temperature_powers);</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      }</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;      <span class="keywordflow">if</span> (boundary_type &amp; <a class="code" href="namespaceadamantine.html#ac37ed373d7777e39961700632fcf07f8a2a86c3d1ef01e0b3486ac029249e438b">BoundaryType::radiative</a>)</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      {</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 0; n &lt; rad_temperature_infty.size(); ++n)</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        {</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;          rad_temperature_infty[n] = _material_properties.get(</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;              material_id[n], <a class="code" href="namespaceadamantine.html#a1df21a13a823d00805811d3d3441a7fca77f8a12f5708e56f44f5ebe5a10277f0">Property::radiation_temperature_infty</a>);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        }</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; </div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="comment">// We need the radiation heat transfer coefficient but it is not a</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        <span class="comment">// real material property but it is derived from other material</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        <span class="comment">// properties: h_rad = emissitivity * stefan-boltzmann constant * (T</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        <span class="comment">// + T_infty) (T^2 + T^2_infty).</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        rad_heat_transfer_coef =</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            _material_properties.template compute_material_property&lt;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                use_table, <a class="code" href="namespaceadamantine.html#aa5027312f0c48c4d12d5db86607b9ecfa5ce7507f62ef779040430be679ce322f">StateProperty::emissivity</a>&gt;(</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                material_id, face_state_ratios, temperature,</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                temperature_powers) *</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;            <a class="code" href="structadamantine_1_1_constant.html#a28b1c38b778dfb0f5ee63100756a9439">Constant::stefan_boltzmann</a> * (temperature + rad_temperature_infty) *</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            (temperature * temperature +</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;             rad_temperature_infty * rad_temperature_infty);</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;      }</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> boundary_val =</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;          -inv_rho_cp *</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;          (conv_heat_transfer_coef * (temperature - conv_temperature_infty) +</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;           rad_heat_transfer_coef * (temperature - rad_temperature_infty));</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      fe_face_eval.submit_value(boundary_val, q);</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    }</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="comment">// Sum over the quadrature points</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    fe_face_eval.integrate(dealii::EvaluationFlags::values);</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    fe_face_eval.distribute_local_to_global(dst);</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;  }</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;}</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                     MaterialStates,</div>
+<div class="line"><a name="l00756"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#ab7b44e794b3da01865c4e407fc2574dd">  756</a></span>&#160;                     MemorySpaceType&gt;::get_state_from_material_properties()</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;{</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_cells = _matrix_free.n_cell_batches();</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;      _matrix_free);</div>
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160; </div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;  <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;  <span class="keywordflow">if</span> constexpr (!std::is_same_v&lt;MaterialStates, Solid&gt;)</div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  {</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    _powder_ratio.reinit(n_cells, fe_eval.n_q_points);</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    _liquid_ratio.reinit(n_cells, fe_eval.n_q_points);</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;  }</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160; </div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  _material_id.reinit(n_cells, fe_eval.n_q_points);</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = 0; cell &lt; n_cells; ++cell)</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;           i &lt; _matrix_free.n_active_entries_per_cell_batch(cell); ++i)</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;      {</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        <span class="keyword">typename</span> dealii::DoFHandler&lt;dim&gt;::cell_iterator cell_it =</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;            _matrix_free.get_cell_iterator(cell, i);</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the material_id</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            cell_it);</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160; </div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        <span class="keywordflow">if</span> constexpr (!std::is_same_v&lt;MaterialStates, Solid&gt;)</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        {</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;          _liquid_ratio(cell, q)[i] = _material_properties.get_state_ratio(</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;              cell_tria, MaterialStates::State::liquid);</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;        }</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        {</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;          _powder_ratio(cell, q)[i] = _material_properties.get_state_ratio(</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;              cell_tria, MaterialStates::State::powder);</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        }</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        _material_id(cell, q)[i] = cell_tria-&gt;material_id();</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;      }</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;  <span class="comment">// If we are using boundary conditions other than adiabatic, we also need to</span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="comment">// update the face variables</span></div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  <span class="keywordflow">if</span> (!_adiabatic_only_bc)</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;  {</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_inner_faces = _matrix_free.n_inner_face_batches();</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_boundary_faces =</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        _matrix_free.n_boundary_face_batches();</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_faces = n_inner_faces + n_boundary_faces;</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    dealii::FEFaceEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt;</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;        fe_face_eval(_matrix_free, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    {</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;      _face_powder_ratio.reinit(n_faces, fe_face_eval.n_q_points);</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    }</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  {</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    _powder_ratio.reinit(n_cells, fe_eval.n_q_points);</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;  }</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160; </div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  _material_id.reinit(n_cells, fe_eval.n_q_points);</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = 0; cell &lt; n_cells; ++cell)</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;           i &lt; _matrix_free.n_active_entries_per_cell_batch(cell); ++i)</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;      {</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;        <span class="keyword">typename</span> dealii::DoFHandler&lt;dim&gt;::cell_iterator cell_it =</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;            _matrix_free.get_cell_iterator(cell, i);</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the material_id</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;            cell_it);</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        <span class="keywordflow">if</span> constexpr (!std::is_same_v&lt;MaterialStates, Solid&gt;)</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        {</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;          _liquid_ratio(cell, q)[i] = _material_properties.get_state_ratio(</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;              cell_tria, MaterialStates::State::liquid);</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        }</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160; </div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        {</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;          _powder_ratio(cell, q)[i] = _material_properties.get_state_ratio(</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;              cell_tria, MaterialStates::State::powder);</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        }</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        _material_id(cell, q)[i] = cell_tria-&gt;material_id();</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;      }</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;  <span class="comment">// If we are using boundary conditions other than adiabatic, we also need to</span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;  <span class="comment">// update the face variables</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  <span class="keywordflow">if</span> (!_adiabatic_only_bc)</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  {</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_inner_faces = _matrix_free.n_inner_face_batches();</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_boundary_faces =</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;        _matrix_free.n_boundary_face_batches();</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_faces = n_inner_faces + n_boundary_faces;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    dealii::FEFaceEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt;</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        fe_face_eval(_matrix_free, <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    _face_material_id.reinit(n_faces, fe_face_eval.n_q_points);</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160; </div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = 0; face &lt; n_inner_faces; ++face)</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;             i &lt; _matrix_free.n_active_entries_per_face_batch(face); ++i)</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;        {</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;          <span class="comment">// We get the two cells associated with the face</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;          <span class="keyword">auto</span> [cell_1, face_1] = _matrix_free.get_face_iterator(face, i, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;          <span class="keyword">auto</span> [cell_2, face_2] =</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;              _matrix_free.get_face_iterator(face, i, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;          <span class="comment">// We only care for cells that are at the boundary between activated</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;          <span class="comment">// and deactivated domains</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index_1 = cell_1-&gt;active_fe_index();</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index_2 = cell_2-&gt;active_fe_index();</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;          <span class="keywordflow">if</span> (active_fe_index_1 == active_fe_index_2)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;          {</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;          }</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;          <span class="comment">// We need the cell that has FE_Q not the one that has FE_Nothing</span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;          <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the</span></div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;          <span class="comment">// material_id</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;          <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;              (active_fe_index_1 == 0) ? cell_1 : cell_2);</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;          <span class="keywordflow">if</span> (cell_tria-&gt;is_locally_owned())</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;          {</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;            {</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;              _face_powder_ratio(face, q)[i] =</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                  _material_properties.get_state_ratio(</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                      cell_tria, MaterialStates::State::powder);</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;            }</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;            _face_material_id(face, q)[i] = cell_tria-&gt;material_id();</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;          }</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;        }</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160; </div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = n_inner_faces; face &lt; n_faces; ++face)</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;             i &lt; _matrix_free.n_active_entries_per_face_batch(face); ++i)</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;        {</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;          <span class="comment">// We get one cell associated with the face</span></div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;          <span class="keyword">auto</span> [cell, face_] = _matrix_free.get_face_iterator(face, i, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index = cell-&gt;active_fe_index();</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;          <span class="keywordflow">if</span> (active_fe_index == 1)</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;          {</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;          }</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;          <span class="comment">// We need the cell that has FE_Q not the one that has FE_Nothing</span></div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;          <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the</span></div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;          <span class="comment">// material_id</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;          <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;              cell);</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;          <span class="keywordflow">if</span> (cell_tria-&gt;is_locally_owned())</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;          {</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;            {</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;              _face_powder_ratio(face, q)[i] =</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                  _material_properties.get_state_ratio(</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;                      cell_tria, MaterialStates::State::powder);</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;            }</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160; </div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;            _face_material_id(face, q)[i] = cell_tria-&gt;material_id();</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;          }</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        }</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;  }</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;}</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160; </div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                     MaterialStates,</div>
-<div class="line"><a name="l00884"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a44b3c59b74dc902d9ecbe121f3ada28e">  884</a></span>&#160;                     MemorySpaceType&gt;::set_state_to_material_properties()</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;{</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;  _material_properties.set_state(_liquid_ratio, _powder_ratio,</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                                 _cell_it_to_mf_cell_map,</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                                 _matrix_free.get_dof_handler());</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;}</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160; </div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
-<div class="line"><a name="l00894"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a58671e09506b10fe1322b3f1f96d9fe8">  894</a></span>&#160;                     MaterialStates, MemorySpaceType&gt;::</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    set_material_deposition_orientation(</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        std::vector&lt;double&gt; <span class="keyword">const</span> &amp;deposition_cos,</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        std::vector&lt;double&gt; <span class="keyword">const</span> &amp;deposition_sin)</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;{</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_cells = _matrix_free.n_cell_batches();</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;      _matrix_free);</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160; </div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;  _deposition_cos.reinit(n_cells, fe_eval.n_q_points);</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;  _deposition_sin.reinit(n_cells, fe_eval.n_q_points);</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160; </div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;  <span class="keyword">using</span> dof_cell_iterator = <span class="keyword">typename</span> dealii::DoFHandler&lt;dim&gt;::cell_iterator;</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;  std::map&lt;dof_cell_iterator, unsigned int&gt; cell_mapping;</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos = 0;</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;cell : dealii::filter_iterators(</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;           _matrix_free.get_dof_handler().active_cell_iterators(),</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;           dealii::IteratorFilters::LocallyOwnedCell(),</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;           dealii::IteratorFilters::ActiveFEIndexEqualTo(0)))</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;  {</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    cell_mapping[cell] = pos;</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    ++pos;</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;  }</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;  <a class="code" href="utils_8hh.html#aa06eedd6f738a415870e97a375337d51">ASSERT</a>((pos == 0) || (pos - 1 &lt; deposition_cos.size()),</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;         <span class="stringliteral">&quot;Out-of-bound access.&quot;</span>);</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160; </div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = 0; cell &lt; n_cells; ++cell)</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;           i &lt; _matrix_free.n_active_entries_per_cell_batch(cell); ++i)</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;      {</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        dof_cell_iterator cell_it = _matrix_free.get_cell_iterator(cell, i);</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160; </div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        <span class="keywordflow">if</span> (cell_it-&gt;active_fe_index() == 0)</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        {</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> j = cell_mapping[cell_it];</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;          _deposition_cos(cell, q)[i] = deposition_cos[j];</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;          _deposition_sin(cell, q)[i] = deposition_sin[j];</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        }</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;      }</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;}</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160; </div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;} <span class="comment">// namespace adamantine</span></div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160; </div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    {</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;      _face_powder_ratio.reinit(n_faces, fe_face_eval.n_q_points);</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    }</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160; </div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    _face_material_id.reinit(n_faces, fe_face_eval.n_q_points);</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160; </div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = 0; face &lt; n_inner_faces; ++face)</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;             i &lt; _matrix_free.n_active_entries_per_face_batch(face); ++i)</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;        {</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;          <span class="comment">// We get the two cells associated with the face</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;          <span class="keyword">auto</span> [cell_1, face_1] = _matrix_free.get_face_iterator(face, i, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;          <span class="keyword">auto</span> [cell_2, face_2] =</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;              _matrix_free.get_face_iterator(face, i, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;          <span class="comment">// We only care for cells that are at the boundary between activated</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;          <span class="comment">// and deactivated domains</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index_1 = cell_1-&gt;active_fe_index();</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index_2 = cell_2-&gt;active_fe_index();</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;          <span class="keywordflow">if</span> (active_fe_index_1 == active_fe_index_2)</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;          {</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;          }</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;          <span class="comment">// We need the cell that has FE_Q not the one that has FE_Nothing</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;          <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;          <span class="comment">// material_id</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;          <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;              (active_fe_index_1 == 0) ? cell_1 : cell_2);</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;          <span class="keywordflow">if</span> (cell_tria-&gt;is_locally_owned())</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;          {</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;            {</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;              _face_powder_ratio(face, q)[i] =</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                  _material_properties.get_state_ratio(</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                      cell_tria, MaterialStates::State::powder);</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;            }</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160; </div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;            _face_material_id(face, q)[i] = cell_tria-&gt;material_id();</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;          }</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        }</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> face = n_inner_faces; face &lt; n_faces; ++face)</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_face_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;             i &lt; _matrix_free.n_active_entries_per_face_batch(face); ++i)</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;        {</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;          <span class="comment">// We get one cell associated with the face</span></div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;          <span class="keyword">auto</span> [cell, face_] = _matrix_free.get_face_iterator(face, i, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> active_fe_index = cell-&gt;active_fe_index();</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;          <span class="keywordflow">if</span> (active_fe_index == 1)</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;          {</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;          }</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;          <span class="comment">// We need the cell that has FE_Q not the one that has FE_Nothing</span></div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;          <span class="comment">// Cast to Triangulation&lt;dim&gt;::cell_iterator to access the</span></div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;          <span class="comment">// material_id</span></div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;          <span class="keyword">typename</span> dealii::Triangulation&lt;dim&gt;::active_cell_iterator cell_tria(</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;              cell);</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;          <span class="keywordflow">if</span> (cell_tria-&gt;is_locally_owned())</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;          {</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;            <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;MaterialStates, SolidLiquidPowder&gt;)</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;            {</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;              _face_powder_ratio(face, q)[i] =</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                  _material_properties.get_state_ratio(</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                      cell_tria, MaterialStates::State::powder);</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;            }</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160; </div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;            _face_material_id(face, q)[i] = cell_tria-&gt;material_id();</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;          }</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;        }</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;  }</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;}</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160; </div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                     MaterialStates,</div>
+<div class="line"><a name="l00889"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a44b3c59b74dc902d9ecbe121f3ada28e">  889</a></span>&#160;                     MemorySpaceType&gt;::set_state_to_material_properties()</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;{</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;  _material_properties.set_state(_liquid_ratio, _powder_ratio,</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                                 _cell_it_to_mf_cell_map,</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                                 _matrix_free.get_dof_handler());</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;}</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160; </div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> n_materials, <span class="keywordtype">bool</span> use_table, <span class="keywordtype">int</span> p_order, <span class="keywordtype">int</span> fe_degree,</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;          <span class="keyword">typename</span> MaterialStates, <span class="keyword">typename</span> MemorySpaceType&gt;</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>&lt;dim, n_materials, use_table, p_order, fe_degree,</div>
+<div class="line"><a name="l00899"></a><span class="lineno"><a class="line" href="classadamantine_1_1_thermal_operator.html#a58671e09506b10fe1322b3f1f96d9fe8">  899</a></span>&#160;                     MaterialStates, MemorySpaceType&gt;::</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    set_material_deposition_orientation(</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;        std::vector&lt;double&gt; <span class="keyword">const</span> &amp;deposition_cos,</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;        std::vector&lt;double&gt; <span class="keyword">const</span> &amp;deposition_sin)</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;{</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> n_cells = _matrix_free.n_cell_batches();</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;  dealii::FEEvaluation&lt;dim, fe_degree, fe_degree + 1, 1, double&gt; fe_eval(</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;      _matrix_free);</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160; </div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;  _deposition_cos.reinit(n_cells, fe_eval.n_q_points);</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;  _deposition_sin.reinit(n_cells, fe_eval.n_q_points);</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160; </div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;  <span class="keyword">using</span> dof_cell_iterator = <span class="keyword">typename</span> dealii::DoFHandler&lt;dim&gt;::cell_iterator;</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;  std::map&lt;dof_cell_iterator, unsigned int&gt; cell_mapping;</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pos = 0;</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;cell : dealii::filter_iterators(</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;           _matrix_free.get_dof_handler().active_cell_iterators(),</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;           dealii::IteratorFilters::LocallyOwnedCell(),</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;           dealii::IteratorFilters::ActiveFEIndexEqualTo(0)))</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;  {</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    cell_mapping[cell] = pos;</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    ++pos;</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;  }</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;  <a class="code" href="utils_8hh.html#aa06eedd6f738a415870e97a375337d51">ASSERT</a>((pos == 0) || (pos - 1 &lt; deposition_cos.size()),</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;         <span class="stringliteral">&quot;Out-of-bound access.&quot;</span>);</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160; </div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cell = 0; cell &lt; n_cells; ++cell)</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> q = 0; q &lt; fe_eval.n_q_points; ++q)</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;           i &lt; _matrix_free.n_active_entries_per_cell_batch(cell); ++i)</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;      {</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        dof_cell_iterator cell_it = _matrix_free.get_cell_iterator(cell, i);</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160; </div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        <span class="keywordflow">if</span> (cell_it-&gt;active_fe_index() == 0)</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        {</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span> j = cell_mapping[cell_it];</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;          _deposition_cos(cell, q)[i] = deposition_cos[j];</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;          _deposition_sin(cell, q)[i] = deposition_sin[j];</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        }</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;      }</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;}</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160; </div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160; </div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_thermal_operator_8hh_html"><div class="ttname"><a href="_thermal_operator_8hh.html">ThermalOperator.hh</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_boundary_html"><div class="ttname"><a href="classadamantine_1_1_boundary.html">adamantine::Boundary</a></div><div class="ttdef"><b>Definition:</b> <a href="_boundary_8hh_source.html#l00081">Boundary.hh:82</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_boundary_html_a3981bb49009ca4dae6254784040d4a42"><div class="ttname"><a href="classadamantine_1_1_boundary.html#a3981bb49009ca4dae6254784040d4a42">adamantine::Boundary::get_boundary_ids</a></div><div class="ttdeci">std::vector&lt; dealii::types::boundary_id &gt; get_boundary_ids(BoundaryType type) const</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_8cc_source.html#l00073">Boundary.cc:73</a></div></div>
@@ -1015,7 +1020,7 @@ $(function() {
 <div class="ttc" id="aclassadamantine_1_1_material_property_html"><div class="ttname"><a href="classadamantine_1_1_material_property.html">adamantine::MaterialProperty</a></div><div class="ttdef"><b>Definition:</b> <a href="_material_property_8hh_source.html#l00126">MaterialProperty.hh:127</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_thermal_operator_html"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html">adamantine::ThermalOperator</a></div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8hh_source.html#l00026">ThermalOperator.hh:27</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_a1ac98f5f7696ec5d5f3af56036282f03"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#a1ac98f5f7696ec5d5f3af56036282f03">adamantine::ThermalOperator::clear</a></div><div class="ttdeci">void clear() override</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8templates_8hh_source.html#l00168">ThermalOperator.templates.hh:168</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_a1be7e12397ee9a1430744ba4f1361203"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#a1be7e12397ee9a1430744ba4f1361203">adamantine::ThermalOperator::face_local_apply</a></div><div class="ttdeci">void face_local_apply(dealii::MatrixFree&lt; dim, double &gt; const &amp;data, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;dst, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;src, std::pair&lt; unsigned int, unsigned int &gt; const &amp;face_range) const</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8templates_8hh_source.html#l00616">ThermalOperator.templates.hh:617</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_a1be7e12397ee9a1430744ba4f1361203"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#a1be7e12397ee9a1430744ba4f1361203">adamantine::ThermalOperator::face_local_apply</a></div><div class="ttdeci">void face_local_apply(dealii::MatrixFree&lt; dim, double &gt; const &amp;data, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;dst, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;src, std::pair&lt; unsigned int, unsigned int &gt; const &amp;face_range) const</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8templates_8hh_source.html#l00621">ThermalOperator.templates.hh:622</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_a230ce6b39771a389735db43dbb7f493f"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#a230ce6b39771a389735db43dbb7f493f">adamantine::ThermalOperator::cell_local_mass</a></div><div class="ttdeci">void cell_local_mass(dealii::MatrixFree&lt; dim, double &gt; const &amp;data, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;dst, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;src, std::pair&lt; unsigned int, unsigned int &gt; const &amp;cell_range) const</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8templates_8hh_source.html#l00083">ThermalOperator.templates.hh:84</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_a9e3060761b1b996b1e480045278b830b"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#a9e3060761b1b996b1e480045278b830b">adamantine::ThermalOperator::_boundary</a></div><div class="ttdeci">Boundary _boundary</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8hh_source.html#l00172">ThermalOperator.hh:172</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_thermal_operator_html_ab033ace4e6b93c00598028a436ab255a"><div class="ttname"><a href="classadamantine_1_1_thermal_operator.html#ab033ace4e6b93c00598028a436ab255a">adamantine::ThermalOperator::_matrix_free_data</a></div><div class="ttdeci">dealii::MatrixFree&lt; dim, double &gt;::AdditionalData _matrix_free_data</div><div class="ttdef"><b>Definition:</b> <a href="_thermal_operator_8hh_source.html#l00176">ThermalOperator.hh:176</a></div></div>

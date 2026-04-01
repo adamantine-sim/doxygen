@@ -69,7 +69,7 @@ $(function() {
 <div class="title">Geometry.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_geometry_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2016 - 2024, the adamantine authors.</span></div>
+<a href="_geometry_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2016 - 2026, the adamantine authors.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
@@ -77,42 +77,98 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define GEOMETRY_HH</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;deal.II/distributed/tria.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classadamantine_1_1_geometry.html">Geometry</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="classadamantine_1_1_geometry.html#a7944b1702c8bdeb3c14c5ffccf1471e5">Geometry</a>(MPI_Comm <span class="keyword">const</span> &amp;communicator,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;           boost::property_tree::ptree <span class="keyword">const</span> &amp;database,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;           boost::optional&lt;boost::property_tree::ptree const &amp;&gt; <span class="keyword">const</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               &amp;units_optional_database);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  dealii::parallel::distributed::Triangulation&lt;dim&gt; &amp;<a class="code" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">get_triangulation</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">   38</a></span>&#160;  dealii::parallel::distributed::Triangulation&lt;dim&gt; <a class="code" href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">_triangulation</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_geometry.html#a4cb3306f04c39135add7e776737ca1b9">assign_material_state</a>(boost::property_tree::ptree <span class="keyword">const</span> &amp;database);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">inline</span> dealii::parallel::distributed::Triangulation&lt;dim&gt; &amp;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">   48</a></span>&#160;<a class="code" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">Geometry&lt;dim&gt;::get_triangulation</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">return</span> _triangulation;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace adamantine</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassadamantine_1_1_geometry_html"><div class="ttname"><a href="classadamantine_1_1_geometry.html">adamantine::Geometry</a></div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00018">Geometry.hh:19</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_geometry_html_a36f01a2a0adb8a9bd54334171e63dfce"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">adamantine::Geometry::_triangulation</a></div><div class="ttdeci">dealii::parallel::distributed::Triangulation&lt; dim &gt; _triangulation</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00038">Geometry.hh:38</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_geometry_html_a4cb3306f04c39135add7e776737ca1b9"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a4cb3306f04c39135add7e776737ca1b9">adamantine::Geometry::assign_material_state</a></div><div class="ttdeci">void assign_material_state(boost::property_tree::ptree const &amp;database)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8cc_source.html#l00159">Geometry.cc:159</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_geometry_html_a7944b1702c8bdeb3c14c5ffccf1471e5"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a7944b1702c8bdeb3c14c5ffccf1471e5">adamantine::Geometry::Geometry</a></div><div class="ttdeci">Geometry(MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, boost::optional&lt; boost::property_tree::ptree const &amp; &gt; const &amp;units_optional_database)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8cc_source.html#l00022">Geometry.cc:22</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_geometry_html_abcf34ad1225fbb7e14aa91d7e20e0385"><div class="ttname"><a href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">adamantine::Geometry::get_triangulation</a></div><div class="ttdeci">dealii::parallel::distributed::Triangulation&lt; dim &gt; &amp; get_triangulation()</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00048">Geometry.hh:48</a></div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;deal.II/dofs/dof_handler.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ArborX.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ArborX_Config.hpp&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if ARBORX_VERSION_MAJOR &gt;= 2</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;ArborX_Triangle.hpp&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;ArborX_HyperTriangle.hpp&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceadamantine.html">adamantine</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classadamantine_1_1_geometry.html">Geometry</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#if ARBORX_VERSION_MAJOR &gt;= 2</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">using</span> <a class="code" href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">Point</a> = ArborX::Point&lt;3, double&gt;;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">using</span> <a class="code" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> = ArborX::Triangle&lt;3, double&gt;;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">   35</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">Point</a> = ArborX::ExperimentalHyperGeometry::Point&lt;3, double&gt;;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">   36</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> = ArborX::ExperimentalHyperGeometry::Triangle&lt;3, double&gt;;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="classadamantine_1_1_geometry.html#a7944b1702c8bdeb3c14c5ffccf1471e5">Geometry</a>(MPI_Comm <span class="keyword">const</span> &amp;communicator,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;           boost::property_tree::ptree <span class="keyword">const</span> &amp;database,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;           boost::optional&lt;boost::property_tree::ptree const &amp;&gt; <span class="keyword">const</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;               &amp;units_optional_database);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classadamantine_1_1_geometry.html#ade33960a9e32f98a74254e5467b95bed">use_stl</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  dealii::parallel::distributed::Triangulation&lt;dim&gt; &amp;<a class="code" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">get_triangulation</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  Kokkos::View&lt;Triangle *, Kokkos::HostSpace&gt; <a class="code" href="classadamantine_1_1_geometry.html#a69ec84f754ed8bbd521aa5338641d9c0">get_stl_triangles</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#if ARBORX_VERSION_MAJOR &gt;= 2</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">bool</span> is_within_stl(</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">typename</span> dealii::DoFHandler&lt;dim&gt;::active_cell_iterator <span class="keyword">const</span> &amp;cell) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_geometry.html#a4cb3306f04c39135add7e776737ca1b9">assign_material_state</a>(boost::property_tree::ptree <span class="keyword">const</span> &amp;database);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_geometry.html#a2b6cf195aa5115a689d9d75fcd0c659f">read_stl</a>(std::string <span class="keyword">const</span> &amp;filename, <span class="keywordtype">double</span> <span class="keyword">const</span> stl_scaling);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a0683ca4dcbf6b5f2bb9b1db93d37d864">   90</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classadamantine_1_1_geometry.html#a0683ca4dcbf6b5f2bb9b1db93d37d864">_use_stl</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">   94</a></span>&#160;  dealii::parallel::distributed::Triangulation&lt;dim&gt; <a class="code" href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">_triangulation</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a3f8119732debe208a484d0ba79fc3951">   98</a></span>&#160;  Kokkos::View&lt;Triangle *, Kokkos::HostSpace&gt; <a class="code" href="classadamantine_1_1_geometry.html#a3f8119732debe208a484d0ba79fc3951">_stl_triangles</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#if ARBORX_VERSION_MAJOR &gt;= 2</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  std::unique_ptr&lt;ArborX::BVH&lt;Kokkos::HostSpace, Triangle&gt;&gt; _bvh;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#ade33960a9e32f98a74254e5467b95bed">  109</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classadamantine_1_1_geometry.html#ade33960a9e32f98a74254e5467b95bed">Geometry&lt;dim&gt;::use_stl</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordflow">return</span> _use_stl;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">inline</span> dealii::parallel::distributed::Triangulation&lt;dim&gt; &amp;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">  116</a></span>&#160;<a class="code" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">Geometry&lt;dim&gt;::get_triangulation</a>()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">return</span> _triangulation;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">inline</span> Kokkos::View&lt;typename Geometry&lt;dim&gt;::Triangle *, Kokkos::HostSpace&gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classadamantine_1_1_geometry.html#a69ec84f754ed8bbd521aa5338641d9c0">  123</a></span>&#160;<a class="code" href="classadamantine_1_1_geometry.html#a69ec84f754ed8bbd521aa5338641d9c0">Geometry&lt;dim&gt;::get_stl_triangles</a>()</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">return</span> _stl_triangles;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html"><div class="ttname"><a href="classadamantine_1_1_geometry.html">adamantine::Geometry</a></div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00029">Geometry.hh:30</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a0683ca4dcbf6b5f2bb9b1db93d37d864"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a0683ca4dcbf6b5f2bb9b1db93d37d864">adamantine::Geometry::_use_stl</a></div><div class="ttdeci">bool _use_stl</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00090">Geometry.hh:90</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a2b6cf195aa5115a689d9d75fcd0c659f"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a2b6cf195aa5115a689d9d75fcd0c659f">adamantine::Geometry::read_stl</a></div><div class="ttdeci">void read_stl(std::string const &amp;filename, double const stl_scaling)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8cc_source.html#l00356">Geometry.cc:356</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a36f01a2a0adb8a9bd54334171e63dfce"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">adamantine::Geometry::_triangulation</a></div><div class="ttdeci">dealii::parallel::distributed::Triangulation&lt; dim &gt; _triangulation</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00094">Geometry.hh:94</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a3f8119732debe208a484d0ba79fc3951"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a3f8119732debe208a484d0ba79fc3951">adamantine::Geometry::_stl_triangles</a></div><div class="ttdeci">Kokkos::View&lt; Triangle *, Kokkos::HostSpace &gt; _stl_triangles</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00098">Geometry.hh:98</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a4cb3306f04c39135add7e776737ca1b9"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a4cb3306f04c39135add7e776737ca1b9">adamantine::Geometry::assign_material_state</a></div><div class="ttdeci">void assign_material_state(boost::property_tree::ptree const &amp;database)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8cc_source.html#l00318">Geometry.cc:318</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a69ec84f754ed8bbd521aa5338641d9c0"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a69ec84f754ed8bbd521aa5338641d9c0">adamantine::Geometry::get_stl_triangles</a></div><div class="ttdeci">Kokkos::View&lt; Triangle *, Kokkos::HostSpace &gt; get_stl_triangles()</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00123">Geometry.hh:123</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a7122ab6c07bfe6d158639e7cf521d75d"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">adamantine::Geometry::Point</a></div><div class="ttdeci">ArborX::ExperimentalHyperGeometry::Point&lt; 3, double &gt; Point</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00035">Geometry.hh:35</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_a7944b1702c8bdeb3c14c5ffccf1471e5"><div class="ttname"><a href="classadamantine_1_1_geometry.html#a7944b1702c8bdeb3c14c5ffccf1471e5">adamantine::Geometry::Geometry</a></div><div class="ttdeci">Geometry(MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, boost::optional&lt; boost::property_tree::ptree const &amp; &gt; const &amp;units_optional_database)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8cc_source.html#l00080">Geometry.cc:80</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_abcf34ad1225fbb7e14aa91d7e20e0385"><div class="ttname"><a href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">adamantine::Geometry::get_triangulation</a></div><div class="ttdeci">dealii::parallel::distributed::Triangulation&lt; dim &gt; &amp; get_triangulation()</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00116">Geometry.hh:116</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_ade33960a9e32f98a74254e5467b95bed"><div class="ttname"><a href="classadamantine_1_1_geometry.html#ade33960a9e32f98a74254e5467b95bed">adamantine::Geometry::use_stl</a></div><div class="ttdeci">bool use_stl() const</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00109">Geometry.hh:109</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_geometry_html_af74df0a350f25e9a11c3909c91b510ee"><div class="ttname"><a href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">adamantine::Geometry::Triangle</a></div><div class="ttdeci">ArborX::ExperimentalHyperGeometry::Triangle&lt; 3, double &gt; Triangle</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hh_source.html#l00036">Geometry.hh:36</a></div></div>
 <div class="ttc" id="anamespaceadamantine_html"><div class="ttname"><a href="namespaceadamantine.html">adamantine</a></div><div class="ttdef"><b>Definition:</b> <a href="_beam_heat_source_properties_8hh_source.html#l00014">BeamHeatSourceProperties.hh:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

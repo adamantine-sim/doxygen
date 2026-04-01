@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_567',['y',['../structadamantine_1_1axis_3_012_01_4.html#aa4a6f4eeae2ed06ff09d47f8be1398e7',1,'adamantine::axis&lt; 2 &gt;::y()'],['../structadamantine_1_1axis_3_013_01_4.html#a88a672eea04fd047558b57d5928095f9',1,'adamantine::axis&lt; 3 &gt;::y()']]]
+  ['x_608',['x',['../structadamantine_1_1axis_3_012_01_4.html#a2c0a4268fde03bc300b5deef89730392',1,'adamantine::axis&lt; 2 &gt;::x()'],['../structadamantine_1_1axis_3_013_01_4.html#acd2d0d1b2ab63344a159ca6644cec512',1,'adamantine::axis&lt; 3 &gt;::x()']]]
 ];

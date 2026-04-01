@@ -115,8 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0162d060f031d3c1dbe17d4f34afed15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff2dd9d56b7e0a7ba6d08a17f3124bb6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_base.html#aff2dd9d56b7e0a7ba6d08a17f3124bb6">set_material_deposition_orientation</a> (std::vector&lt; double &gt; const &amp;deposition_cos, std::vector&lt; double &gt; const &amp;deposition_sin)=0</td></tr>
 <tr class="separator:aff2dd9d56b7e0a7ba6d08a17f3124bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e47c4ddb0664f2a0364fe7f99b970a0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_base.html#a3e47c4ddb0664f2a0364fe7f99b970a0">set_time_and_source_height</a> (double, double)=0</td></tr>
-<tr class="separator:a3e47c4ddb0664f2a0364fe7f99b970a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a327dcac8e03d10227235d6a9615f04b3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_base.html#a327dcac8e03d10227235d6a9615f04b3">set_time</a> (double)=0</td></tr>
+<tr class="separator:a327dcac8e03d10227235d6a9615f04b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int dim, typename MemorySpaceType&gt;<br />
@@ -512,8 +512,8 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 
 </div>
 </div>
-<a id="a3e47c4ddb0664f2a0364fe7f99b970a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e47c4ddb0664f2a0364fe7f99b970a0">&#9670;&nbsp;</a></span>set_time_and_source_height()</h2>
+<a id="a327dcac8e03d10227235d6a9615f04b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327dcac8e03d10227235d6a9615f04b3">&#9670;&nbsp;</a></span>set_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,21 +524,11 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classadamantine_1_1_thermal_operator_base.html">adamantine::ThermalOperatorBase</a>&lt; dim, MemorySpaceType &gt;::set_time_and_source_height </td>
+          <td class="memname">virtual void <a class="el" href="classadamantine_1_1_thermal_operator_base.html">adamantine::ThermalOperatorBase</a>&lt; dim, MemorySpaceType &gt;::set_time </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -548,7 +538,7 @@ template&lt;int dim, typename MemorySpaceType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a98816c80bc6a8e00b1af03e71f4eeafc">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>, and <a class="el" href="classadamantine_1_1_thermal_operator.html#a71cb3959125f52406d2c4e13188580e1">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classadamantine_1_1_thermal_operator_device.html#a9a8b01acee262ce5fe03fcdf5012bf69">adamantine::ThermalOperatorDevice&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>, and <a class="el" href="classadamantine_1_1_thermal_operator.html#ac794e8330a42cc6c15be86306792a7b9">adamantine::ThermalOperator&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;</a>.</p>
 
 </div>
 </div>

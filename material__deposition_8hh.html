@@ -72,7 +72,8 @@ $(function() {
 <div class="title">material_deposition.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_heat_source_8hh_source.html">HeatSource.hh</a>&gt;</code><br />
 <code>#include &lt;deal.II/base/bounding_box.h&gt;</code><br />
 <code>#include &lt;deal.II/dofs/dof_handler.h&gt;</code><br />
 <code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
@@ -98,9 +99,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a886e999209832ab974db67d69ba02631"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
 <tr class="memitem:a886e999209832ab974db67d69ba02631"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; std::vector&lt; dealii::BoundingBox&lt; dim &gt; &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#a886e999209832ab974db67d69ba02631">adamantine::merge_deposition_paths</a> (std::vector&lt; std::tuple&lt; std::vector&lt; dealii::BoundingBox&lt; dim &gt;&gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;, std::vector&lt; double &gt;&gt;&gt; const &amp;deposition_paths)</td></tr>
 <tr class="separator:a886e999209832ab974db67d69ba02631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada960375e9313433dd7a695c49c97d60"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
-<tr class="memitem:ada960375e9313433dd7a695c49c97d60"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; typename dealii::DoFHandler&lt; dim &gt;::active_cell_iterator &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#ada960375e9313433dd7a695c49c97d60">adamantine::get_elements_to_activate</a> (dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler, std::vector&lt; dealii::BoundingBox&lt; dim &gt;&gt; const &amp;material_deposition_boxes)</td></tr>
-<tr class="separator:ada960375e9313433dd7a695c49c97d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc711b5907a4dbcbc30cdaae49c71fb1"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:abc711b5907a4dbcbc30cdaae49c71fb1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; typename dealii::DoFHandler&lt; dim &gt;::active_cell_iterator &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html#abc711b5907a4dbcbc30cdaae49c71fb1">adamantine::get_elements_to_activate</a> (Geometry&lt; dim &gt; const &amp;geometry, dealii::DoFHandler&lt; dim &gt; const &amp;dof_handler, std::vector&lt; dealii::BoundingBox&lt; dim &gt;&gt; const &amp;material_deposition_boxes)</td></tr>
+<tr class="separator:abc711b5907a4dbcbc30cdaae49c71fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

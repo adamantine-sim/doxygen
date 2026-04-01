@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a44b3c59b74dc902d9ecbe121f3ada28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58671e09506b10fe1322b3f1f96d9fe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#a58671e09506b10fe1322b3f1f96d9fe8">set_material_deposition_orientation</a> (std::vector&lt; double &gt; const &amp;deposition_cos, std::vector&lt; double &gt; const &amp;deposition_sin) override</td></tr>
 <tr class="separator:a58671e09506b10fe1322b3f1f96d9fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cb3959125f52406d2c4e13188580e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#a71cb3959125f52406d2c4e13188580e1">set_time_and_source_height</a> (double t, double height) override</td></tr>
-<tr class="separator:a71cb3959125f52406d2c4e13188580e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac794e8330a42cc6c15be86306792a7b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#ac794e8330a42cc6c15be86306792a7b9">set_time</a> (double t) override</td></tr>
+<tr class="separator:ac794e8330a42cc6c15be86306792a7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classadamantine_1_1_thermal_operator_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadamantine_1_1_thermal_operator_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadamantine_1_1_thermal_operator_base.html">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a></td></tr>
 <tr class="memitem:af9fe2e0094fe1cb8dc66c557c08f0cd3 inherit pub_methods_classadamantine_1_1_thermal_operator_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_base.html#af9fe2e0094fe1cb8dc66c557c08f0cd3">ThermalOperatorBase</a> ()=default</td></tr>
 <tr class="separator:af9fe2e0094fe1cb8dc66c557c08f0cd3 inherit pub_methods_classadamantine_1_1_thermal_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,8 +145,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af8c60cd91230a7f87de9b31cba8347bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac585468c10157cb6f63c04ad9c132b25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#ac585468c10157cb6f63c04ad9c132b25">_adiabatic_only_bc</a> = true</td></tr>
 <tr class="separator:ac585468c10157cb6f63c04ad9c132b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae79da83cdd8e08d8ed2e36667dd6006d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#ae79da83cdd8e08d8ed2e36667dd6006d">_current_source_height</a> = 0.</td></tr>
-<tr class="separator:ae79da83cdd8e08d8ed2e36667dd6006d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d15fc70341be2a80194e94868a77e35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#a7d15fc70341be2a80194e94868a77e35">_heat_sources_on</a> = true</td></tr>
+<tr class="separator:a7d15fc70341be2a80194e94868a77e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e3060761b1b996b1e480045278b830b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_boundary.html">Boundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#a9e3060761b1b996b1e480045278b830b">_boundary</a></td></tr>
 <tr class="separator:a9e3060761b1b996b1e480045278b830b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab033ace4e6b93c00598028a436ab255a"><td class="memItemLeft" align="right" valign="top">dealii::MatrixFree&lt; dim, double &gt;::AdditionalData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator.html#ab033ace4e6b93c00598028a436ab255a">_matrix_free_data</a></td></tr>
@@ -460,7 +460,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 </div><div class="memdoc">
 <p>Apply the operator on a given set of quadrature points on each face. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00616">616</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00621">621</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -597,7 +597,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a8fe1f5dfd798b6d9bfabc974de0aa98e">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00751">751</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00756">756</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -785,7 +785,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#aff2dd9d56b7e0a7ba6d08a17f3124bb6">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00894">894</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00899">899</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -813,12 +813,12 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a0162d060f031d3c1dbe17d4f34afed15">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00884">884</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8templates_8hh_source.html#l00889">889</a> of file <a class="el" href="_thermal_operator_8templates_8hh_source.html">ThermalOperator.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a71cb3959125f52406d2c4e13188580e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71cb3959125f52406d2c4e13188580e1">&#9670;&nbsp;</a></span>set_time_and_source_height()</h2>
+<a id="ac794e8330a42cc6c15be86306792a7b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac794e8330a42cc6c15be86306792a7b9">&#9670;&nbsp;</a></span>set_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -829,21 +829,11 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_thermal_operator.html">adamantine::ThermalOperator</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::set_time_and_source_height </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_thermal_operator.html">adamantine::ThermalOperator</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::set_time </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -853,9 +843,9 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a3e47c4ddb0664f2a0364fe7f99b970a0">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
+<p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a327dcac8e03d10227235d6a9615f04b3">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8hh_source.html#l00300">300</a> of file <a class="el" href="_thermal_operator_8hh_source.html">ThermalOperator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8hh_source.html#l00299">299</a> of file <a class="el" href="_thermal_operator_8hh_source.html">ThermalOperator.hh</a>.</p>
 
 </div>
 </div>
@@ -1199,33 +1189,6 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 </div>
 </div>
-<a id="ae79da83cdd8e08d8ed2e36667dd6006d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae79da83cdd8e08d8ed2e36667dd6006d">&#9670;&nbsp;</a></span>_current_source_height</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_thermal_operator.html">adamantine::ThermalOperator</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_current_source_height = 0.</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Current height of the heat sources. </p>
-
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_8hh_source.html#l00168">168</a> of file <a class="el" href="_thermal_operator_8hh_source.html">ThermalOperator.hh</a>.</p>
-
-</div>
-</div>
 <a id="aa1731c6d0d689c1db5f69834bc59912d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1731c6d0d689c1db5f69834bc59912d">&#9670;&nbsp;</a></span>_deposition_cos</h2>
 
@@ -1358,6 +1321,33 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 <p>Vector of heat sources. </p>
 
 <p class="definition">Definition at line <a class="el" href="_thermal_operator_8hh_source.html#l00189">189</a> of file <a class="el" href="_thermal_operator_8hh_source.html">ThermalOperator.hh</a>.</p>
+
+</div>
+</div>
+<a id="a7d15fc70341be2a80194e94868a77e35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d15fc70341be2a80194e94868a77e35">&#9670;&nbsp;</a></span>_heat_sources_on</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_thermal_operator.html">adamantine::ThermalOperator</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_heat_sources_on = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Flag set to true if at least one heat source is on at the current time. </p>
+
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_8hh_source.html#l00168">168</a> of file <a class="el" href="_thermal_operator_8hh_source.html">ThermalOperator.hh</a>.</p>
 
 </div>
 </div>

@@ -96,6 +96,10 @@ Public Member Functions</h2></td></tr>
 Private Types</h2></td></tr>
 <tr class="memitem:aa0515b812dcfc0c4c14789d6c7cd0b4c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#aa0515b812dcfc0c4c14789d6c7cd0b4c">block_size_type</a> = dealii::LA::distributed::BlockVector&lt; double &gt;::size_type</td></tr>
 <tr class="separator:aa0515b812dcfc0c4c14789d6c7cd0b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2881817282a8defb89f16f67d0c425bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a2881817282a8defb89f16f67d0c425bc">TrilinosMatrixType</a> = dealii::TrilinosWrappers::SparseMatrix</td></tr>
+<tr class="separator:a2881817282a8defb89f16f67d0c425bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d696bc4767c66ae98854014ef88fa1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#ad8d696bc4767c66ae98854014ef88fa1">TrilinosSparsityPattern</a> = dealii::TrilinosWrappers::SparsityPattern</td></tr>
+<tr class="separator:ad8d696bc4767c66ae98854014ef88fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -113,8 +117,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a78e37ebef7fdc3f7a6f3ec4c2b1b9d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f07102e07d3a696e70288048c803977"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a1f07102e07d3a696e70288048c803977">gaspari_cohn_function</a> (double const r) const</td></tr>
 <tr class="separator:a1f07102e07d3a696e70288048c803977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5bde3f9550c77d9a06d88da422e213e"><td class="memItemLeft" align="right" valign="top">dealii::TrilinosWrappers::SparseMatrix&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#af5bde3f9550c77d9a06d88da422e213e">calc_sample_covariance_sparse</a> (std::vector&lt; dealii::LA::distributed::BlockVector&lt; double &gt;&gt; const &amp;vec_ensemble) const</td></tr>
-<tr class="separator:af5bde3f9550c77d9a06d88da422e213e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e3045fd4e496baf0c01f896a0ecff0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_data_assimilator.html#a2881817282a8defb89f16f67d0c425bc">TrilinosMatrixType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a80e3045fd4e496baf0c01f896a0ecff0">calc_sample_covariance_sparse</a> (std::vector&lt; dealii::LA::distributed::BlockVector&lt; double &gt;&gt; const &amp;vec_ensemble) const</td></tr>
+<tr class="separator:a80e3045fd4e496baf0c01f896a0ecff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -136,8 +140,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a41a2e76bc1bcf25d0daad9429ab62a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e71ae5b0604f35293dbf7e21a8bbf19"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a9e71ae5b0604f35293dbf7e21a8bbf19">_expt_size</a> = 0</td></tr>
 <tr class="separator:a9e71ae5b0604f35293dbf7e21a8bbf19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8d1cb6edd6a104aedc96dfe8d69eb2"><td class="memItemLeft" align="right" valign="top">dealii::TrilinosWrappers::SparsityPattern&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a4f8d1cb6edd6a104aedc96dfe8d69eb2">_covariance_sparsity_pattern</a></td></tr>
-<tr class="separator:a4f8d1cb6edd6a104aedc96dfe8d69eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83341d59e1eab55ef6170d088594399a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_data_assimilator.html#ad8d696bc4767c66ae98854014ef88fa1">TrilinosSparsityPattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a83341d59e1eab55ef6170d088594399a">_covariance_sparsity_pattern</a></td></tr>
+<tr class="separator:a83341d59e1eab55ef6170d088594399a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ac44df9477b567b9c89e4d5f6b34b8"><td class="memItemLeft" align="right" valign="top">std::map&lt; const std::pair&lt; unsigned int, unsigned int &gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#ad2ac44df9477b567b9c89e4d5f6b34b8">_covariance_distance_map</a></td></tr>
 <tr class="separator:ad2ac44df9477b567b9c89e4d5f6b34b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a976eb6e98d340fe91837cdd541cd36"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_data_assimilator.html#a8a976eb6e98d340fe91837cdd541cd36">_localization_cutoff_distance</a></td></tr>
@@ -164,7 +168,7 @@ Friends</h2></td></tr>
 <div class="textblock"><p>This class implements an ensemble Kalman filter (EnKF) for data assimilation. It updates an ensemble of solution vectors to be consistent with experimental observations.</p>
 <p>The EnKF implementation here is largely based on Chapter 6 of Data Assimilation: Method and Applications by Asch, Bocquet, and Nodet. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00057">57</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00062">62</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa0515b812dcfc0c4c14789d6c7cd0b4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0515b812dcfc0c4c14789d6c7cd0b4c">&#9670;&nbsp;</a></span>block_size_type</h2>
@@ -186,7 +190,55 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00110">110</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00115">115</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+
+</div>
+</div>
+<a id="a2881817282a8defb89f16f67d0c425bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2881817282a8defb89f16f67d0c425bc">&#9670;&nbsp;</a></span>TrilinosMatrixType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classadamantine_1_1_data_assimilator.html#a2881817282a8defb89f16f67d0c425bc">adamantine::DataAssimilator::TrilinosMatrixType</a> =  dealii::TrilinosWrappers::SparseMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00186">186</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+
+</div>
+</div>
+<a id="ad8d696bc4767c66ae98854014ef88fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d696bc4767c66ae98854014ef88fa1">&#9670;&nbsp;</a></span>TrilinosSparsityPattern</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classadamantine_1_1_data_assimilator.html#ad8d696bc4767c66ae98854014ef88fa1">adamantine::DataAssimilator::TrilinosSparsityPattern</a> =  dealii::TrilinosWrappers::SparsityPattern</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00249">249</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -230,7 +282,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00031">31</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00036">36</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -276,7 +328,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>This calculates the Kalman gain and applies it to the perturbed innovation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00399">399</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00404">404</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -305,7 +357,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>This calculates the observation matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00474">474</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00479">479</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -334,12 +386,12 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>This calculates the application of the observation matrix on an unaugmented ensemble member from the simulation, avoiding explicit construction of a sparse matrix for H. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00607">607</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00614">614</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
-<a id="af5bde3f9550c77d9a06d88da422e213e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5bde3f9550c77d9a06d88da422e213e">&#9670;&nbsp;</a></span>calc_sample_covariance_sparse()</h2>
+<a id="a80e3045fd4e496baf0c01f896a0ecff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e3045fd4e496baf0c01f896a0ecff0">&#9670;&nbsp;</a></span>calc_sample_covariance_sparse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +400,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::TrilinosWrappers::SparseMatrix adamantine::DataAssimilator::calc_sample_covariance_sparse </td>
+          <td class="memname"><a class="el" href="classadamantine_1_1_data_assimilator.html#a2881817282a8defb89f16f67d0c425bc">DataAssimilator::TrilinosMatrixType</a> adamantine::DataAssimilator::calc_sample_covariance_sparse </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; dealii::LA::distributed::BlockVector&lt; double &gt;&gt; const &amp;&#160;</td>
           <td class="paramname"><em>vec_ensemble</em></td><td>)</td>
@@ -363,7 +415,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>This calculates the sample covariance for an input ensemble of vectors (vec_ensemble). Currently this is tied to the simulation ensemble, through the use of member variables inside. If needed, the interface could be redone to make it more generally applicable. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00684">684</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00691">691</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -408,7 +460,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>This fills a vector (vec) with noise from a multivariate normal distribution defined by a covariance matrix (R). Note: For non-diagonal R this method currently uses full matrices, which substantially limits the allowable problem size. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00623">623</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00630">630</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -437,7 +489,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>A standard localization function, resembles a Gaussian, but with finite support. From Gaspari and Cohn, Quarterly Journal of the Royal Meteorological Society, 125, 1999. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00665">665</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00672">672</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -488,7 +540,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Gather the augmented ensemble members on the global root node in order to apply the Kalman gain. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00186">186</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00191">191</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -539,7 +591,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Scatter the <code>global_augmented_state_ensemble</code> back into <code>augmented_state_ensemble</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00300">300</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00305">305</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -572,7 +624,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>This updates the sparsity pattern for the sample covariance matrix for the simulation ensemble. This must be called before updateEnsemble whenever there are changes to the simulation mesh. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00508">508</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00513">513</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -595,7 +647,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>This updates the internal mapping between the indices of the entries in expt_data and the indices of the entries in the sim_data ensemble members in updateEnsemble. This must be called before updateEnsemble whenever there are changes to the simulation mesh or the observation locations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00500">500</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00505">505</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -633,7 +685,7 @@ template&lt;int dim&gt; </div>
 <p>This is the main public interface for the class and is called to perform one assimilation process. It takes in an ensemble of simulation data (sim_data), experimental observation data (expt_data), and the covariance matrix for the experimental observations (R). This function updates sim_data using the EnKF method.</p>
 <p>Overall it performs x = x + K (y + u - H x) for each ensemble member, where: x is the simulation solution K is the Kalman gain y is the observed solution u is a perturbation to the observed solution H is the observation matrix </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00090">90</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8cc_source.html#l00095">95</a> of file <a class="el" href="_data_assimilator_8cc_source.html">DataAssimilator.cc</a>.</p>
 
 </div>
 </div>
@@ -658,7 +710,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00059">59</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00064">64</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -684,7 +736,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Additional settings for the GMRES solver needed for the matrix inversion in the Kalman gain calculation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00286">286</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00307">307</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -709,7 +761,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Color associated with the local </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00209">209</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00222">222</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -734,12 +786,12 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Map between the indices in the covariance matrix and the distance between the support points for the associated dofs on the mesh. This is necessary for localization. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00242">242</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00263">263</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
-<a id="a4f8d1cb6edd6a104aedc96dfe8d69eb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f8d1cb6edd6a104aedc96dfe8d69eb2">&#9670;&nbsp;</a></span>_covariance_sparsity_pattern</h2>
+<a id="a83341d59e1eab55ef6170d088594399a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83341d59e1eab55ef6170d088594399a">&#9670;&nbsp;</a></span>_covariance_sparsity_pattern</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -748,7 +800,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::TrilinosWrappers::SparsityPattern adamantine::DataAssimilator::_covariance_sparsity_pattern</td>
+          <td class="memname"><a class="el" href="classadamantine_1_1_data_assimilator.html#ad8d696bc4767c66ae98854014ef88fa1">TrilinosSparsityPattern</a> adamantine::DataAssimilator::_covariance_sparsity_pattern</td>
         </tr>
       </table>
   </td>
@@ -759,7 +811,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The sparsity pattern for the localized covariance matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00234">234</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00255">255</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -784,7 +836,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The length of the data vector the experimental observations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00229">229</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00242">242</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -809,7 +861,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The mapping between the index in the experimental observation data vector to the DoF in the simulation data vectors. This is simpler to use than the indices and offsets that are passed into updateEnsemble, and means that the simulation DoFHandler only needs to be used by updateDofMapping where this variable is set. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00274">274</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00295">295</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -834,7 +886,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Number of processes in the gglbal MPI communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00204">204</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00217">217</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -859,7 +911,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Global MPI communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00189">189</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00202">202</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -884,7 +936,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Rank of the process when using the global MPI communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00199">199</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00212">212</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -909,7 +961,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Local MPI communicator split off the global MPI communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00194">194</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00207">207</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -934,7 +986,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The distance at which the sample covariance is truncated. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00247">247</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00268">268</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -959,7 +1011,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The function used to reduce the sample covariance entries based on the distance between the relevant points. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00253">253</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00274">274</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -984,7 +1036,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Random variate generator for a normal distribution, used for the perturbations to the innovation vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00265">265</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00286">286</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +1061,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The number of ensemble members in the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00214">214</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00227">227</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1086,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The length of the parameter vector for each simulation ensemble member. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00224">224</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00237">237</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1111,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The pseudo-random number generator, used for the perturbations to the innovation vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00259">259</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00280">280</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -1084,7 +1136,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The length of the data vector for each simulation ensemble member. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00219">219</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00232">232</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1161,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Standardized settings for the GMRES solver needed for the matrix inversion in the Kalman gain calculation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00280">280</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_assimilator_8hh_source.html#l00301">301</a> of file <a class="el" href="_data_assimilator_8hh_source.html">DataAssimilator.hh</a>.</p>
 
 </div>
 </div>

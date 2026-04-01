@@ -83,11 +83,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a90382c743088ad6944c979e9c5661363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6ae14d6a9331c53d3688402cdecf165"><td class="memItemLeft" align="right" valign="top">dealii::Point&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structadamantine_1_1_scan_path_segment.html#ab6ae14d6a9331c53d3688402cdecf165">end_point</a></td></tr>
 <tr class="separator:ab6ae14d6a9331c53d3688402cdecf165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ef0af2c9389f7bfbad4f93ce542021"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structadamantine_1_1_scan_path_segment.html#af0ef0af2c9389f7bfbad4f93ce542021">end_rotation</a></td></tr>
+<tr class="separator:af0ef0af2c9389f7bfbad4f93ce542021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This structure stores the relevant information for a single segment. The scan path input file distingishes between spots and lines, but when we know the end time and end location, spots become lines with a start point equal to its end point. Everything one needs can be determined from these three quantities (and the segment info from the preceding segment) but in the future it might be worth adding in some redundant information like start time/point and velocity. </p>
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00038">38</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00040">40</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="ab6ae14d6a9331c53d3688402cdecf165"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6ae14d6a9331c53d3688402cdecf165">&#9670;&nbsp;</a></span>end_point</h2>
@@ -101,7 +103,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00044">44</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00046">46</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+
+</div>
+</div>
+<a id="af0ef0af2c9389f7bfbad4f93ce542021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ef0af2c9389f7bfbad4f93ce542021">&#9670;&nbsp;</a></span>end_rotation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classadamantine_1_1_quaternion.html">Quaternion</a> adamantine::ScanPathSegment::end_rotation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00047">47</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -119,7 +137,7 @@ Public Attributes</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      std::numeric_limits&lt;double&gt;::signaling_NaN()</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00040">40</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00042">42</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>
@@ -137,7 +155,7 @@ Public Attributes</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      std::numeric_limits&lt;double&gt;::signaling_NaN()</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00042">42</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scan_path_8hh_source.html#l00044">44</a> of file <a class="el" href="_scan_path_8hh_source.html">ScanPath.hh</a>.</p>
 
 </div>
 </div>

@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classadamantine_1_1_geometry-members.html">List of all members</a>  </div>
@@ -81,18 +82,35 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7944b1702c8bdeb3c14c5ffccf1471e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a7944b1702c8bdeb3c14c5ffccf1471e5">Geometry</a> (MPI_Comm const &amp;communicator, boost::property_tree::ptree const &amp;database, boost::optional&lt; boost::property_tree::ptree const &amp; &gt; const &amp;units_optional_database)</td></tr>
 <tr class="separator:a7944b1702c8bdeb3c14c5ffccf1471e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade33960a9e32f98a74254e5467b95bed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#ade33960a9e32f98a74254e5467b95bed">use_stl</a> () const</td></tr>
+<tr class="separator:ade33960a9e32f98a74254e5467b95bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf34ad1225fbb7e14aa91d7e20e0385"><td class="memItemLeft" align="right" valign="top">dealii::parallel::distributed::Triangulation&lt; dim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#abcf34ad1225fbb7e14aa91d7e20e0385">get_triangulation</a> ()</td></tr>
 <tr class="separator:abcf34ad1225fbb7e14aa91d7e20e0385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ec84f754ed8bbd521aa5338641d9c0"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; <a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> *, Kokkos::HostSpace &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a69ec84f754ed8bbd521aa5338641d9c0">get_stl_triangles</a> ()</td></tr>
+<tr class="separator:a69ec84f754ed8bbd521aa5338641d9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a7122ab6c07bfe6d158639e7cf521d75d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">Point</a> = ArborX::ExperimentalHyperGeometry::Point&lt; 3, double &gt;</td></tr>
+<tr class="separator:a7122ab6c07bfe6d158639e7cf521d75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af74df0a350f25e9a11c3909c91b510ee"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> = ArborX::ExperimentalHyperGeometry::Triangle&lt; 3, double &gt;</td></tr>
+<tr class="separator:af74df0a350f25e9a11c3909c91b510ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a4cb3306f04c39135add7e776737ca1b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a4cb3306f04c39135add7e776737ca1b9">assign_material_state</a> (boost::property_tree::ptree const &amp;database)</td></tr>
 <tr class="separator:a4cb3306f04c39135add7e776737ca1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6cf195aa5115a689d9d75fcd0c659f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a2b6cf195aa5115a689d9d75fcd0c659f">read_stl</a> (std::string const &amp;filename, double const stl_scaling)</td></tr>
+<tr class="separator:a2b6cf195aa5115a689d9d75fcd0c659f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a0683ca4dcbf6b5f2bb9b1db93d37d864"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a0683ca4dcbf6b5f2bb9b1db93d37d864">_use_stl</a> = false</td></tr>
+<tr class="separator:a0683ca4dcbf6b5f2bb9b1db93d37d864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36f01a2a0adb8a9bd54334171e63dfce"><td class="memItemLeft" align="right" valign="top">dealii::parallel::distributed::Triangulation&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a36f01a2a0adb8a9bd54334171e63dfce">_triangulation</a></td></tr>
 <tr class="separator:a36f01a2a0adb8a9bd54334171e63dfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f8119732debe208a484d0ba79fc3951"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; <a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> *, Kokkos::HostSpace &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_geometry.html#a3f8119732debe208a484d0ba79fc3951">_stl_triangles</a></td></tr>
+<tr class="separator:a3f8119732debe208a484d0ba79fc3951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
@@ -100,8 +118,61 @@ class adamantine::Geometry&lt; dim &gt;</h3>
 
 <p>This class generates and stores a Triangulation given a database. </p>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00018">18</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00029">29</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7122ab6c07bfe6d158639e7cf521d75d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7122ab6c07bfe6d158639e7cf521d75d">&#9670;&nbsp;</a></span>Point</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::<a class="el" href="classadamantine_1_1_geometry.html#a7122ab6c07bfe6d158639e7cf521d75d">Point</a> =  ArborX::ExperimentalHyperGeometry::Point&lt;3, double&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00035">35</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+
+</div>
+</div>
+<a id="af74df0a350f25e9a11c3909c91b510ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74df0a350f25e9a11c3909c91b510ee">&#9670;&nbsp;</a></span>Triangle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::<a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> =  ArborX::ExperimentalHyperGeometry::Triangle&lt;3, double&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00036">36</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7944b1702c8bdeb3c14c5ffccf1471e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7944b1702c8bdeb3c14c5ffccf1471e5">&#9670;&nbsp;</a></span>Geometry()</h2>
 
@@ -137,7 +208,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_8cc_source.html#l00022">22</a> of file <a class="el" href="_geometry_8cc_source.html">Geometry.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_geometry_8cc_source.html#l00080">80</a> of file <a class="el" href="_geometry_8cc_source.html">Geometry.cc</a>.</p>
 
 </div>
 </div>
@@ -169,7 +240,34 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Assign the material state to the mesh. </p>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_8cc_source.html#l00159">159</a> of file <a class="el" href="_geometry_8cc_source.html">Geometry.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_geometry_8cc_source.html#l00318">318</a> of file <a class="el" href="_geometry_8cc_source.html">Geometry.cc</a>.</p>
+
+</div>
+</div>
+<a id="a69ec84f754ed8bbd521aa5338641d9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ec84f754ed8bbd521aa5338641d9c0">&#9670;&nbsp;</a></span>get_stl_triangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kokkos::View&lt; typename <a class="el" href="classadamantine_1_1_geometry.html">Geometry</a>&lt; dim &gt;::<a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> *, Kokkos::HostSpace &gt; <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::get_stl_triangles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the triangles from the STL file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00123">123</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
 
 </div>
 </div>
@@ -196,11 +294,106 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Return the underlying Triangulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00048">48</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00116">116</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+
+</div>
+</div>
+<a id="a2b6cf195aa5115a689d9d75fcd0c659f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6cf195aa5115a689d9d75fcd0c659f">&#9670;&nbsp;</a></span>read_stl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::read_stl </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>stl_scaling</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Read the given binary STL file and apply a scaling factor to all coordinates read from the STL file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8cc_source.html#l00356">356</a> of file <a class="el" href="_geometry_8cc_source.html">Geometry.cc</a>.</p>
+
+</div>
+</div>
+<a id="ade33960a9e32f98a74254e5467b95bed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade33960a9e32f98a74254e5467b95bed">&#9670;&nbsp;</a></span>use_stl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::use_stl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if the file is defined by an STL file and false otherwise. </p>
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00109">109</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3f8119732debe208a484d0ba79fc3951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f8119732debe208a484d0ba79fc3951">&#9670;&nbsp;</a></span>_stl_triangles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kokkos::View&lt;<a class="el" href="classadamantine_1_1_geometry.html#af74df0a350f25e9a11c3909c91b510ee">Triangle</a> *, Kokkos::HostSpace&gt; <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::_stl_triangles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>View of the triangles from the STL file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00098">98</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+
+</div>
+</div>
 <a id="a36f01a2a0adb8a9bd54334171e63dfce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36f01a2a0adb8a9bd54334171e63dfce">&#9670;&nbsp;</a></span>_triangulation</h2>
 
@@ -224,7 +417,34 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Triangulation of the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00038">38</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00094">94</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
+
+</div>
+</div>
+<a id="a0683ca4dcbf6b5f2bb9b1db93d37d864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0683ca4dcbf6b5f2bb9b1db93d37d864">&#9670;&nbsp;</a></span>_use_stl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_geometry.html">adamantine::Geometry</a>&lt; dim &gt;::_use_stl = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Flag is true if the domain is defined by a STL file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_geometry_8hh_source.html#l00090">90</a> of file <a class="el" href="_geometry_8hh_source.html">Geometry.hh</a>.</p>
 
 </div>
 </div>

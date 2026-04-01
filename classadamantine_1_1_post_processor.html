@@ -105,8 +105,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:acab9c2212e61b34707a195a81de8818b"><td class="memItemLeft" align="right" valign="top">dealii::Vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_post_processor.html#acab9c2212e61b34707a195a81de8818b">get_stress_norm</a> (std::vector&lt; std::vector&lt; dealii::SymmetricTensor&lt; 2, dim &gt;&gt;&gt; const &amp;stress_tensor)</td></tr>
-<tr class="separator:acab9c2212e61b34707a195a81de8818b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a575cb28639668c013a0556f8b38e0a5b"><td class="memItemLeft" align="right" valign="top">dealii::Vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_post_processor.html#a575cb28639668c013a0556f8b38e0a5b">get_von_mises_stress</a> (std::vector&lt; std::vector&lt; dealii::SymmetricTensor&lt; 2, dim &gt;&gt;&gt; const &amp;stress_tensor)</td></tr>
+<tr class="separator:a575cb28639668c013a0556f8b38e0a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a368c50fd88dccf77a410279f9b3da6c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_post_processor.html#a368c50fd88dccf77a410279f9b3da6c3">thermal_dataout</a> (dealii::LA::distributed::Vector&lt; double &gt; const &amp;temperature)</td></tr>
 <tr class="separator:a368c50fd88dccf77a410279f9b3da6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03b4c730c52eb9b4517287cec02c1621"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_post_processor.html#a03b4c730c52eb9b4517287cec02c1621">mechanical_dataout</a> (dealii::LA::distributed::Vector&lt; double &gt; const &amp;displacement, <a class="el" href="classadamantine_1_1_strain_post_processor.html">StrainPostProcessor</a>&lt; dim &gt; const &amp;strain, std::vector&lt; std::vector&lt; dealii::SymmetricTensor&lt; 2, dim &gt;&gt;&gt; const &amp;stress_tensor)</td></tr>
@@ -284,8 +284,8 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acab9c2212e61b34707a195a81de8818b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acab9c2212e61b34707a195a81de8818b">&#9670;&nbsp;</a></span>get_stress_norm()</h2>
+<a id="a575cb28639668c013a0556f8b38e0a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a575cb28639668c013a0556f8b38e0a5b">&#9670;&nbsp;</a></span>get_von_mises_stress()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,7 +296,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::Vector&lt; double &gt; <a class="el" href="classadamantine_1_1_post_processor.html">adamantine::PostProcessor</a>&lt; dim &gt;::get_stress_norm </td>
+          <td class="memname">dealii::Vector&lt; double &gt; <a class="el" href="classadamantine_1_1_post_processor.html">adamantine::PostProcessor</a>&lt; dim &gt;::get_von_mises_stress </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::vector&lt; dealii::SymmetricTensor&lt; 2, dim &gt;&gt;&gt; const &amp;&#160;</td>
           <td class="paramname"><em>stress_tensor</em></td><td>)</td>
@@ -309,7 +309,7 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Compute the norm of the stress. </p>
+<p>Compute the von Mises stress on each cell. </p>
 
 <p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00094">94</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
 
@@ -407,7 +407,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Fill _data_out with mechanical data. </p>
 
-<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00130">130</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00144">144</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
 
 </div>
 </div>
@@ -434,7 +434,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Fill _data_out with subdomain data. </p>
 
-<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00156">156</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00170">170</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
 
 </div>
 </div>
@@ -465,7 +465,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Fill _data_out with thermal data. </p>
 
-<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00122">122</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00136">136</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
 
 </div>
 </div>
@@ -661,7 +661,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Write pvtu file. </p>
 
-<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00171">171</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_post_processor_8cc_source.html#l00185">185</a> of file <a class="el" href="_post_processor_8cc_source.html">PostProcessor.cc</a>.</p>
 
 </div>
 </div>

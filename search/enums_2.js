@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['localizationcutoff_1057',['LocalizationCutoff',['../namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66f',1,'adamantine']]]
+  ['localizationcutoff_1142',['LocalizationCutoff',['../namespaceadamantine.html#ae6f0841ed43262ef1175e2b6075cd66f',1,'adamantine']]]
 ];

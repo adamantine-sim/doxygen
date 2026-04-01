@@ -100,8 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa39a81c569cbbb6da0f142d6d7a25ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a760489b9ec69f260e563953f8173d6e6"><td class="memItemLeft" align="right" valign="top">dealii::types::global_dof_index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a760489b9ec69f260e563953f8173d6e6">n</a> () const override</td></tr>
 <tr class="separator:a760489b9ec69f260e563953f8173d6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f72c5b8eab9cd63d2a03041d8b3366"><td class="memItemLeft" align="right" valign="top">dealii::CUDAWrappers::MatrixFree&lt; dim, double &gt; const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a03f72c5b8eab9cd63d2a03041d8b3366">get_matrix_free</a> () const</td></tr>
-<tr class="separator:a03f72c5b8eab9cd63d2a03041d8b3366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eaddc0b0669ad699cd43d4ea6f53744"><td class="memItemLeft" align="right" valign="top">dealii::Portable::MatrixFree&lt; dim, double &gt; const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a7eaddc0b0669ad699cd43d4ea6f53744">get_matrix_free</a> () const</td></tr>
+<tr class="separator:a7eaddc0b0669ad699cd43d4ea6f53744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3644c721d4cb7ed32c93a5c69d8d0f4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a3644c721d4cb7ed32c93a5c69d8d0f4b">vmult</a> (dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;dst, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;src) const override</td></tr>
 <tr class="separator:a3644c721d4cb7ed32c93a5c69d8d0f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad11fd270ed3aca5e546b5d09d225ced8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#ad11fd270ed3aca5e546b5d09d225ced8">vmult_add</a> (dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; &amp;dst, dealii::LA::distributed::Vector&lt; double, MemorySpaceType &gt; const &amp;src) const override</td></tr>
@@ -118,8 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5b471ddf0541845485bca5f43cb15bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef1ff6c0ec079f464653195d678c5eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#aef1ff6c0ec079f464653195d678c5eaf">set_material_deposition_orientation</a> (std::vector&lt; double &gt; const &amp;deposition_cos, std::vector&lt; double &gt; const &amp;deposition_sin) override</td></tr>
 <tr class="separator:aef1ff6c0ec079f464653195d678c5eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98816c80bc6a8e00b1af03e71f4eeafc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a98816c80bc6a8e00b1af03e71f4eeafc">set_time_and_source_height</a> (double, double) override</td></tr>
-<tr class="separator:a98816c80bc6a8e00b1af03e71f4eeafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a8b01acee262ce5fe03fcdf5012bf69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a9a8b01acee262ce5fe03fcdf5012bf69">set_time</a> (double) override</td></tr>
+<tr class="separator:a9a8b01acee262ce5fe03fcdf5012bf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bef77e7867e5f86d25920d81eea1f60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a4bef77e7867e5f86d25920d81eea1f60">update_inv_rho_cp_cell</a> ()</td></tr>
 <tr class="separator:a4bef77e7867e5f86d25920d81eea1f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3730f42d01f64ef1426063f9529d5a95"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a3730f42d01f64ef1426063f9529d5a95">get_inv_rho_cp</a> (typename dealii::DoFHandler&lt; dim &gt;::cell_iterator const &amp;cell, unsigned int q) const</td></tr>
@@ -145,12 +145,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a86339eb7d2a74604ff8f763b3b203367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ad35375ca9beb70cc06d38b97beaf25"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a1ad35375ca9beb70cc06d38b97beaf25">_n_owned_cells</a></td></tr>
 <tr class="separator:a1ad35375ca9beb70cc06d38b97beaf25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa3e79f399e22ba7715932383572075"><td class="memItemLeft" align="right" valign="top">dealii::CUDAWrappers::MatrixFree&lt; dim, double &gt;::AdditionalData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a9aa3e79f399e22ba7715932383572075">_matrix_free_data</a></td></tr>
-<tr class="separator:a9aa3e79f399e22ba7715932383572075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769706297ff663b6cc77828262addd07"><td class="memItemLeft" align="right" valign="top">dealii::Portable::MatrixFree&lt; dim, double &gt;::AdditionalData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a769706297ff663b6cc77828262addd07">_matrix_free_data</a></td></tr>
+<tr class="separator:a769706297ff663b6cc77828262addd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65422f9d3bf1fbf772007e056747eddc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_material_property.html">MaterialProperty</a>&lt; dim, n_materials, p_order, MaterialStates, MemorySpaceType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a65422f9d3bf1fbf772007e056747eddc">_material_properties</a></td></tr>
 <tr class="separator:a65422f9d3bf1fbf772007e056747eddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a773909fdf7e5de987ba16469304c1467"><td class="memItemLeft" align="right" valign="top">dealii::CUDAWrappers::MatrixFree&lt; dim, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a773909fdf7e5de987ba16469304c1467">_matrix_free</a></td></tr>
-<tr class="separator:a773909fdf7e5de987ba16469304c1467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96e55127282973ccbb92fca213a1046b"><td class="memItemLeft" align="right" valign="top">dealii::Portable::MatrixFree&lt; dim, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#a96e55127282973ccbb92fca213a1046b">_matrix_free</a></td></tr>
+<tr class="separator:a96e55127282973ccbb92fca213a1046b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1e9a9a77ba19c52b0cb756df02a44e5"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#affcbc4d54645fd34c0f83dbded1529d1">kokkos_default</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#ab1e9a9a77ba19c52b0cb756df02a44e5">_liquid_ratio</a></td></tr>
 <tr class="separator:ab1e9a9a77ba19c52b0cb756df02a44e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac971e128ba12e7e104bb2bc8c861b364"><td class="memItemLeft" align="right" valign="top">Kokkos::View&lt; double *, <a class="el" href="classadamantine_1_1_thermal_operator_device.html#affcbc4d54645fd34c0f83dbded1529d1">kokkos_default</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_operator_device.html#ac971e128ba12e7e104bb2bc8c861b364">_powder_ratio</a></td></tr>
@@ -238,7 +238,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00454">454</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00511">511</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -267,7 +267,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#ab4bee837c9022d60d430064c1f8abc88">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00577">577</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00633">633</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -309,7 +309,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a12d9facb63ea325c5b6be344f6ba646d">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00527">527</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00583">583</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -382,8 +382,8 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 </div>
 </div>
-<a id="a03f72c5b8eab9cd63d2a03041d8b3366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f72c5b8eab9cd63d2a03041d8b3366">&#9670;&nbsp;</a></span>get_matrix_free()</h2>
+<a id="a7eaddc0b0669ad699cd43d4ea6f53744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eaddc0b0669ad699cd43d4ea6f53744">&#9670;&nbsp;</a></span>get_matrix_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +394,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::CUDAWrappers::MatrixFree&lt; dim, double &gt; const  &amp; <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::get_matrix_free</td>
+          <td class="memname">dealii::Portable::MatrixFree&lt; dim, double &gt; const  &amp; <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::get_matrix_free</td>
         </tr>
       </table>
   </td>
@@ -432,7 +432,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a8fe1f5dfd798b6d9bfabc974de0aa98e">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00619">619</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00675">675</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -464,7 +464,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a73f1e4f99a5d56154c06e50f857012b1">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00751">751</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00807">807</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -576,7 +576,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a8c06f58f1081d5eff78f99da06c4737f">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00476">476</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00533">533</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -619,7 +619,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#aff2dd9d56b7e0a7ba6d08a17f3124bb6">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00761">761</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00817">817</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -647,12 +647,12 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a0162d060f031d3c1dbe17d4f34afed15">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00728">728</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00784">784</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
-<a id="a98816c80bc6a8e00b1af03e71f4eeafc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98816c80bc6a8e00b1af03e71f4eeafc">&#9670;&nbsp;</a></span>set_time_and_source_height()</h2>
+<a id="a9a8b01acee262ce5fe03fcdf5012bf69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a8b01acee262ce5fe03fcdf5012bf69">&#9670;&nbsp;</a></span>set_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -663,21 +663,11 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::set_time_and_source_height </td>
+          <td class="memname">void <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::set_time </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -687,7 +677,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a3e47c4ddb0664f2a0364fe7f99b970a0">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
+<p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a327dcac8e03d10227235d6a9615f04b3">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8hh_source.html#l00074">74</a> of file <a class="el" href="_thermal_operator_device_8hh_source.html">ThermalOperatorDevice.hh</a>.</p>
 
@@ -711,7 +701,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00738">738</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00794">794</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -730,7 +720,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 </div><div class="memdoc">
 <p>Update <img class="formulaInl" alt="$ \frac{1}{\rho C_p} $" src="form_5.png" width="19" height="19"/> on the cells using the values computed at the quadrature points. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00808">808</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00864">864</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -779,7 +769,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#a84847504aa0c5b88614b2c84ed2b40ef">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00585">585</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00641">641</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -828,7 +818,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_operator_base.html#ac1219ae32ed555e0abddb86ab20cc7fd">adamantine::ThermalOperatorBase&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00597">597</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_operator_device_8templates_8hh_source.html#l00653">653</a> of file <a class="el" href="_thermal_operator_device_8templates_8hh_source.html">ThermalOperatorDevice.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1148,8 +1138,8 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 </div>
 </div>
-<a id="a773909fdf7e5de987ba16469304c1467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a773909fdf7e5de987ba16469304c1467">&#9670;&nbsp;</a></span>_matrix_free</h2>
+<a id="a96e55127282973ccbb92fca213a1046b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e55127282973ccbb92fca213a1046b">&#9670;&nbsp;</a></span>_matrix_free</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1160,7 +1150,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::CUDAWrappers::MatrixFree&lt;dim, double&gt; <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_matrix_free</td>
+          <td class="memname">dealii::Portable::MatrixFree&lt;dim, double&gt; <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_matrix_free</td>
         </tr>
       </table>
   </td>
@@ -1174,8 +1164,8 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
 
 </div>
 </div>
-<a id="a9aa3e79f399e22ba7715932383572075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aa3e79f399e22ba7715932383572075">&#9670;&nbsp;</a></span>_matrix_free_data</h2>
+<a id="a769706297ff663b6cc77828262addd07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769706297ff663b6cc77828262addd07">&#9670;&nbsp;</a></span>_matrix_free_data</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1186,7 +1176,7 @@ template&lt;int dim, int n_materials, bool use_table, int p_order, int fe_degree
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">dealii::CUDAWrappers::MatrixFree&lt;dim, double&gt;::AdditionalData <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_matrix_free_data</td>
+          <td class="memname">dealii::Portable::MatrixFree&lt;dim, double&gt;::AdditionalData <a class="el" href="classadamantine_1_1_thermal_operator_device.html">adamantine::ThermalOperatorDevice</a>&lt; dim, n_materials, use_table, p_order, fe_degree, MaterialStates, MemorySpaceType &gt;::_matrix_free_data</td>
         </tr>
       </table>
   </td>

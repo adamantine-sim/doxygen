@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['table_5fsize_1044',['table_size',['../classadamantine_1_1_material_property.html#adc2a83c87703ec0148622e5cc606ccd7',1,'adamantine::MaterialProperty']]]
+  ['radius_1119',['radius',['../classadamantine_1_1_beam_heat_source_properties.html#a7cf0af7075ad33aa6a8b082cc9913df8',1,'adamantine::BeamHeatSourceProperties']]],
+  ['radius_5fsquared_1120',['radius_squared',['../classadamantine_1_1_beam_heat_source_properties.html#ac077239188391a5b43ab0f2f3853e7d4',1,'adamantine::BeamHeatSourceProperties']]]
 ];

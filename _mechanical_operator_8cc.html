@@ -87,6 +87,7 @@ $(function() {
 <code>#include &lt;deal.II/lac/affine_constraints.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/full_matrix.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/sparsity_tools.h&gt;</code><br />
+<code>#include &lt;deal.II/meshworker/mesh_loop.h&gt;</code><br />
 <code>#include &lt;deal.II/physics/elasticity/standard_tensors.h&gt;</code><br />
 </div>
 <p><a href="_mechanical_operator_8cc_source.html">Go to the source code of this file.</a></p>
@@ -96,6 +97,71 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceadamantine"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceadamantine.html">adamantine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac9bd1d0f19606abad4cdb0bbdc3a91ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bd1d0f19606abad4cdb0bbdc3a91ac">&#9670;&nbsp;</a></span>cell_rhs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::Vector&lt;double&gt; cell_rhs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mechanical_operator_8cc_source.html#l00074">74</a> of file <a class="el" href="_mechanical_operator_8cc_source.html">MechanicalOperator.cc</a>.</p>
+
+</div>
+</div>
+<a id="a3d2924fc52765b71d216d1ed32ef8938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2924fc52765b71d216d1ed32ef8938">&#9670;&nbsp;</a></span>displacement_hp_fe_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::hp::FEValues&lt;dim&gt; displacement_hp_fe_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mechanical_operator_8cc_source.html#l00068">68</a> of file <a class="el" href="_mechanical_operator_8cc_source.html">MechanicalOperator.cc</a>.</p>
+
+</div>
+</div>
+<a id="a86a6255db415d1d830e8495989a6f74d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a6255db415d1d830e8495989a6f74d">&#9670;&nbsp;</a></span>local_dof_indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;dealii::types::global_dof_index&gt; local_dof_indices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mechanical_operator_8cc_source.html#l00075">75</a> of file <a class="el" href="_mechanical_operator_8cc_source.html">MechanicalOperator.cc</a>.</p>
+
+</div>
+</div>
+<a id="a3f44980daf3375a7169ea5566725d45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f44980daf3375a7169ea5566725d45e">&#9670;&nbsp;</a></span>temperature_hp_fe_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dealii::hp::FEValues&lt;dim&gt; temperature_hp_fe_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mechanical_operator_8cc_source.html#l00069">69</a> of file <a class="el" href="_mechanical_operator_8cc_source.html">MechanicalOperator.cc</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

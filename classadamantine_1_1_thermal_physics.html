@@ -137,8 +137,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a925e0f37649268b7170e73c6139fe931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41058ac91047ab69f04594536abf8bab"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#a41058ac91047ab69f04594536abf8bab">get_fe_degree</a> () const override</td></tr>
 <tr class="separator:a41058ac91047ab69f04594536abf8bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae35ea991010cfa4ef23d49a48fe1e7ff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#ae35ea991010cfa4ef23d49a48fe1e7ff">get_current_source_height</a> () const</td></tr>
-<tr class="separator:ae35ea991010cfa4ef23d49a48fe1e7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classadamantine_1_1_thermal_physics_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadamantine_1_1_thermal_physics_interface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadamantine_1_1_thermal_physics_interface.html">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a></td></tr>
 <tr class="memitem:a262137576641a68d7d3810c404d8d077 inherit pub_methods_classadamantine_1_1_thermal_physics_interface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a262137576641a68d7d3810c404d8d077">ThermalPhysicsInterface</a> ()=default</td></tr>
 <tr class="separator:a262137576641a68d7d3810c404d8d077 inherit pub_methods_classadamantine_1_1_thermal_physics_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,8 +159,6 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a1a7de47bf56ce4292a2669e269331494"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#a1a7de47bf56ce4292a2669e269331494">_forward_euler</a> = false</td></tr>
 <tr class="separator:a1a7de47bf56ce4292a2669e269331494"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76053b00be67b7a3ef9c5f9e468c319f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#a76053b00be67b7a3ef9c5f9e468c319f">_current_source_height</a> = 0.</td></tr>
-<tr class="separator:a76053b00be67b7a3ef9c5f9e468c319f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf476c77e9ac4b86a864a853b8ba9feb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_geometry.html">Geometry</a>&lt; dim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#adf476c77e9ac4b86a864a853b8ba9feb">_geometry</a></td></tr>
 <tr class="separator:adf476c77e9ac4b86a864a853b8ba9feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f9822464ad7d5aff9a990cd45336738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classadamantine_1_1_boundary.html">Boundary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#a9f9822464ad7d5aff9a990cd45336738">_boundary</a></td></tr>
@@ -187,6 +183,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a2004a231052e47c25d8716fa01361b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9be4f5bf1dda9a2cd23c3e733aa07d3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_heat_source.html">HeatSource</a>&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#aa9be4f5bf1dda9a2cd23c3e733aa07d3">_heat_sources</a></td></tr>
 <tr class="separator:aa9be4f5bf1dda9a2cd23c3e733aa07d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee90b29375db0c74380b9450402b2362"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#aee90b29375db0c74380b9450402b2362">_print_heat_input</a></td></tr>
+<tr class="separator:aee90b29375db0c74380b9450402b2362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ca9f94071bc59363af63659ef2cd6a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classadamantine_1_1_thermal_operator_base.html">ThermalOperatorBase</a>&lt; dim, MemorySpaceType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#a61ca9f94071bc59363af63659ef2cd6a">_thermal_operator</a></td></tr>
 <tr class="separator:a61ca9f94071bc59363af63659ef2cd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee78264635fceb135e2c7c78cf607af4"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; dealii::TimeStepping::ExplicitRungeKutta&lt; <a class="el" href="classadamantine_1_1_thermal_physics.html#aeeb5b5013bec2aaa9e8f37ca11953f96">LA_Vector</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadamantine_1_1_thermal_physics.html#aee78264635fceb135e2c7c78cf607af4">_time_stepping</a></td></tr>
@@ -228,7 +226,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00128">128</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00123">123</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -280,7 +278,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00274">274</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00350">350</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -324,7 +322,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a330d58e4daac14dc92046913371b307a">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00662">662</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00730">730</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -397,7 +395,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a968ed21ac2e1755645976e24213f8eea">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00531">531</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00599">599</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -429,7 +427,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a5488977436b7cbc4dd07232d8b02c474">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00463">463</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00531">531</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -476,7 +474,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Compute the right-hand side and apply the TermalOperator. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00871">871</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00929">929</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -531,7 +529,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#ae8d41df6546aed04a0d51f4cdd68c0f7">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00790">790</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00858">858</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -563,34 +561,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a35c14ac6242c117e5025afcaf0c2829d">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00326">326</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
-
-</div>
-</div>
-<a id="ae35ea991010cfa4ef23d49a48fe1e7ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae35ea991010cfa4ef23d49a48fe1e7ff">&#9670;&nbsp;</a></span>get_current_source_height()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_thermal_physics.html">adamantine::ThermalPhysics</a>&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;::get_current_source_height</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Return the current height of the heat source. </p>
-
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00356">356</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00321">321</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -623,7 +594,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a7ee55f8c46d93b794e668ba37626ddf3">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00264">264</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00259">259</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -656,7 +627,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a80f46765654b4cc60cf98b1b1b091c3f">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00275">275</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00270">270</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -688,7 +659,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a1a4149831d947817d770d31cbc277de4">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00316">316</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00311">311</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -720,7 +691,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#aca0b90c67a0446510e407aea4baacb4c">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00346">346</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00341">341</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -753,7 +724,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a954398286f284f671d67f07f7d5f073c">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00306">306</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00301">301</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -785,7 +756,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#add0e9de54e11b916128b75f0d3bbb0bb">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00285">285</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00280">280</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -817,7 +788,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a34e666cbf03b436c49c652621626ebb4">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00336">336</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00331">331</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -849,7 +820,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a52814612c7a8fe7c1006aa107d018433">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00851">851</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00909">909</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -892,7 +863,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#af09b454160499c8645b36a802feaebf8">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00832">832</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00890">890</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -935,7 +906,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#aa683341bd98af26b9c6ffcd75879c929">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00915">915</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00974">974</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -978,7 +949,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a5e49a2d6c07c037cfe18855cdaf995e5">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00473">473</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00541">541</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1021,7 +992,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a0c7938352ba11b394b639b73f9ff3b5b">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l01021">1021</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l01084">1084</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1054,7 +1025,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a77afdbc24b099e5e18ae8775f3693177">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00295">295</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00290">290</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1068,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#acef63c892cbe7758a39b92b7727ccf32">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00248">248</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00243">243</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1129,7 +1100,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#add3cf30e43536bedc8254fa036f15b9f">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00861">861</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00919">919</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1132,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a3f7456bdd72b2ea8511b226f8c18b37d">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00431">431</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00500">500</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1164,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a594e7df7fa755213c968446638fcea3d">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00443">443</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00512">512</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1220,7 +1191,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Update the depostion cosine and sine from the Physics object to the operator object. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00238">238</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00233">233</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1224,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 
 <p>Implements <a class="el" href="classadamantine_1_1_thermal_physics_interface.html#a904de53739019e21e2d9a0ccd1333b07">adamantine::ThermalPhysicsInterface&lt; dim, MemorySpaceType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00764">764</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8templates_8hh_source.html#l00832">832</a> of file <a class="el" href="_thermal_physics_8templates_8hh_source.html">ThermalPhysics.templates.hh</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1252,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated AffineConstraints&lt;double&gt;. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00170">170</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00161">161</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1308,7 +1279,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00158">158</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00149">149</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1335,7 +1306,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Cell data transfer object used for updating _solution, _has_melted, _deposition_cos, _deposition_sin, and state of _material_properties when the triangulation is updated when adding material </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00219">219</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00214">214</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1333,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Temporary data used in _cell_data_trans for _solution </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00224">224</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00219">219</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1389,34 +1360,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Object used to attach to each cell, a weight (used for load balancing) equal to the number of degrees of freedom associated with the cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00179">179</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
-
-</div>
-</div>
-<a id="a76053b00be67b7a3ef9c5f9e468c319f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76053b00be67b7a3ef9c5f9e468c319f">&#9670;&nbsp;</a></span>_current_source_height</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="classadamantine_1_1_thermal_physics.html">adamantine::ThermalPhysics</a>&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;::_current_source_height = 0.</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Current height of the object. </p>
-
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00150">150</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00170">170</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1443,7 +1387,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Temporary data used in _cell_data_trans for transfer </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00229">229</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00224">224</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1470,7 +1414,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Cosine of the material deposition angles. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00183">183</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00174">174</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1497,7 +1441,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Sine of the material deposition angles. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00187">187</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00178">178</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1468,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated DoFHandler. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00166">166</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00157">157</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1551,7 +1495,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated Lagrange finite elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00162">162</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00153">153</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1522,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>This flag is true if the time stepping method is forward euler. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00146">146</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00141">141</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1605,7 +1549,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated geometry. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00154">154</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00145">145</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1632,7 +1576,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Indicator variable for whether a point has ever been above the solidus. The value is false for material that has not yet melted and true for material that has melted. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00193">193</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00184">184</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1659,7 +1603,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Vector of heat sources. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00202">202</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00193">193</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1686,7 +1630,34 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated material properties. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00198">198</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00189">189</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+
+</div>
+</div>
+<a id="aee90b29375db0c74380b9450402b2362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee90b29375db0c74380b9450402b2362">&#9670;&nbsp;</a></span>_print_heat_input</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int n_materials, int p_order, int fe_degree, typename MaterialStates , typename MemorySpaceType , typename QuadratureType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classadamantine_1_1_thermal_physics.html">adamantine::ThermalPhysics</a>&lt; dim, n_materials, p_order, fe_degree, MaterialStates, MemorySpaceType, QuadratureType &gt;::_print_heat_input</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This optional flag enables heat source integration to monitor total heat input </p>
+
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00197">197</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1713,7 +1684,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Associated quadature, either Gauss or Gauss-Lobatto. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00174">174</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00165">165</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1740,7 +1711,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Shared pointer to the underlying <a class="el" href="classadamantine_1_1_thermal_operator.html">ThermalOperator</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00206">206</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00201">201</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>
@@ -1767,7 +1738,7 @@ template&lt;int dim, int n_materials, int p_order, int fe_degree, typename Mater
 </div><div class="memdoc">
 <p>Shared pointer to the underlying time stepping scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00211">211</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_thermal_physics_8hh_source.html#l00206">206</a> of file <a class="el" href="_thermal_physics_8hh_source.html">ThermalPhysics.hh</a>.</p>
 
 </div>
 </div>

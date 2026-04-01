@@ -69,7 +69,7 @@ $(function() {
 <div class="title">CubeHeatSource.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_cube_heat_source_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2020 - 2025, the adamantine authors.</span></div>
+<a href="_cube_heat_source_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* SPDX-FileCopyrightText: Copyright (c) 2020 - 2026, the adamantine authors.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordflow">if</span> (units_optional_database)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> <span class="keyword">const</span> &amp;database = units_optional_database.get();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// PropertyTreeInput units.scan_path_distance</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// PropertyTreeInput units.heat_source.dimension</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string unit = database.get(<span class="stringliteral">&quot;heat_source.dimension&quot;</span>, <span class="stringliteral">&quot;meter&quot;</span>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    dimension_scaling = <a class="code" href="namespaceadamantine.html#a536887cb7149e54b2b3e9af2a03bd780">g_unit_scaling_factor</a>[unit];</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// PropertyTreeInput units.heat_source.power</span></div>
@@ -116,112 +116,102 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#ab2f52628098ce9a05294a237b6163cd0">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classadamantine_1_1_cube_heat_source.html#ab2f52628098ce9a05294a237b6163cd0">CubeHeatSource&lt;dim&gt;::update_time</a>(<span class="keywordtype">double</span> time)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  _source_on = ((time &gt; _start_time) &amp;&amp; (time &lt; _end_time));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  this-&gt;_source_on = ((time &gt; _start_time) &amp;&amp; (time &lt; _end_time));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#ad8ee3dbb4478e134730b1361b6d24af2">   52</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classadamantine_1_1_cube_heat_source.html#ad8ee3dbb4478e134730b1361b6d24af2">CubeHeatSource&lt;dim&gt;::value</a>(dealii::Point&lt;dim&gt; <span class="keyword">const</span> &amp;point,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                  <span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*height*/</span>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">if</span> (_source_on)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> in_source = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; dim; ++i)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span> ((<a class="code" href="namespaceadamantine.html#a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9">point</a>[i] &lt; _min_point[i]) || (<a class="code" href="namespaceadamantine.html#a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9">point</a>[i] &gt; _max_point[i]))</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        in_source = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (in_source)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">return</span> _value;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#ae66ca818f3ac52d7bb168eb5c9b84049">   75</a></span>&#160;dealii::VectorizedArray&lt;double&gt; <a class="code" href="classadamantine_1_1_cube_heat_source.html#ad8ee3dbb4478e134730b1361b6d24af2">CubeHeatSource&lt;dim&gt;::value</a>(</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    dealii::Point&lt;dim, dealii::VectorizedArray&lt;double&gt;&gt; <span class="keyword">const</span> &amp;points,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    dealii::VectorizedArray&lt;double&gt; <span class="keyword">const</span> &amp; <span class="comment">/*height*/</span>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  dealii::VectorizedArray&lt;double&gt; mask = 0.;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">if</span> (_source_on)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; points[0].size(); ++j)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 2)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> ((points[0][j] &gt;= _min_point[0]) &amp;&amp;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            (points[0][j] &lt;= _max_point[0]) &amp;&amp;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            (points[1][j] &gt;= _min_point[1]) &amp;&amp; (points[1][j] &lt;= _max_point[1]))</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          mask[j] = 1.;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 3)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> ((points[0][j] &gt;= _min_point[0]) &amp;&amp;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            (points[0][j] &lt;= _max_point[0]) &amp;&amp;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            (points[1][j] &gt;= _min_point[1]) &amp;&amp;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            (points[1][j] &lt;= _max_point[1]) &amp;&amp;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            (points[2][j] &gt;= _min_point[2]) &amp;&amp; (points[2][j] &lt;= _max_point[2]))</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;          mask[j] = 1.;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">return</span> mask * _value;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#a2d92f6405ac09fedb3950baa37ff620f">  112</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classadamantine_1_1_cube_heat_source.html#a2d92f6405ac09fedb3950baa37ff620f">CubeHeatSource&lt;dim&gt;::get_current_height</a>(<span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*time*/</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#a25f54af8293d693c77d9655ea1986915">   52</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classadamantine_1_1_cube_heat_source.html#a25f54af8293d693c77d9655ea1986915">CubeHeatSource&lt;dim&gt;::value</a>(dealii::Point&lt;dim&gt; <span class="keyword">const</span> &amp;point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (this-&gt;_source_on)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> in_source = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; dim; ++i)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">if</span> ((<a class="code" href="namespaceadamantine.html#a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9">point</a>[i] &lt; _min_point[i]) || (<a class="code" href="namespaceadamantine.html#a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9">point</a>[i] &gt; _max_point[i]))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        in_source = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (in_source)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">return</span> _value;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordflow">return</span> 0.;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#aca9bebcac68a702dec83675cb138274c">   74</a></span>&#160;dealii::VectorizedArray&lt;double&gt; <a class="code" href="classadamantine_1_1_cube_heat_source.html#a25f54af8293d693c77d9655ea1986915">CubeHeatSource&lt;dim&gt;::value</a>(</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    dealii::Point&lt;dim, dealii::VectorizedArray&lt;double&gt;&gt; <span class="keyword">const</span> &amp;points)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  dealii::VectorizedArray&lt;double&gt; mask = 0.;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">if</span> (this-&gt;_source_on)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; points[0].size(); ++j)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 2)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> ((points[0][j] &gt;= _min_point[0]) &amp;&amp;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            (points[0][j] &lt;= _max_point[0]) &amp;&amp;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            (points[1][j] &gt;= _min_point[1]) &amp;&amp; (points[1][j] &lt;= _max_point[1]))</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;          mask[j] = 1.;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keywordflow">if</span> constexpr (dim == 3)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> ((points[0][j] &gt;= _min_point[0]) &amp;&amp;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            (points[0][j] &lt;= _max_point[0]) &amp;&amp;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            (points[1][j] &gt;= _min_point[1]) &amp;&amp;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            (points[1][j] &lt;= _max_point[1]) &amp;&amp;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            (points[2][j] &gt;= _min_point[2]) &amp;&amp; (points[2][j] &lt;= _max_point[2]))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;          mask[j] = 1.;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">return</span> mask * _value;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;dealii::BoundingBox&lt;dim&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">  111</a></span>&#160;<a class="code" href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">CubeHeatSource&lt;dim&gt;::get_bounding_box</a>(<span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*time*/</span>,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                      <span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*scaling_factor*/</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">return</span> _max_point[<a class="code" href="structadamantine_1_1axis.html">axis&lt;dim&gt;::z</a>];</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;dealii::BoundingBox&lt;dim&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">  119</a></span>&#160;<a class="code" href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">CubeHeatSource&lt;dim&gt;::get_bounding_box</a>(<span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*time*/</span>,</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                      <span class="keywordtype">double</span> <span class="keyword">const</span> <span class="comment">/*scaling_factor*/</span>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordflow">if</span> constexpr (dim == 2)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> {{{_min_point[0], _min_point[1]}, {_max_point[0], _max_point[1]}}};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> {{{_min_point[0], _min_point[1], _min_point[2]},</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;             {_max_point[0], _max_point[1], _max_point[2]}}};</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace adamantine</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<a class="code" href="_point_cloud_8cc.html#ae2031223b2864e2d619d8e1fc2fd8ff6">INSTANTIATE_DIM</a>(CubeHeatSource)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">if</span> constexpr (dim == 2)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> {{{_min_point[0], _min_point[1]}, {_max_point[0], _max_point[1]}}};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> {{{_min_point[0], _min_point[1], _min_point[2]},</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;             {_max_point[0], _max_point[1], _max_point[2]}}};</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;} <span class="comment">// namespace adamantine</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<a class="code" href="_point_cloud_8cc.html#ae2031223b2864e2d619d8e1fc2fd8ff6">INSTANTIATE_DIM</a>(CubeHeatSource)</div>
 <div class="ttc" id="a_cube_heat_source_8hh_html"><div class="ttname"><a href="_cube_heat_source_8hh.html">CubeHeatSource.hh</a></div></div>
 <div class="ttc" id="a_point_cloud_8cc_html_ae2031223b2864e2d619d8e1fc2fd8ff6"><div class="ttname"><a href="_point_cloud_8cc.html#ae2031223b2864e2d619d8e1fc2fd8ff6">INSTANTIATE_DIM</a></div><div class="ttdeci">INSTANTIATE_DIM(PointCloud)</div></div>
 <div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a0dc9496de33ac089b6dbcf67730ad049"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a0dc9496de33ac089b6dbcf67730ad049">adamantine::CubeHeatSource::CubeHeatSource</a></div><div class="ttdeci">CubeHeatSource(boost::property_tree::ptree const &amp;source_database, boost::optional&lt; boost::property_tree::ptree const &amp; &gt; const &amp;units_optional_database)</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00012">CubeHeatSource.cc:12</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a2d92f6405ac09fedb3950baa37ff620f"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a2d92f6405ac09fedb3950baa37ff620f">adamantine::CubeHeatSource::get_current_height</a></div><div class="ttdeci">double get_current_height(double const time) const final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00112">CubeHeatSource.cc:112</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a765fef2fbede096599e52af843d1ecb3"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a765fef2fbede096599e52af843d1ecb3">adamantine::CubeHeatSource::_start_time</a></div><div class="ttdeci">double _start_time</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00069">CubeHeatSource.hh:69</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a766389f04ffc3d1771c63d9dc185fc40"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a766389f04ffc3d1771c63d9dc185fc40">adamantine::CubeHeatSource::_end_time</a></div><div class="ttdeci">double _end_time</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00070">CubeHeatSource.hh:70</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a827a82708aa35e306db9b0838f6f33a7"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a827a82708aa35e306db9b0838f6f33a7">adamantine::CubeHeatSource::_max_point</a></div><div class="ttdeci">dealii::Point&lt; dim &gt; _max_point</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00073">CubeHeatSource.hh:73</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a93abe47022fa084598c4d63a437ce412"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a93abe47022fa084598c4d63a437ce412">adamantine::CubeHeatSource::_value</a></div><div class="ttdeci">double _value</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00071">CubeHeatSource.hh:71</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a25f54af8293d693c77d9655ea1986915"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a25f54af8293d693c77d9655ea1986915">adamantine::CubeHeatSource::value</a></div><div class="ttdeci">double value(dealii::Point&lt; dim &gt; const &amp;point) const final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00052">CubeHeatSource.cc:52</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a765fef2fbede096599e52af843d1ecb3"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a765fef2fbede096599e52af843d1ecb3">adamantine::CubeHeatSource::_start_time</a></div><div class="ttdeci">double _start_time</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00061">CubeHeatSource.hh:61</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a766389f04ffc3d1771c63d9dc185fc40"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a766389f04ffc3d1771c63d9dc185fc40">adamantine::CubeHeatSource::_end_time</a></div><div class="ttdeci">double _end_time</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00062">CubeHeatSource.hh:62</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a827a82708aa35e306db9b0838f6f33a7"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a827a82708aa35e306db9b0838f6f33a7">adamantine::CubeHeatSource::_max_point</a></div><div class="ttdeci">dealii::Point&lt; dim &gt; _max_point</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00065">CubeHeatSource.hh:65</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_a93abe47022fa084598c4d63a437ce412"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#a93abe47022fa084598c4d63a437ce412">adamantine::CubeHeatSource::_value</a></div><div class="ttdeci">double _value</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00063">CubeHeatSource.hh:63</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_ab2f52628098ce9a05294a237b6163cd0"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#ab2f52628098ce9a05294a237b6163cd0">adamantine::CubeHeatSource::update_time</a></div><div class="ttdeci">void update_time(double time) final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00046">CubeHeatSource.cc:46</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_acb039a7c48f1d9732166af3204d131e5"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">adamantine::CubeHeatSource::get_bounding_box</a></div><div class="ttdeci">dealii::BoundingBox&lt; dim &gt; get_bounding_box(double const time, double const scaling_factor) const final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00119">CubeHeatSource.cc:119</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_ad8ee3dbb4478e134730b1361b6d24af2"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#ad8ee3dbb4478e134730b1361b6d24af2">adamantine::CubeHeatSource::value</a></div><div class="ttdeci">double value(dealii::Point&lt; dim &gt; const &amp;point, double const) const final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00052">CubeHeatSource.cc:52</a></div></div>
-<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_af3c79ed188bbd30aa2a22dbff3b7b9c0"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#af3c79ed188bbd30aa2a22dbff3b7b9c0">adamantine::CubeHeatSource::_min_point</a></div><div class="ttdeci">dealii::Point&lt; dim &gt; _min_point</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00072">CubeHeatSource.hh:72</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_acb039a7c48f1d9732166af3204d131e5"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#acb039a7c48f1d9732166af3204d131e5">adamantine::CubeHeatSource::get_bounding_box</a></div><div class="ttdeci">dealii::BoundingBox&lt; dim &gt; get_bounding_box(double const time, double const scaling_factor) const final</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8cc_source.html#l00111">CubeHeatSource.cc:111</a></div></div>
+<div class="ttc" id="aclassadamantine_1_1_cube_heat_source_html_af3c79ed188bbd30aa2a22dbff3b7b9c0"><div class="ttname"><a href="classadamantine_1_1_cube_heat_source.html#af3c79ed188bbd30aa2a22dbff3b7b9c0">adamantine::CubeHeatSource::_min_point</a></div><div class="ttdeci">dealii::Point&lt; dim &gt; _min_point</div><div class="ttdef"><b>Definition:</b> <a href="_cube_heat_source_8hh_source.html#l00064">CubeHeatSource.hh:64</a></div></div>
 <div class="ttc" id="aclassadamantine_1_1_heat_source_html"><div class="ttname"><a href="classadamantine_1_1_heat_source.html">adamantine::HeatSource</a></div><div class="ttdef"><b>Definition:</b> <a href="_heat_source_8hh_source.html#l00032">HeatSource.hh:33</a></div></div>
 <div class="ttc" id="ainstantiation_8hh_html"><div class="ttname"><a href="instantiation_8hh.html">instantiation.hh</a></div></div>
 <div class="ttc" id="anamespaceadamantine_html"><div class="ttname"><a href="namespaceadamantine.html">adamantine</a></div><div class="ttdef"><b>Definition:</b> <a href="_beam_heat_source_properties_8hh_source.html#l00014">BeamHeatSourceProperties.hh:15</a></div></div>
 <div class="ttc" id="anamespaceadamantine_html_a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9"><div class="ttname"><a href="namespaceadamantine.html#a15248f4195a1e0e7e349886de9657265a78ee54aa8f813885fe2fe20d232518b9">adamantine::ScanPathSegmentType::point</a></div><div class="ttdeci">@ point</div></div>
 <div class="ttc" id="anamespaceadamantine_html_a536887cb7149e54b2b3e9af2a03bd780"><div class="ttname"><a href="namespaceadamantine.html#a536887cb7149e54b2b3e9af2a03bd780">adamantine::g_unit_scaling_factor</a></div><div class="ttdeci">static std::unordered_map&lt; std::string, double &gt; g_unit_scaling_factor</div><div class="ttdef"><b>Definition:</b> <a href="types_8hh_source.html#l00029">types.hh:29</a></div></div>
-<div class="ttc" id="astructadamantine_1_1axis_html"><div class="ttname"><a href="structadamantine_1_1axis.html">adamantine::axis</a></div><div class="ttdef"><b>Definition:</b> <a href="types_8hh_source.html#l00167">types.hh:167</a></div></div>
 <div class="ttc" id="atypes_8hh_html"><div class="ttname"><a href="types_8hh.html">types.hh</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
